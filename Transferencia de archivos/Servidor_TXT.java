@@ -1,123 +1,109 @@
-import java.net.*;
 import java.io.*;
+import java.net.*;
 import java.util.concurrent.*;
 
 public class Servidor_TXT {
-    private static final int PUERTO = 20000;
 
-    public static void main(String[] args) {
-        try {
-            DatagramSocket socket = new DatagramSocket(PUERTO);
-            System.out.println("Servidor iniciado en el puerto: " + PUERTO);
+    private static final int PUERTO = 5000;
+    private static final int BUFFER = 1024;
+    private static final String CARPETA = "archivos_servidor/";
 
-            ExecutorService pool = Executors.newCachedThreadPool(); 
+    private static ExecutorService pool = Executors.newCachedThreadPool();
 
-            while (true) {
-                byte[] buffer = new byte[1024];
-                DatagramPacket packet = new DatagramPacket(buffer, buffer.length);
-                socket.receive(packet);
-                
-                pool.execute((new AdministradorCliente(socket, packet)));
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-}
+    public static void main(String[] args) throws Exception {
 
-class AdministradorCliente implements Runnable {
+        DatagramSocket socket = new DatagramSocket(PUERTO);
+        System.out.println("Servidor UDP activo...");
 
-    private static final int TIMEOUT = 2000;
-    private static final String RUTA_BASE = "C:/Users/Cristopher Damian/Documents/Cristopher/BUAP (Benemerita Universidad Autonoma de Puebla)/7mo Semestre/Programacion distribuida aplicada/Archivos compartidos/Textos txt/";
+        while (true) {
+            byte[] buffer = new byte[BUFFER];
+            DatagramPacket packet = new DatagramPacket(buffer, buffer.length);
+            socket.receive(packet);
 
-    private DatagramSocket socket;
-    private InetAddress clienteIP;
-    private int clientePuerto;
-
-    AdministradorCliente(DatagramSocket socket, DatagramPacket packet) {
-        this.socket = socket;
-        this.clienteIP = packet.getAddress();
-        this.clientePuerto = packet.getPort();
-    }
-
-    @Override
-    public void run() {
-        try {
-            socket.setSoTimeout(TIMEOUT);
-
-            //THREE-WAY HANDSHAKE
-            enviar("SYN-ACK");
-            esperar("ACK");
-
-            String solicitud = recibir();
-            String nombreArchivo = solicitud.split("\\|")[1];
-
-            String ruta_completa = RUTA_BASE + nombreArchivo;
-            File archivo = new File(ruta_completa);
-
-            if (!archivo.exists()) {
-                enviar("ERROR: " + archivo + " no encontrado");
-                return;
-            }
-
-            //Funcion solicitada
-            enviarArchivoTXT(socket.getLocalAddress(), clienteIP, clientePuerto, nombreArchivo);
-
-            //FOUR-WAY HANDSHAKE
-            esperar("FIN");
-            enviar("ACK");
-            enviar("FIN");
-            esperar("ACK");
-
-            System.out.println("Transferencia finalizada con " + clienteIP);
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    //FUNCIONES  
-    public void enviarArchivoTXT(InetAddress ipOrigen, InetAddress ipDestino, int puertoDestino, String nombreArchivo) throws IOException {
-        BufferedReader reader = new BufferedReader(new FileReader(nombreArchivo));
-        String linea;
-        int SEQ = 0;
-
-        while ((linea = reader.readLine()) != null) {
-            boolean confirmado = false;
-
-            while (!confirmado) {
-                enviar("DATA|" + SEQ + "|" + linea);
-
+            pool.execute(() -> {
                 try {
-                    String ack = recibir();
-                    if (ack.equals("ACK|" + SEQ)) {
-                        confirmado = true;
-                    }
-                } catch (SocketTimeoutException e) {
-                    System.out.println("TIMEOUT... Reenviando SEQ " + SEQ);
+                    InetAddress ipCliente = packet.getAddress();
+                    InetAddress ipServidor = InetAddress.getLocalHost();
+                    int puertoCliente = packet.getPort();
+                    String archivo = new String(packet.getData()).trim();
+
+                    enviarArchivoUDP(ipServidor, ipCliente, puertoCliente, archivo);
+
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
+            });
+        }
+    }
+
+    // ==========================================================
+    // FUNCIÓN EXIGIDA POR LA CONSIGNA
+    // ==========================================================
+    public static void enviarArchivoUDP(
+            InetAddress ipOrigen,
+            InetAddress ipDestino,
+            int puertoDestino,
+            String nombreArchivo) throws Exception {
+
+        DatagramSocket socket = new DatagramSocket();
+        File archivo = new File(CARPETA + nombreArchivo);
+
+        // --- THREE WAY HANDSHAKE ---
+        enviar(socket, "SYN", ipDestino, puertoDestino);
+        if (!esperar(socket, "ACK")) return;
+
+        // --- VALIDAR ARCHIVO ---
+        if (!archivo.exists()) {
+            enviar(socket, "ERROR:ARCHIVO_NO_EXISTE", ipDestino, puertoDestino);
+            cerrar(socket, ipDestino, puertoDestino);
+            return;
+        }
+
+        BufferedReader reader = new BufferedReader(new FileReader(archivo));
+        String linea;
+        int seq = 0;
+
+        // --- ENVÍO CONFIABLE ---
+        while ((linea = reader.readLine()) != null) {
+            boolean ok = false;
+            while (!ok) {
+                enviar(socket, seq + ":" + linea, ipDestino, puertoDestino);
+                ok = esperar(socket, "ACK:" + seq);
             }
-            SEQ++;
+            seq++;
         }
         reader.close();
+
+        enviar(socket, "EOF", ipDestino, puertoDestino);
+        esperar(socket, "ACK:EOF");
+
+        // --- FOUR WAY HANDSHAKE ---
+        cerrar(socket, ipDestino, puertoDestino);
     }
 
-    private void enviar(String msj) throws IOException {
-        byte[] datos = msj.getBytes();
-        DatagramPacket packet = new DatagramPacket(datos, datos.length, clienteIP, clientePuerto);
-        socket.send(packet);
+    // ==========================================================
+    // MÉTODOS AUXILIARES
+    // ==========================================================
+    private static void cerrar(DatagramSocket socket, InetAddress ip, int puerto) throws Exception {
+        enviar(socket, "FIN", ip, puerto);
+        esperar(socket, "ACK:FIN");
+        esperar(socket, "FIN");
+        enviar(socket, "ACK:FIN", ip, puerto);
+        socket.close();
     }
 
-    private String recibir() throws IOException {
-        byte[] buffer = new byte[1024];
-        DatagramPacket packet = new DatagramPacket(buffer, buffer.length);
-        socket.receive(packet);
-        return new String(packet.getData(), 0, packet.getLength());
+    private static void enviar(DatagramSocket socket, String msg,
+                               InetAddress ip, int puerto) throws Exception {
+        byte[] data = msg.getBytes();
+        DatagramPacket p = new DatagramPacket(data, data.length, ip, puerto);
+        socket.send(p);
     }
 
-    private void esperar(String msjEsperado) throws IOException {
-        while(true) {
-            if (recibir().equals(msjEsperado)) break;
-        }
+    private static boolean esperar(DatagramSocket socket, String esperado) throws Exception {
+        byte[] buffer = new byte[BUFFER];
+        DatagramPacket p = new DatagramPacket(buffer, buffer.length);
+        socket.receive(p);
+        String recibido = new String(p.getData()).trim();
+        return recibido.equals(esperado);
     }
 }

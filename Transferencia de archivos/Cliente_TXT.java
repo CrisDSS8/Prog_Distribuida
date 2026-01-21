@@ -1,90 +1,73 @@
-import java.net.*;
 import java.io.*;
-import java.util.Scanner;
+import java.net.*;
 
 public class Cliente_TXT {
 
-    public static void main(String[] args) {
-        try {
-            Scanner sc = new Scanner(System.in);
-            System.out.print("Nombre del archivo a solicitar: ");
-            String nombreArchivo = sc.nextLine();
+    private static final int BUFFER = 1024;
 
-            InetAddress servidorIP = InetAddress.getByName("127.0.0.1");
-            int puerto = 20000;
+    public static void main(String[] args) throws Exception {
 
-            DatagramSocket socket = new DatagramSocket();
+        InetAddress ipServidor = InetAddress.getByName("127.0.0.1");
+        int puertoServidor = 5000;
 
-            // ===== THREE-WAY HANDSHAKE =====
-            enviar(socket, servidorIP, puerto, "SYN");
-            esperar(socket, "SYN-ACK");
-            enviar(socket, servidorIP, puerto, "ACK");
+        DatagramSocket socket = new DatagramSocket();
 
-            // ===== Solicitud =====
-            enviar(socket, servidorIP, puerto, "REQ|" + nombreArchivo);
+        String archivoSolicitado = "ejemplo.txt";
+        enviar(socket, archivoSolicitado, ipServidor, puertoServidor);
 
-            String respuesta = recibir(socket);
-            if (respuesta.startsWith("ERROR")) {
-                System.out.println("El archivo no existe en el servidor");
-                socket.close();
-                return;
-            }
+        esperar(socket, "SYN");
+        enviar(socket, "ACK", ipServidor, puertoServidor);
 
-            BufferedWriter writer =
-                new BufferedWriter(new FileWriter("copia_" + nombreArchivo));
-
-            boolean activo = true;
-
-            while (activo) {
-                String mensaje = recibir(socket);
-
-                if (mensaje.startsWith("DATA")) {
-                    String[] partes = mensaje.split("\\|");
-                    int seq = Integer.parseInt(partes[1]);
-                    String linea = partes[2];
-
-                    writer.write(linea);
-                    writer.newLine();
-
-                    enviar(socket, servidorIP, puerto, "ACK|" + seq);
-                }
-                else if (mensaje.equals("FIN")) {
-                    enviar(socket, servidorIP, puerto, "ACK");
-                    enviar(socket, servidorIP, puerto, "FIN");
-                    esperar(socket, "ACK");
-                    activo = false;
-                }
-            }
-
-            writer.close();
-            socket.close();
-            System.out.println("Archivo recibido correctamente");
-
-        } catch (Exception e) {
-            e.printStackTrace();
+        String respuesta = recibir(socket);
+        if (respuesta.startsWith("ERROR")) {
+            System.out.println(respuesta);
+            cerrar(socket, ipServidor, puertoServidor);
+            return;
         }
-    }
 
-    // ===== FUNCIONES =====
-    private static void enviar(DatagramSocket socket, InetAddress ip,
-                               int puerto, String msj) throws IOException {
-        byte[] datos = msj.getBytes();
-        DatagramPacket packet =
-            new DatagramPacket(datos, datos.length, ip, puerto);
-        socket.send(packet);
-    }
+        BufferedWriter writer =
+                new BufferedWriter(new FileWriter("copia_" + archivoSolicitado));
 
-    private static String recibir(DatagramSocket socket) throws IOException {
-        byte[] buffer = new byte[1024];
-        DatagramPacket packet = new DatagramPacket(buffer, buffer.length);
-        socket.receive(packet);
-        return new String(packet.getData(), 0, packet.getLength());
-    }
-
-    private static void esperar(DatagramSocket socket, String esperado)
-            throws IOException {
         while (true) {
-            if (recibir(socket).equals(esperado)) break;
+            String msg = recibir(socket);
+
+            if (msg.equals("EOF")) {
+                enviar(socket, "ACK:EOF", ipServidor, puertoServidor);
+                break;
+            }
+
+            String[] p = msg.split(":", 2);
+            writer.write(p[1]);
+            writer.newLine();
+            enviar(socket, "ACK:" + p[0], ipServidor, puertoServidor);
         }
+        writer.close();
+
+        cerrar(socket, ipServidor, puertoServidor);
+    }
+
+    private static void cerrar(DatagramSocket socket, InetAddress ip, int puerto) throws Exception {
+        esperar(socket, "FIN");
+        enviar(socket, "ACK:FIN", ip, puerto);
+        enviar(socket, "FIN", ip, puerto);
+        esperar(socket, "ACK:FIN");
+        socket.close();
+    }
+
+    private static void enviar(DatagramSocket socket, String msg,
+                               InetAddress ip, int puerto) throws Exception {
+        byte[] data = msg.getBytes();
+        socket.send(new DatagramPacket(data, data.length, ip, puerto));
+    }
+
+    private static String recibir(DatagramSocket socket) throws Exception {
+        byte[] buffer = new byte[BUFFER];
+        DatagramPacket p = new DatagramPacket(buffer, buffer.length);
+        socket.receive(p);
+        return new String(p.getData()).trim();
+    }
+
+    private static void esperar(DatagramSocket socket, String esperado) throws Exception {
+        while (!recibir(socket).equals(esperado));
     }
 }
