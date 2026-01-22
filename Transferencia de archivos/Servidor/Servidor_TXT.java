@@ -1,32 +1,36 @@
 import java.io.*;
 import java.net.*;
 import java.util.concurrent.*;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
 
 public class Servidor_TXT {
 
     private static final int PUERTO = 20000;
     private static final int BUFFER = 1024;
-    private static final String CARPETA ="C:/Users/Cristopher Damian/Documents/Cristopher/BUAP (Benemerita Universidad Autonoma de Puebla)/7mo Semestre/Programacion distribuida aplicada/Archivos compartidos/Textos txt/";
-    private static ExecutorService pool = Executors.newCachedThreadPool();
+    private static final DateTimeFormatter FORMATO_FECHA = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
     private static BufferedWriter logServidor;
+    private static final String CARPETA ="C:/Users/Cristopher Damian/Documents/Cristopher/BUAP (Benemerita Universidad Autonoma de Puebla)/7mo Semestre/Programacion distribuida aplicada/Archivos compartidos/Textos txt/";
+    private static final String RUTA_LOG = "C:/Users/Cristopher Damian/Documents/Cristopher/BUAP (Benemerita Universidad Autonoma de Puebla)/7mo Semestre/Programacion distribuida aplicada/Codigo/Transferencia de archivos/log_servidor.txt";
+    private static ExecutorService pool = Executors.newCachedThreadPool();
 
     public static void main(String[] args) throws Exception {
 
         DatagramSocket socket = new DatagramSocket(PUERTO);
 
-        logServidor = new BufferedWriter(new FileWriter("log_servidor.txt" , true));
-        System.out.println("  Servidor de transferencia TXT (UDP)  \n\n");
+        logServidor = new BufferedWriter(new FileWriter(RUTA_LOG, true));
+        System.out.println("\n----- Servidor de transferencia TXT (UDP)-----\n");
         System.out.println("Servidor iniciado correctamente");
         System.out.println("Puerto de escucha: " + PUERTO);
-        System.out.println("Directorio compartido: " + CARPETA);
-        System.out.println("Esperando clientes...\n");
+        System.out.println("Esperando clientes...");
 
         log(logServidor, "[SERVIDOR] Servidor iniciado correctamente en puerto " + PUERTO);
         log(logServidor, "[SERVIDOR] Esperando clientes...");
 
         Runtime.getRuntime().addShutdownHook(new Thread(() -> {
             try {
-                System.out.println("Servidor Detenido.");
+                System.out.println("\nServidor Detenido.\n");
                 log(logServidor, "[SERVIDOR] Servidor detenido");
                 pool.shutdownNow();   
                 socket.close();  
@@ -52,7 +56,7 @@ public class Servidor_TXT {
             DatagramSocket socketCliente = new DatagramSocket();
             int puertoTransferencia = socketCliente.getLocalPort();
 
-            System.out.println("Nueva solicitud recibida desde " + ipCliente.getHostAddress() + ":" + puertoCliente);
+            System.out.println("\nNueva solicitud recibida desde " + ipCliente.getHostAddress() + ":" + puertoCliente);
             System.out.println("Archivo solicitado: " + archivo);
             log(logServidor, "[SERVIDOR] Nueva solicitud recibida desde " + ipCliente.getHostAddress() + ":" + puertoCliente);
             log(logServidor, "[SERVIDOR] Archivo solicitado: " + archivo);
@@ -160,7 +164,8 @@ public class Servidor_TXT {
     }
 
     private static synchronized void log(BufferedWriter log, String msg) throws IOException {
-        log.write(msg);
+        String fechaHora = LocalDateTime.now().format(FORMATO_FECHA);
+        log.write("[" + fechaHora + "] " + msg);
         log.newLine();
         log.flush();
     }
