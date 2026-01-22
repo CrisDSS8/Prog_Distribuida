@@ -31,16 +31,20 @@ public class Servidor_TXT {
             int puertoCliente = packet.getPort();
             String archivo = new String(packet.getData(), 0, packet.getLength()).trim();
 
-            // SOCKET EXCLUSIVO PARA ESTE CLIENTE
             DatagramSocket socketCliente = new DatagramSocket();
             int puertoTransferencia = socketCliente.getLocalPort();
 
-            // --- THREE WAY HANDSHAKE ---
+            //THREE-WAY HANDSHAKE
+            System.out.println("[SERVIDOR] -> SYN enviado (puerto " + puertoTransferencia + ")");
             enviar(socketCliente, "SYN:" + puertoTransferencia, ipCliente, puertoCliente);
+
             if (!esperar(socketCliente, "ACK")) {
+                System.out.println("[SERVIDOR] <- ACK no recibido. Cancelando conexión");
                 socketCliente.close();
                 return;
             }
+
+            System.out.println("[SERVIDOR] <- ACK recibido. Conexión establecida");
 
             enviarArchivoUDP(socketCliente, ipCliente, puertoCliente, archivo);
 
@@ -49,9 +53,6 @@ public class Servidor_TXT {
         }
     }
 
-    // ==========================================================
-    // FUNCIÓN EXIGIDA POR LA CONSIGNA
-    // ==========================================================
     public static void enviarArchivoUDP(
             DatagramSocket socket,
             InetAddress ipDestino,
@@ -61,7 +62,9 @@ public class Servidor_TXT {
         File archivo = new File(CARPETA + nombreArchivo);
 
         if (!archivo.exists()) {
+            System.out.println("[SERVIDOR] ERROR: archivo no existe");
             enviar(socket, "ERROR:ARCHIVO_NO_EXISTE", ipDestino, puertoDestino);
+            cerrar(socket, ipDestino, puertoDestino);
             socket.close();
             return;
         }
@@ -73,26 +76,47 @@ public class Servidor_TXT {
         while ((linea = reader.readLine()) != null) {
             boolean ok = false;
             while (!ok) {
+                System.out.println("[SERVIDOR] -> SEQ=" + seq + " | " + linea);
                 enviar(socket, seq + ":" + linea, ipDestino, puertoDestino);
+
+                System.out.println("[SERVIDOR] <- Esperando ACK:" + seq);
                 ok = esperar(socket, "ACK:" + seq);
+
+                if (ok) {
+                    System.out.println("[SERVIDOR] <- ACK:" + seq + " recibido");
+                }
             }
             seq++;
         }
         reader.close();
 
+        System.out.println("[SERVIDOR] -> EOF enviado");
         enviar(socket, "EOF", ipDestino, puertoDestino);
-        esperar(socket, "ACK:EOF");
 
-        // --- FOUR WAY HANDSHAKE ---
-        enviar(socket, "FIN", ipDestino, puertoDestino);
-        esperar(socket, "ACK:FIN");
-        esperar(socket, "FIN");
-        enviar(socket, "ACK:FIN", ipDestino, puertoDestino);
+        esperar(socket, "ACK:EOF");
+        System.out.println("[SERVIDOR] <- ACK:EOF recibido");
+
+
+        //FOUR-WAY HANDSHAKE
+        cerrar(socket, ipDestino, puertoDestino);
 
         socket.close();
     }
 
-    // ==========================================================
+    private static void cerrar(DatagramSocket socket, InetAddress ipDestino, int puertoDestino) throws Exception {
+        System.out.println("[SERVIDOR] -> FIN enviado");
+        enviar(socket, "FIN", ipDestino, puertoDestino);
+
+        esperar(socket, "ACK:FIN");
+        System.out.println("[SERVIDOR] <- ACK:FIN recibido");
+
+        esperar(socket, "FIN");
+        System.out.println("[SERVIDOR] <- FIN recibido");
+
+        enviar(socket, "ACK:FIN", ipDestino, puertoDestino);
+        System.out.println("[SERVIDOR] -> ACK:FIN enviado");
+    }
+
     private static void enviar(DatagramSocket socket, String msg,
                                InetAddress ip, int puerto) throws Exception {
         byte[] data = msg.getBytes();
