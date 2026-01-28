@@ -182,5 +182,3 @@ public class Cliente_TXT {
         log.flush();
     }
 }
-
-
