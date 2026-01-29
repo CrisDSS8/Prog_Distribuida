@@ -1,6 +1,8 @@
+import TLS.AESUtils;
 import java.io.*;
 import java.net.*;
 import java.util.concurrent.*;
+import javax.crypto.SecretKey;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
@@ -97,6 +99,9 @@ public class Servidor_TXT {
     public static void enviarArchivoUDP(DatagramSocket socket, InetAddress ipDestino, int puertoDestino, String nombreArchivo, 
         BufferedWriter log) throws Exception {
 
+        // ===== HANDSHAKE TLS =====
+        SecretKey claveSesion = handshakeTLS(socket, ipDestino, puertoDestino, log);
+
         File archivo = new File(CARPETA + nombreArchivo);
 
         if (!archivo.exists()) {
@@ -117,11 +122,29 @@ public class Servidor_TXT {
             int intentos = 0;
 
             while (!ok && intentos < 5) {
-                log(logServidor, "[SERVIDOR] -> SEQ=" + seq + " | " + linea);
-                enviar(socket, seq + ":" + linea, ipDestino, puertoDestino);
 
-                log(logServidor, "[SERVIDOR] <- Esperando ACK:" + seq);
-                ok = esperar(socket, "ACK:" + seq);
+                String msgPlano = seq + ":" + linea;
+                String cifrado = AESUtils.cifrar(msgPlano, claveSesion);
+                enviar(socket, cifrado, ipDestino, puertoDestino);
+                log(logServidor, "[SERVIDOR] Enviado SEQ=" + seq + 
+                    " (intento " + (intentos + 1) + ")");
+
+                try {
+                    String ackCifrado = recibir(socket);
+                    String ackPlano = AESUtils.descifrar(ackCifrado, claveSesion);
+
+                    log(logServidor, "[SERVIDOR] ACK recibido (descifrado): " + ackPlano);
+
+                    if (ackPlano.equals("ACK:" + seq)) {
+                        ok = true;
+                        log(logServidor, "[SERVIDOR] SEQ=" + seq + " confirmado");
+                    }
+
+                } catch (IOException e) {
+                    log(logServidor, "[SERVIDOR] Error al recibir ACK");
+                } catch (Exception e) {
+                    log(logServidor, "[SERVIDOR] ACK inválido o manipulado");
+                }
 
                 intentos++;
             }
@@ -131,8 +154,6 @@ public class Servidor_TXT {
                 reader.close();
                 return;
             }
-
-            log(logServidor, "[SERVIDOR] <- ACK:" + seq + " recibido");
             seq++;
         }
         reader.close();
@@ -192,10 +213,34 @@ public class Servidor_TXT {
         }
     }
 
+    public static String recibir(DatagramSocket socket) throws IOException {
+        byte[] buffer = new byte[4096];
+        DatagramPacket packet = new DatagramPacket(buffer, buffer.length);
+        socket.receive(packet);
+
+        return new String(packet.getData(), 0, packet.getLength());
+    }
+
+
     private static synchronized void log(BufferedWriter log, String msg) throws IOException {
         String fechaHora = LocalDateTime.now().format(FORMATO_FECHA);
         log.write("[" + fechaHora + "] " + msg);
         log.newLine();
         log.flush();
     }
+
+    private static SecretKey handshakeTLS(DatagramSocket socket, InetAddress ip, int puerto, BufferedWriter log) throws Exception {
+
+    SecretKey claveSesion = AESUtils.generarClaveAES();
+    String claveBase64 = AESUtils.claveToString(claveSesion);
+
+    enviar(socket, "TLS_KEY:" + claveBase64, ip, puerto);
+
+    if (!esperar(socket, "TLS_ACK")) {
+        throw new Exception("Handshake TLS fallido");
+    }
+
+    return claveSesion;
+}
+
 }

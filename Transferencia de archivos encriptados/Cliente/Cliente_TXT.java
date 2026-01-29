@@ -1,11 +1,16 @@
+import TLS.AESUtils;
+
 import java.io.*;
 import java.net.*;
 import java.util.Scanner;
+import javax.crypto.SecretKey;
 
 public class Cliente_TXT {
+
     private static BufferedWriter writer = null;
     private static BufferedWriter logCliente;
     private static final int BUFFER = 1024;
+    private static SecretKey claveSesion;
 
     public static void main(String[] args) {
         try {
@@ -18,124 +23,116 @@ public class Cliente_TXT {
             logCliente = new BufferedWriter(new FileWriter("log_cliente.txt", true));
             log(logCliente, "[CLIENTE] Cliente iniciado");
 
-            // nombre del archivo a solicitar
+            // ===== Solicitud de archivo =====
             Scanner sc = new Scanner(System.in);
             System.out.print("¿Qué archivo desea?: ");
             String archivoSolicitado = sc.nextLine();
+            sc.close();
 
             if (!archivoSolicitado.endsWith(".txt")) {
                 archivoSolicitado += ".txt";
             }
 
             enviar(socket, archivoSolicitado, ipServidor, puertoServidor);
-            //System.out.println("Archivo solicitado: " + archivoSolicitado);
             log(logCliente, "[CLIENTE] Archivo solicitado: " + archivoSolicitado);
 
-            // espera SYN
+            // ===== Recepción de SYN =====
             String respuesta = recibir(socket);
+            log(logCliente, "[CLIENTE] <- SYN recibido: " + respuesta);
+
             if (!respuesta.startsWith("SYN:")) {
-                //System.out.println("Respuesta inesperada: " + respuesta);
-                log(logCliente, "[CLIENTE] Respuesta inesperada: " + respuesta);
+                log(logCliente, "[CLIENTE] Respuesta inesperada");
                 socket.close();
                 return;
             }
 
-            int puertoTransferencia =
-                    Integer.parseInt(respuesta.split(":")[1]);
+            int puertoTransferencia = Integer.parseInt(respuesta.split(":")[1]);
 
-            System.out.println("Puerto de transferencia recibido: " + puertoTransferencia);
-            log(logCliente, "[CLIENTE] Puerto de transferencia recibido: " + puertoTransferencia);
+            // ===== HANDSHAKE DE CIFRADO (TLS SIMPLIFICADO) =====
+            claveSesion = AESUtils.generarClaveAES();
+            String claveBase64 = AESUtils.claveToString(claveSesion);
 
-            // ACK al puerto de transferencia
-            enviar(socket, "ACK", ipServidor, puertoTransferencia);
-            log(logCliente, "[CLIENTE] <- SYN recibido: " + respuesta);
-            log(logCliente, "[CLIENTE] -> ACK enviado");
+            enviar(socket, claveBase64, ipServidor, puertoTransferencia);
+            log(logCliente, "[CLIENTE] -> Clave de sesión enviada (Base64)");
 
-            /*BufferedWriter writer =
-                    new BufferedWriter(new FileWriter("copia_" + archivoSolicitado));*/
-
-            // recibir
+            // ===== Recepción del archivo =====
             int seqEsperado = 0;
 
-            // archivo 
             while (true) {
-                String msg = recibir(socket);
+                try {
+                    String msgCifrado = recibir(socket);
+                    String msgPlano = AESUtils.descifrar(msgCifrado, claveSesion);
 
-                if (msg.equals("EOF")) {
-                    enviar(socket, "ACK:EOF", ipServidor, puertoTransferencia);
-                    log(logCliente, "[CLIENTE] <- EOF recibido");
-                    log(logCliente, "[CLIENTE] -> ACK:EOF enviado");
-                    break;
-                }
+                    log(logCliente, "[CLIENTE] <- Descifrado: " + msgPlano);
 
-                if (msg.startsWith("ERROR")) {
-                    //System.out.println("[CLIENTE] " + msg);
-                    log(logCliente, "[CLIENTE] " + msg);
-                    // Esperar FIN del servidor
-                    String fin = recibir(socket);
-                    if (fin.equals("FIN")) {
-                        //System.out.println("[CLIENTE] <- FIN recibido");
-                        log(logCliente, "[CLIENTE] <- FIN recibido");
-                        enviar(socket, "ACK:FIN", ipServidor, puertoTransferencia);
-                        enviar(socket, "FIN", ipServidor, puertoTransferencia);
-                        recibir(socket); // ACK:FIN
+                    // EOF
+                    if (msgPlano.equals("EOF")) {
+                        enviar(socket,
+                                AESUtils.cifrar("ACK:EOF", claveSesion),
+                                ipServidor, puertoTransferencia);
+
+                        log(logCliente, "[CLIENTE] -> ACK:EOF enviado");
+                        break;
                     }
 
-                    socket.close();
-                    return;
-                }
+                    // Datos
+                    String[] partes = msgPlano.split(":", 2);
+                    int seq = Integer.parseInt(partes[0]);
+                    String linea = partes[1];
 
-                String[] partes = msg.split(":", 2);
-                int seq = Integer.parseInt(partes[0]);
-                String linea = partes[1];
-
-                //System.out.println("[CLIENTE] Recibido SEQ " + seq);
-                log(logCliente, "[CLIENTE] Recibido SEQ " + seq);
-
-                if (seq == seqEsperado) {
-                    if (writer == null) {
-                        writer = new BufferedWriter(new FileWriter("Copia_" + archivoSolicitado));
-                        //System.out.println("[CLIENTE] Archivo creado: " + archivoSolicitado);
-                        log(logCliente, "[CLIENTE] Archivo creado: " + archivoSolicitado);
+                    if (seq == seqEsperado) {
+                        if (writer == null) {
+                            writer = new BufferedWriter(
+                                    new FileWriter("Copia_" + archivoSolicitado));
+                            log(logCliente, "[CLIENTE] Archivo creado");
+                        }
+                        writer.write(linea);
+                        writer.newLine();
+                        seqEsperado++;
+                        log(logCliente, "[CLIENTE] Línea escrita SEQ=" + seq);
+                    } else {
+                        log(logCliente, "[CLIENTE] SEQ duplicado descartado: " + seq);
                     }
-                    //System.out.println("[CLIENTE] -> Linea aceptada " + partes[0] + ":" + linea);
-                    log(logCliente, "[CLIENTE] -> Línea aceptada: " + partes[0] + ":" + linea);
-                    writer.write(linea);
-                    writer.newLine();
-                    seqEsperado++;
-                } else {
-                    System.out.println("[CLIENTE] -> SEQ duplicado descartado: ");
-                    log(logCliente, "[CLIENTE] -> SEQ duplicado descartado: " + seq);
-                }
 
-                //ack
-                enviar(socket, "ACK:" + seq, ipServidor, puertoTransferencia);
+                    // ACK cifrado
+                    enviar(socket,
+                            AESUtils.cifrar("ACK:" + seq, claveSesion),
+                            ipServidor, puertoTransferencia);
+
+                    log(logCliente, "[CLIENTE] -> ACK cifrado enviado: " + seq);
+
+                } catch (Exception e) {
+                    log(logCliente,
+                            "[CLIENTE] Paquete inválido o manipulado (falló descifrado)");
+                }
             }
-
-            //writer.close();
 
             if (writer != null) {
                 writer.close();
             }
 
-            // FOUR WAY HANDSHAKE
-            String fin = recibir(socket);
-            if (fin.equals("FIN")) {
-                enviar(socket, "ACK:FIN", ipServidor, puertoTransferencia);
-                enviar(socket, "FIN", ipServidor, puertoTransferencia);
-                recibir(socket); // ACK:FIN
-                log(logCliente, "[CLIENTE] <- FIN recibido");
-                log(logCliente, "[CLIENTE] -> ACK:FIN enviado");
-                log(logCliente, "[CLIENTE] -> FIN enviado");
-                log(logCliente, "[CLIENTE] <- ACK:FIN recibido");
+            // ===== FOUR-WAY HANDSHAKE CIFRADO =====
+            String finCifrado = recibir(socket);
+            String finPlano = AESUtils.descifrar(finCifrado, claveSesion);
 
+            if (finPlano.equals("FIN")) {
+                enviar(socket,
+                        AESUtils.cifrar("ACK:FIN", claveSesion),
+                        ipServidor, puertoTransferencia);
+
+                enviar(socket,
+                        AESUtils.cifrar("FIN", claveSesion),
+                        ipServidor, puertoTransferencia);
+
+                recibir(socket); // ACK:FIN cifrado
+                log(logCliente, "[CLIENTE] Cierre de conexión cifrado completado");
             }
 
-            log(logCliente, "[CLIENTE] Conexión finalizada");
+            log(logCliente, "[CLIENTE] Transferencia finalizada correctamente");
+
             logCliente.close();
-
-
             socket.close();
+
             System.out.println("Transferencia finalizada");
 
         } catch (Exception e) {
@@ -143,20 +140,21 @@ public class Cliente_TXT {
         }
     }
 
+    // ===== Envío =====
     private static void enviar(DatagramSocket socket, String msg,
                                InetAddress ip, int puerto) throws Exception {
+
         byte[] data = msg.getBytes();
         DatagramPacket p = new DatagramPacket(data, data.length, ip, puerto);
 
-        /*System.out.println("[CLIENTE] -> ENVIANDO: \"" + msg +
-                       "\" a " + ip.getHostAddress() + ":" + puerto);*/
-
-        log(logCliente, "[CLIENTE] -> ENVIANDO: \"" + msg +
-            "\" a " + ip.getHostAddress() + ":" + puerto);
+        log(logCliente,
+                "[CLIENTE] -> ENVIANDO: \"" + msg + "\" a "
+                        + ip.getHostAddress() + ":" + puerto);
 
         socket.send(p);
     }
 
+    // ===== Recepción =====
     private static String recibir(DatagramSocket socket) throws Exception {
         byte[] buffer = new byte[BUFFER];
         DatagramPacket p = new DatagramPacket(buffer, buffer.length);
@@ -164,19 +162,17 @@ public class Cliente_TXT {
 
         String msg = new String(p.getData(), 0, p.getLength()).trim();
 
-        /*System.out.println("[CLIENTE] <- RECIBIDO: \"" + msg +
-                        "\" desde " + p.getAddress().getHostAddress() +
-                        ":" + p.getPort());*/
-
-        log(logCliente, "[CLIENTE] <- RECIBIDO: \"" + msg +
-            "\" desde " + p.getAddress().getHostAddress() +
-            ":" + p.getPort());
-
+        log(logCliente,
+                "[CLIENTE] <- RECIBIDO: \"" + msg + "\" desde "
+                        + p.getAddress().getHostAddress()
+                        + ":" + p.getPort());
 
         return msg;
     }
 
-    private static synchronized void log(BufferedWriter log, String msg) throws IOException {
+    // ===== Log =====
+    private static synchronized void log(BufferedWriter log, String msg)
+            throws IOException {
         log.write(msg);
         log.newLine();
         log.flush();
