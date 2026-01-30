@@ -16,7 +16,7 @@ public class Servidor_TXT {
     private static final DateTimeFormatter FORMATO_FECHA = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
     private static BufferedWriter logServidor;
     private static final String CARPETA ="C:/Users/Cristopher Damian/Documents/Cristopher/BUAP (Benemerita Universidad Autonoma de Puebla)/7mo Semestre/Programacion distribuida aplicada/Archivos compartidos/Textos txt/";
-    private static final String RUTA_LOG = "C:/Users/Cristopher Damian/Documents/Cristopher/BUAP (Benemerita Universidad Autonoma de Puebla)/7mo Semestre/Programacion distribuida aplicada/Codigo/Transferencia de archivos/log_servidor.txt";
+    private static final String RUTA_LOG = "C:/Users/Cristopher Damian/Documents/Cristopher/BUAP (Benemerita Universidad Autonoma de Puebla)/7mo Semestre/Programacion distribuida aplicada/Codigo/Transferencia de archivos encriptados/log_servidor.txt";
     private static ExecutorService pool = Executors.newCachedThreadPool();
 
     public static void main(String[] args) throws Exception {
@@ -241,6 +241,5 @@ public class Servidor_TXT {
     }
 
     return claveSesion;
-}
-
+    }
 }
