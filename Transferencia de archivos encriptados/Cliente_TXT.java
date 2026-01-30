@@ -1,5 +1,4 @@
 import TLS.AESUtils;
-
 import java.io.*;
 import java.net.*;
 import java.util.Scanner;
@@ -14,16 +13,18 @@ public class Cliente_TXT {
 
     public static void main(String[] args) {
         try {
-            InetAddress ipServidor = InetAddress.getByName("172.31.8.176");
+            InetAddress ipServidor = InetAddress.getByName("172.31.11.137");
             int puertoServidor = 20000;
 
             DatagramSocket socket = new DatagramSocket();
+            socket.setSoTimeout(3000);
+
             System.out.println("Cliente iniciado");
 
             logCliente = new BufferedWriter(new FileWriter("log_cliente.txt", true));
             log(logCliente, "[CLIENTE] Cliente iniciado");
 
-            // ===== Solicitud de archivo =====
+            // nombre del archivo a solicitar
             Scanner sc = new Scanner(System.in);
             System.out.print("¿Qué archivo desea?: ");
             String archivoSolicitado = sc.nextLine();
@@ -36,7 +37,7 @@ public class Cliente_TXT {
             enviar(socket, archivoSolicitado, ipServidor, puertoServidor);
             log(logCliente, "[CLIENTE] Archivo solicitado: " + archivoSolicitado);
 
-            // ===== Recepción de SYN =====
+            // espera SYN
             String respuesta = recibir(socket);
             log(logCliente, "[CLIENTE] <- SYN recibido: " + respuesta);
 
@@ -48,14 +49,24 @@ public class Cliente_TXT {
 
             int puertoTransferencia = Integer.parseInt(respuesta.split(":")[1]);
 
-            // ===== HANDSHAKE DE CIFRADO (TLS SIMPLIFICADO) =====
-            claveSesion = AESUtils.generarClaveAES();
-            String claveBase64 = AESUtils.claveToString(claveSesion);
+            // ACK del handshake UDP 
+            enviar(socket, "ACK", ipServidor, puertoTransferencia);
+            log(logCliente, "[CLIENTE] -> ACK enviado");
 
-            enviar(socket, claveBase64, ipServidor, puertoTransferencia);
-            log(logCliente, "[CLIENTE] -> Clave de sesión enviada (Base64)");
+            // Handshake TLS
+            String tlsMsg = recibir(socket);
 
-            // ===== Recepción del archivo =====
+            if (!tlsMsg.startsWith("TLS_KEY:")) {
+                throw new Exception("Handshake TLS inválido");
+            }
+
+            String claveBase64 = tlsMsg.substring(8);
+            claveSesion = AESUtils.stringToClave(claveBase64);
+
+            enviar(socket, "TLS_ACK", ipServidor, puertoTransferencia);
+            log(logCliente, "[CLIENTE] -> TLS_ACK enviado");
+
+            // Recive el archivo
             int seqEsperado = 0;
 
             while (true) {
@@ -90,8 +101,6 @@ public class Cliente_TXT {
                         writer.newLine();
                         seqEsperado++;
                         log(logCliente, "[CLIENTE] Línea escrita SEQ=" + seq);
-                    } else {
-                        log(logCliente, "[CLIENTE] SEQ duplicado descartado: " + seq);
                     }
 
                     // ACK cifrado
@@ -101,9 +110,10 @@ public class Cliente_TXT {
 
                     log(logCliente, "[CLIENTE] -> ACK cifrado enviado: " + seq);
 
+                } catch (SocketTimeoutException e) {
+                    log(logCliente, "[CLIENTE] Timeout esperando datos");
                 } catch (Exception e) {
-                    log(logCliente,
-                            "[CLIENTE] Paquete inválido o manipulado (falló descifrado)");
+                    log(logCliente, "[CLIENTE] Paquete inválido o manipulado");
                 }
             }
 
@@ -111,7 +121,7 @@ public class Cliente_TXT {
                 writer.close();
             }
 
-            // ===== FOUR-WAY HANDSHAKE CIFRADO =====
+            // FOUR-WAY HANDSHAKE CIFRADO
             String finCifrado = recibir(socket);
             String finPlano = AESUtils.descifrar(finCifrado, claveSesion);
 
@@ -140,7 +150,7 @@ public class Cliente_TXT {
         }
     }
 
-    // ===== Envío =====
+    // Envío
     private static void enviar(DatagramSocket socket, String msg,
                                InetAddress ip, int puerto) throws Exception {
 
@@ -154,7 +164,7 @@ public class Cliente_TXT {
         socket.send(p);
     }
 
-    // ===== Recepción =====
+    // Recepcion    
     private static String recibir(DatagramSocket socket) throws Exception {
         byte[] buffer = new byte[BUFFER];
         DatagramPacket p = new DatagramPacket(buffer, buffer.length);
@@ -170,7 +180,7 @@ public class Cliente_TXT {
         return msg;
     }
 
-    // ===== Log =====
+    // Log
     private static synchronized void log(BufferedWriter log, String msg)
             throws IOException {
         log.write(msg);
