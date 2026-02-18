@@ -1,5 +1,6 @@
 import java.io.*;
 import java.net.*;
+import java.util.Random;
 import java.util.concurrent.*;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -8,7 +9,6 @@ import java.time.format.DateTimeFormatter;
 public class Servidor_TXT {
 
     //Declaración de variables globales
-
     private static final int PUERTO = 20000;
     private static final int BUFFER = 1024;
     private static final DateTimeFormatter FORMATO_FECHA = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
@@ -20,7 +20,6 @@ public class Servidor_TXT {
     public static void main(String[] args) throws Exception {
 
         //Creacion del socket
-
         DatagramSocket socket = new DatagramSocket(PUERTO);
 
         logServidor = new BufferedWriter(new FileWriter(RUTA_LOG, true));
@@ -33,7 +32,6 @@ public class Servidor_TXT {
         log(logServidor, "[SERVIDOR] Esperando clientes...");
 
         //Detener el servidor segun se requiera
-
         Runtime.getRuntime().addShutdownHook(new Thread(() -> {
             try {
                 System.out.println("\nServidor Detenido.\n");
@@ -45,7 +43,6 @@ public class Servidor_TXT {
         }));
 
         //Cracion de hilos mediante pool para manejar los clientes de manera concurrente
-
         while (true) {
             byte[] buffer = new byte[BUFFER];
             DatagramPacket packet = new DatagramPacket(buffer, buffer.length);
@@ -64,6 +61,8 @@ public class Servidor_TXT {
             DatagramSocket socketCliente = new DatagramSocket();
             socketCliente.setSoTimeout(3000);
             int puertoTransferencia = socketCliente.getLocalPort();
+            Random rand = new Random();
+            int SEQInicial = rand.nextInt(10000); 
 
             System.out.println("\nNueva solicitud recibida desde " + ipCliente.getHostAddress() + ":" + puertoCliente);
             System.out.println("Archivo solicitado: " + archivo);
@@ -72,8 +71,8 @@ public class Servidor_TXT {
 
 
             //THREE-WAY HANDSHAKE
-            log(logServidor, "[SERVIDOR] -> SYN enviado (puerto " + puertoTransferencia + ")");
-            enviar(socketCliente, "SYN:" + puertoTransferencia, ipCliente, puertoCliente);
+            log(logServidor, "[SERVIDOR] -> SYN enviado");
+            enviar(socketCliente, "SYN:" + puertoTransferencia + ":" + SEQInicial, ipCliente, puertoCliente);
 
             if (!esperar(socketCliente, "ACK")) {
                 log(logServidor, "[SERVIDOR] <- ACK no recibido. Cancelando conexión");
@@ -85,7 +84,7 @@ public class Servidor_TXT {
 
             System.out.println("Iniciando transferencia del archivo...");
             log(logServidor, "[SERVIDOR] Iniciando transferencia del archivo...");
-            enviarArchivoUDP(socketCliente, ipCliente, puertoCliente, archivo, logServidor);
+            enviarArchivoUDP(socketCliente, ipCliente, puertoCliente, archivo, logServidor, SEQInicial);
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -93,9 +92,8 @@ public class Servidor_TXT {
     }
 
     //FUNCIÓN para enviar el archivo UDP pidiendo parametros socket, ipDestino, puertoDestino, archivo, log
-
     public static void enviarArchivoUDP(DatagramSocket socket, InetAddress ipDestino, int puertoDestino, String nombreArchivo, 
-        BufferedWriter log) throws Exception {
+        BufferedWriter log, int SEQInicial) throws Exception {
 
         File archivo = new File(CARPETA + nombreArchivo);
 
@@ -110,7 +108,7 @@ public class Servidor_TXT {
 
         BufferedReader reader = new BufferedReader(new FileReader(archivo));
         String linea;
-        int seq = 0;
+        int seq = SEQInicial;
 
         while ((linea = reader.readLine()) != null) {
             boolean ok = false;
@@ -155,7 +153,6 @@ public class Servidor_TXT {
     }
 
     //Funciones auxiliares
-
     private static void cerrar(DatagramSocket socket, InetAddress ipDestino, int puertoDestino, BufferedWriter log) throws Exception {
         log(logServidor, "[SERVIDOR] -> FIN enviado");
         enviar(socket, "FIN", ipDestino, puertoDestino);
