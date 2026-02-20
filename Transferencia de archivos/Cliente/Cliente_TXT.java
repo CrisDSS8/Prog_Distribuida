@@ -1,5 +1,7 @@
 import java.io.*;
 import java.net.*;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
 public class Cliente_TXT {
@@ -7,10 +9,11 @@ public class Cliente_TXT {
     private static BufferedWriter writer = null;
     private static BufferedWriter logCliente;
     private static final int BUFFER = 1024;
+    private static final DateTimeFormatter FORMATO_FECHA = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
 
     public static void main(String[] args) {
         try {
-            InetAddress ipServidor = InetAddress.getByName("172.31.5.161");
+            InetAddress ipServidor = InetAddress.getByName("172.31.10.150");
             int puertoServidor = 20000;
 
             DatagramSocket socket = new DatagramSocket();
@@ -52,11 +55,11 @@ public class Cliente_TXT {
             int puertoTransferencia = Integer.parseInt(partesSyn[1]);
             int seqInicial = Integer.parseInt(partesSyn[2]);
 
-            System.out.println("Puerto de transferencia: " + puertoTransferencia);
-            System.out.println("SEQ inicial recibido: " + seqInicial);
+            System.out.println("Puerto de transferencia " /*+ puertoTransferencia*/);
+            System.out.println("SEQ inicial recibida " /*+ seqInicial*/);
 
-            log(logCliente, "[CLIENTE] Puerto de transferencia recibido: " + puertoTransferencia);
-            log(logCliente, "[CLIENTE] SEQ inicial recibido: " + seqInicial);
+            log(logCliente, "[CLIENTE] Puerto de transferencia recibido " /*+ puertoTransferencia*/);
+            log(logCliente, "[CLIENTE] SEQ inicial recibida " /*+ seqInicial*/);
 
             enviar(socket, "ACK", ipServidor, puertoTransferencia);
             log(logCliente, "[CLIENTE] -> ACK enviado");
@@ -152,8 +155,8 @@ public class Cliente_TXT {
         byte[] data = msg.getBytes();
         DatagramPacket p = new DatagramPacket(data, data.length, ip, puerto);
 
-        log(logCliente, "[CLIENTE] -> ENVIANDO: \"" + msg +
-            "\" a " + ip.getHostAddress() + ":" + puerto);
+        log(logCliente, "[CLIENTE] -> ENVIANDO: \"" + msg/* +
+            "\" a " + ip.getHostAddress() + ":" + puerto*/);
 
         socket.send(p);
     }
@@ -165,15 +168,16 @@ public class Cliente_TXT {
 
         String msg = new String(p.getData(), 0, p.getLength()).trim();
 
-        log(logCliente, "[CLIENTE] <- RECIBIDO: \"" + msg +
+        log(logCliente, "[CLIENTE] <- RECIBIDO: \"" + msg /*+
             "\" desde " + p.getAddress().getHostAddress() +
-            ":" + p.getPort());
+            ":" + p.getPort()*/);
 
         return msg;
     }
 
     private static synchronized void log(BufferedWriter log, String msg) throws IOException {
-        log.write(msg);
+        String fechaHora = LocalDateTime.now().format(FORMATO_FECHA);
+        log.write("[" + fechaHora + "] " + msg);
         log.newLine();
         log.flush();
     }
