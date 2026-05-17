@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package calculadora;
+
+//El servicio de la calculadora.
+service Calculadora {
+    rpc Sumar (MensajeSuma) returns (RespuestaOperacion) {}
+}
+
+//un mensaje simple con dos numeros 
+message MensajeSuma{
+    double numero1 = 1;
+    double numero2 = 2;
+}
+
+// La respuesta con el resultado.
+message RespuestaOperacion {
+    double resultado = 1;
+}

@@ -1,0 +1,17 @@
+services:
+
+  suma:
+    build: .
+    container_name: suma_service
+    command: python3 servicios/suma_service.py --port 50051
+    ports:
+      - "0.0.0.0:50051:50051"
+    restart: on-failure
+
+  multiplicacion:
+    build: .
+    container_name: multiplicacion_service
+    command: python3 servicios/multiplicacion_service.py --port 50053
+    ports:
+      - "0.0.0.0:50053:50053"
+    restart: on-failure

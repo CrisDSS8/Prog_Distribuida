@@ -1,0 +1,56 @@
+syntax = "proto3";
+
+package calculadora;
+
+// ─────────────────────────────────────────────
+//  Mensajes compartidos por todos los servicios
+// ─────────────────────────────────────────────
+
+// Mensaje de entrada: dos números reales
+message Numeros {
+  double num1 = 1;
+  double num2 = 2;
+}
+
+// Mensaje de respuesta: resultado o error (solo uno de los dos)
+// id permite correlacionar peticiones paralelas
+message Respuesta {
+  oneof resultado {
+    double data  = 1;   // operación exitosa
+    string error = 2;   // descripción del error
+  }
+  string id = 3;        // ID de la petición original
+}
+
+// ─────────────────────────────────────────────
+//  Definición de los servicios atómicos
+// ─────────────────────────────────────────────
+
+service SumaService {
+  rpc Sumar (Numeros) returns (Respuesta);
+}
+
+service RestaService {
+  rpc Restar (Numeros) returns (Respuesta);
+}
+
+service MultiplicacionService {
+  rpc Multiplicar (Numeros) returns (Respuesta);
+}
+
+service DivisionService {
+  rpc Dividir (Numeros) returns (Respuesta);
+}
+
+// ─────────────────────────────────────────────
+//  Servicio orquestador
+// ─────────────────────────────────────────────
+
+message Expresion {
+  string expr = 1;   // ej. "5+3*2-1"
+  string id   = 2;   // ID generado por el cliente
+}
+
+service OrquestadorService {
+  rpc Calcular (Expresion) returns (Respuesta);
+}

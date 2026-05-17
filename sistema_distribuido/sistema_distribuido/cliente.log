@@ -1,0 +1,24 @@
+[2026-03-04 15:42:57] [SYSTEM] Estado de cifrado del cliente: Fernet/AES activo
+[2026-03-04 15:43:03] [9ac9af67] Lista actualizada: 15 archivos
+[2026-03-04 15:46:41] [SYSTEM] Estado de cifrado del cliente: Fernet/AES activo
+[2026-03-04 15:46:47] [b300087c] Lista actualizada: 15 archivos
+[2026-03-04 15:48:27] [3d972732] REQ_USE iniciado: crear-router-con-estilo.txt
+[2026-03-04 15:48:27] [SYSTEM] CACHE: copia local guardada -> cache_local\crear-router-con-estilo.txt
+[2026-03-04 15:48:27] [3d972732] Archivo abierto desde 172.26.161.173: crear-router-con-estilo.txt (ajeno)
+[2026-03-04 15:49:14] [fdbca1d4] SYNC_BACK enviado a 172.26.161.173: crear-router-con-estilo.txt
+[2026-03-04 15:49:14] [fdbca1d4] FILE_UNLOCK enviado a 172.26.161.173: crear-router-con-estilo.txt (ip=172.26.160.188)
+[2026-03-04 15:49:14] [SYSTEM] CACHE: copia local eliminada -> cache_local\crear-router-con-estilo.txt
+[2026-03-04 15:49:52] [90823f80] REQ_USE iniciado: manual.txt
+[2026-03-04 15:49:52] [90823f80] Archivo propio, sin copia local: manual.txt
+[2026-03-04 15:49:52] [90823f80] Archivo abierto desde 172.26.160.188: manual.txt (propio)
+[2026-03-04 15:50:28] [23af1181] Lista actualizada: 15 archivos
+[2026-03-04 15:50:49] [3007ce89] REQ_DELETE NACK: manual.txt — Archivo en uso por: 172.26.160.188
+[2026-03-04 15:50:51] [2f7c1b4d] REQ_USE iniciado: manual.txt
+[2026-03-04 15:50:51] [2f7c1b4d] Archivo propio, sin copia local: manual.txt
+[2026-03-04 15:50:51] [2f7c1b4d] Archivo abierto desde 172.26.160.188: manual.txt (propio)
+[2026-03-04 15:51:39] [f6c9d83a] Lista actualizada: 15 archivos
+[2026-03-04 15:51:47] [e6bc2659] REQ_USE iniciado: manual.txt
+[2026-03-04 15:51:48] [SYSTEM] CACHE: copia local guardada -> cache_local\manual.txt
+[2026-03-04 15:51:48] [e6bc2659] Archivo abierto desde 172.26.161.173: manual.txt (ajeno)
+[2026-03-16 12:44:28] [SYSTEM] Estado de cifrado del cliente: Fernet/AES activo
+[2026-03-16 12:44:53] [2ccd9328] Lista actualizada: 0 archivos

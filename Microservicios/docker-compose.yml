@@ -1,0 +1,108 @@
+version: "3.9"
+
+services:
+
+  rabbitmq:
+    image: rabbitmq:3-management
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    environment:
+      RABBITMQ_DEFAULT_USER: guest
+      RABBITMQ_DEFAULT_PASS: guest
+    healthcheck:
+      test: ["CMD", "rabbitmq-diagnostics", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  grpc-suma:
+    build: { context: ., dockerfile: docker/Dockerfile.grpc }
+    container_name: grpc-suma
+    environment: { GRPC_PORT: "50051" }
+    command: python services/suma/server.py
+    ports: ["50051:50051"]
+
+  grpc-resta:
+    build: { context: ., dockerfile: docker/Dockerfile.grpc }
+    container_name: grpc-resta
+    environment: { GRPC_PORT: "50052" }
+    command: python services/resta/server.py
+    ports: ["50052:50052"]
+
+  grpc-multiplicacion:
+    build: { context: ., dockerfile: docker/Dockerfile.grpc }
+    container_name: grpc-multiplicacion
+    environment: { GRPC_PORT: "50053" }
+    command: python services/multiplicacion/server.py
+    ports: ["50053:50053"]
+
+  grpc-division:
+    build: { context: ., dockerfile: docker/Dockerfile.grpc }
+    container_name: grpc-division
+    environment: { GRPC_PORT: "50054" }
+    command: python services/division/server.py
+    ports: ["50054:50054"]
+
+  worker-suma:
+    build: { context: ., dockerfile: docker/Dockerfile.grpc }
+    container_name: worker-suma
+    depends_on:
+      rabbitmq: { condition: service_healthy }
+      grpc-suma: { condition: service_started }
+    environment:
+      RABBITMQ_HOST: rabbitmq
+      GRPC_SUMA_HOST: grpc-suma
+      GRPC_SUMA_PORT: "50051"
+    command: python services/suma/worker.py
+
+  worker-resta:
+    build: { context: ., dockerfile: docker/Dockerfile.grpc }
+    container_name: worker-resta
+    depends_on:
+      rabbitmq: { condition: service_healthy }
+      grpc-resta: { condition: service_started }
+    environment:
+      RABBITMQ_HOST: rabbitmq
+      GRPC_RESTA_HOST: grpc-resta
+      GRPC_RESTA_PORT: "50052"
+    command: python services/resta/worker.py
+
+  worker-multiplicacion:
+    build: { context: ., dockerfile: docker/Dockerfile.grpc }
+    container_name: worker-multiplicacion
+    depends_on:
+      rabbitmq: { condition: service_healthy }
+      grpc-multiplicacion: { condition: service_started }
+    environment:
+      RABBITMQ_HOST: rabbitmq
+      GRPC_MULT_HOST: grpc-multiplicacion
+      GRPC_MULT_PORT: "50053"
+    command: python services/multiplicacion/worker.py
+
+  worker-division:
+    build: { context: ., dockerfile: docker/Dockerfile.grpc }
+    container_name: worker-division
+    depends_on:
+      rabbitmq: { condition: service_healthy }
+      grpc-division: { condition: service_started }
+    environment:
+      RABBITMQ_HOST: rabbitmq
+      GRPC_DIV_HOST: grpc-division
+      GRPC_DIV_PORT: "50054"
+    command: python services/division/worker.py
+
+  orquestador:
+    build: { context: ., dockerfile: docker/Dockerfile.grpc }
+    container_name: orquestador
+    depends_on:
+      rabbitmq: { condition: service_healthy }
+      worker-suma: { condition: service_started }
+      worker-resta: { condition: service_started }
+      worker-multiplicacion: { condition: service_started }
+      worker-division: { condition: service_started }
+    environment:
+      RABBITMQ_HOST: rabbitmq
+      PORT: "8000"
+    ports: ["8000:8000"]
+    command: python services/orquestador/orquestador.py

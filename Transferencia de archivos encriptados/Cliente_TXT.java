@@ -1,6 +1,8 @@
 import TLS.AESUtils;
 import java.io.*;
 import java.net.*;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 import javax.crypto.SecretKey;
 
@@ -10,10 +12,11 @@ public class Cliente_TXT {
     private static BufferedWriter logCliente;
     private static final int BUFFER = 1024;
     private static SecretKey claveSesion;
+    private static final DateTimeFormatter FORMATO_FECHA = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
 
     public static void main(String[] args) {
         try {
-            InetAddress ipServidor = InetAddress.getByName("172.31.11.137");
+            InetAddress ipServidor = InetAddress.getByName("172.31.0.161");
             int puertoServidor = 20000;
 
             DatagramSocket socket = new DatagramSocket();
@@ -42,12 +45,25 @@ public class Cliente_TXT {
             log(logCliente, "[CLIENTE] <- SYN recibido: " + respuesta);
 
             if (!respuesta.startsWith("SYN:")) {
-                log(logCliente, "[CLIENTE] Respuesta inesperada");
+                log(logCliente, "[CLIENTE] Respuesta inesperada: "  + respuesta);
                 socket.close();
                 return;
             }
 
-            int puertoTransferencia = Integer.parseInt(respuesta.split(":")[1]);
+            // FORMATO: SYN:puerto:SEQ
+            String[] partesSyn = respuesta.split(":");
+
+            if (partesSyn.length < 3) {
+                System.out.println("Formato SYN inválido: " + respuesta);
+                socket.close();
+                return;
+            }
+
+            int puertoTransferencia = Integer.parseInt(partesSyn[1]);
+            int seqInicial = Integer.parseInt(partesSyn[2]);
+
+            log(logCliente, "[CLIENTE] Puerto transferencia " /*+ puertoTransferencia*/);
+            log(logCliente, "[CLIENTE] SEQ inicial servidor: " + seqInicial);
 
             // ACK del handshake UDP 
             enviar(socket, "ACK", ipServidor, puertoTransferencia);
@@ -67,24 +83,20 @@ public class Cliente_TXT {
             log(logCliente, "[CLIENTE] -> TLS_ACK enviado");
 
             // Recive el archivo
-            int seqEsperado = 0;
+            int seqEsperado = seqInicial;
 
             while (true) {
                 try {
-                    String msgCifrado = recibir(socket);
-                    String msgPlano = AESUtils.descifrar(msgCifrado, claveSesion);
-
-                    log(logCliente, "[CLIENTE] <- Descifrado: " + msgPlano);
+                    String msgrecibido = recibir(socket);
 
                     // EOF
-                    if (msgPlano.equals("EOF")) {
-                        enviar(socket,
-                                AESUtils.cifrar("ACK:EOF", claveSesion),
-                                ipServidor, puertoTransferencia);
-
+                    if (msgrecibido.equals("EOF")) {
+                        enviar(socket, "ACK:EOF", ipServidor, puertoTransferencia);
                         log(logCliente, "[CLIENTE] -> ACK:EOF enviado");
                         break;
                     }
+
+                    String msgPlano = AESUtils.descifrar(msgrecibido, claveSesion);
 
                     // Datos
                     String[] partes = msgPlano.split(":", 2);
@@ -103,12 +115,9 @@ public class Cliente_TXT {
                         log(logCliente, "[CLIENTE] Línea escrita SEQ=" + seq);
                     }
 
-                    // ACK cifrado
-                    enviar(socket,
-                            AESUtils.cifrar("ACK:" + seq, claveSesion),
-                            ipServidor, puertoTransferencia);
-
-                    log(logCliente, "[CLIENTE] -> ACK cifrado enviado: " + seq);
+                    // ACK en texto plano
+                    enviar(socket, "ACK:" + seq, ipServidor, puertoTransferencia);
+                    log(logCliente, "[CLIENTE] -> ACK enviado: " + seq);
 
                 } catch (SocketTimeoutException e) {
                     log(logCliente, "[CLIENTE] Timeout esperando datos");
@@ -122,20 +131,19 @@ public class Cliente_TXT {
             }
 
             // FOUR-WAY HANDSHAKE CIFRADO
-            String finCifrado = recibir(socket);
-            String finPlano = AESUtils.descifrar(finCifrado, claveSesion);
+            String finrecibido = recibir(socket);
 
-            if (finPlano.equals("FIN")) {
-                enviar(socket,
-                        AESUtils.cifrar("ACK:FIN", claveSesion),
-                        ipServidor, puertoTransferencia);
+            if (finrecibido.equals("FIN")) {
+                enviar(socket, "ACK:FIN", ipServidor, puertoTransferencia);
 
-                enviar(socket,
-                        AESUtils.cifrar("FIN", claveSesion),
-                        ipServidor, puertoTransferencia);
+                enviar(socket, "FIN", ipServidor, puertoTransferencia);
 
-                recibir(socket); // ACK:FIN cifrado
-                log(logCliente, "[CLIENTE] Cierre de conexión cifrado completado");
+                String ackFinal = recibir(socket); // ACK:FIN 
+                if (!ackFinal.equals("ACK:FIN")) {
+                    log(logCliente, "[CLIENTE] ACK final inesperado: " + ackFinal);
+                }
+
+                log(logCliente, "[CLIENTE] Cierre de conexión completado");
             }
 
             log(logCliente, "[CLIENTE] Transferencia finalizada correctamente");
@@ -157,9 +165,7 @@ public class Cliente_TXT {
         byte[] data = msg.getBytes();
         DatagramPacket p = new DatagramPacket(data, data.length, ip, puerto);
 
-        log(logCliente,
-                "[CLIENTE] -> ENVIANDO: \"" + msg + "\" a "
-                        + ip.getHostAddress() + ":" + puerto);
+        log(logCliente, "[CLIENTE] -> ENVIANDO: \"" + msg);
 
         socket.send(p);
     }
@@ -172,10 +178,7 @@ public class Cliente_TXT {
 
         String msg = new String(p.getData(), 0, p.getLength()).trim();
 
-        log(logCliente,
-                "[CLIENTE] <- RECIBIDO: \"" + msg + "\" desde "
-                        + p.getAddress().getHostAddress()
-                        + ":" + p.getPort());
+        log(logCliente, "[CLIENTE] <- RECIBIDO: \"" + msg);
 
         return msg;
     }
@@ -183,7 +186,8 @@ public class Cliente_TXT {
     // Log
     private static synchronized void log(BufferedWriter log, String msg)
             throws IOException {
-        log.write(msg);
+        String fechaHora = LocalDateTime.now().format(FORMATO_FECHA);
+        log.write("[" + fechaHora + "] " + msg);
         log.newLine();
         log.flush();
     }

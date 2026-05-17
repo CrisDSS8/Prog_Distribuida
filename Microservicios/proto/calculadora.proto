@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+package calculadora;
+
+// 1. Añadimos identificadores para manejo de concurrencia
+message OperacionRequest {
+  string client_id = 1;    // ID único del cliente 
+  string request_id = 2;   // ID de la operación específica
+  double num1 = 3;
+  double num2 = 4;
+}
+
+message Respuesta {
+  oneof resultado {
+    double data = 1;
+    string error = 2;
+  }
+  string client_id = 3;    // El orquestador usa los id's para devolverlo al cliente correcto
+  string request_id = 4;
+}
+
+// 2. Unificamos en un solo servicio para facilitar la red distribuida
+service CalculadoraService {
+  rpc Sumar (OperacionRequest) returns (Respuesta);
+  rpc Restar (OperacionRequest) returns (Respuesta);
+  rpc Multiplicar (OperacionRequest) returns (Respuesta);
+  rpc Division (OperacionRequest) returns (Respuesta);
+}

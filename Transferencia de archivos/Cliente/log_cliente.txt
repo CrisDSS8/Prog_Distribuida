@@ -1,0 +1,3 @@
+[2026-04-23 14:38:28] [CLIENTE] Cliente iniciado
+[2026-04-23 14:38:33] [CLIENTE] -> ENVIANDO: "bibilia.txt
+[2026-04-23 14:38:33] [CLIENTE] Archivo solicitado: bibilia.txt

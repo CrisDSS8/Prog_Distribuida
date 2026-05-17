@@ -1,11 +1,11 @@
 import TLS.AESUtils;
 import java.io.*;
 import java.net.*;
-import java.util.concurrent.*;
-import javax.crypto.SecretKey;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-
+import java.util.Random;
+import java.util.concurrent.*;
+import javax.crypto.SecretKey;
 
 public class Servidor_TXT {
 
@@ -46,7 +46,7 @@ public class Servidor_TXT {
             } catch (Exception ignored) {}
         }));
 
-        //Cracion de hilos mediante pool para manejar los clientes de manera concurrente
+        //Creacion de hilos mediante pool para manejar los clientes de manera concurrente
 
         while (true) {
             byte[] buffer = new byte[BUFFER];
@@ -66,6 +66,8 @@ public class Servidor_TXT {
             DatagramSocket socketCliente = new DatagramSocket();
             socketCliente.setSoTimeout(3000);
             int puertoTransferencia = socketCliente.getLocalPort();
+            Random rand = new Random();
+            int SEQInicial = rand.nextInt(10000); 
 
             System.out.println("\nNueva solicitud recibida desde " + ipCliente.getHostAddress() + ":" + puertoCliente);
             System.out.println("Archivo solicitado: " + archivo);
@@ -75,7 +77,7 @@ public class Servidor_TXT {
 
             //THREE-WAY HANDSHAKE
             log(logServidor, "[SERVIDOR] -> SYN enviado (puerto " + puertoTransferencia + ")");
-            enviar(socketCliente, "SYN:" + puertoTransferencia, ipCliente, puertoCliente);
+            enviar(socketCliente, "SYN:" + puertoTransferencia + ":" + SEQInicial, ipCliente, puertoCliente);
 
             if (!esperar(socketCliente, "ACK")) {
                 log(logServidor, "[SERVIDOR] <- ACK no recibido. Cancelando conexión");
@@ -87,7 +89,7 @@ public class Servidor_TXT {
 
             System.out.println("Iniciando transferencia del archivo...");
             log(logServidor, "[SERVIDOR] Iniciando transferencia del archivo...");
-            enviarArchivoUDP(socketCliente, ipCliente, puertoCliente, archivo, logServidor);
+            enviarArchivoUDP(socketCliente, ipCliente, puertoCliente, archivo, logServidor, SEQInicial);
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -96,8 +98,7 @@ public class Servidor_TXT {
 
     //FUNCIÓN para enviar el archivo UDP pidiendo parametros socket, ipDestino, puertoDestino, archivo, log
 
-    public static void enviarArchivoUDP(DatagramSocket socket, InetAddress ipDestino, int puertoDestino, String nombreArchivo, 
-        BufferedWriter log) throws Exception {
+    public static void enviarArchivoUDP(DatagramSocket socket, InetAddress ipDestino, int puertoDestino, String nombreArchivo, BufferedWriter log, int SEQInicial) throws Exception {
 
         // ===== HANDSHAKE TLS =====
         SecretKey claveSesion = handshakeTLS(socket, ipDestino, puertoDestino, log);
@@ -115,7 +116,7 @@ public class Servidor_TXT {
 
         BufferedReader reader = new BufferedReader(new FileReader(archivo));
         String linea;
-        int seq = 0;
+        int seq = SEQInicial;
 
         while ((linea = reader.readLine()) != null) {
             boolean ok = false;
@@ -130,10 +131,10 @@ public class Servidor_TXT {
                     " (intento " + (intentos + 1) + ")");
 
                 try {
-                    String ackCifrado = recibir(socket);
-                    String ackPlano = AESUtils.descifrar(ackCifrado, claveSesion);
+                    String ackPlano = recibir(socket);
+                    //String ackPlano = AESUtils.descifrar(ackCifrado, claveSesion);
 
-                    log(logServidor, "[SERVIDOR] ACK recibido (descifrado): " + ackPlano);
+                    log(logServidor, "[SERVIDOR] ACK recibido : " + ackPlano);
 
                     if (ackPlano.equals("ACK:" + seq)) {
                         ok = true;
@@ -220,7 +221,6 @@ public class Servidor_TXT {
 
         return new String(packet.getData(), 0, packet.getLength());
     }
-
 
     private static synchronized void log(BufferedWriter log, String msg) throws IOException {
         String fechaHora = LocalDateTime.now().format(FORMATO_FECHA);

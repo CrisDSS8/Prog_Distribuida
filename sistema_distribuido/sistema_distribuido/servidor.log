@@ -1,0 +1,1163 @@
+[2026-03-04 15:34:11] [SYSTEM] Iniciando intercambio de claves con peers...
+[2026-03-04 15:34:11] [SYSTEM] Estado de cifrado: Fernet/AES activo
+[2026-03-04 15:34:11] [SYSTEM] Servidor activo en puerto 12000  IP=172.26.160.188  Cifrado=[Fernet/AES activo]
+[2026-03-04 15:34:11] [SYSTEM] Publicados 6 archivos (IP=172.26.160.188)
+[2026-03-04 15:34:30] [8ceb469f] PUBLISH recibido: UwU2.txt (dueno=172.26.166.23)
+[2026-03-04 15:34:30] [fff16617] PUBLISH recibido: xd.txt (dueno=172.26.166.23)
+[2026-03-04 15:34:32] [44354ad4] PUBLISH recibido: crear-router-con-estilo.txt (dueno=172.26.161.173)
+[2026-03-04 15:34:32] [399136db] PUBLISH recibido: dhcpd.conf-ejemplo.txt (dueno=172.26.161.173)
+[2026-03-04 15:34:32] [62bd24eb] PUBLISH recibido: introduccion.txt (dueno=172.26.161.173)
+[2026-03-04 15:34:32] [ed5493f9] PUBLISH recibido: IPTABLES.txt (dueno=172.26.161.173)
+[2026-03-04 15:34:32] [ffa2df1c] PUBLISH recibido: Modos-de-Bonding.txt (dueno=172.26.161.173)
+[2026-03-04 15:34:32] [6ea3fc3a] PUBLISH recibido: sysrq.txt (dueno=172.26.161.173)
+[2026-03-04 15:34:36] [5db731b9] REQ_INFO NACK: valoran.txt
+[2026-03-04 15:34:41] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-04 15:34:41] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-04 15:35:11] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-04 15:35:11] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-04 15:35:17] [SYSTEM] TTL EXPIRED: UwU2.txt eliminado (ningun servidor lo confirmo)
+[2026-03-04 15:35:23] [SYSTEM] TTL EXPIRED: xd.txt eliminado (ningun servidor lo confirmo)
+[2026-03-04 15:35:38] [25d40ba4] REQ_LIST -> 172.26.166.207 (12 archivos)
+[2026-03-04 15:35:41] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-04 15:35:53] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-04 15:36:11] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-04 15:36:23] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-04 15:36:41] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-04 15:36:53] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-04 15:37:11] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-04 15:37:24] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-04 15:37:41] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-04 15:37:54] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-04 15:38:11] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-04 15:38:24] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-04 15:38:41] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-04 15:38:43] [17288856] PUBLISH recibido: UwU2.txt (dueno=172.26.166.207)
+[2026-03-04 15:38:43] [57ce053b] PUBLISH recibido: xd.txt (dueno=172.26.166.207)
+[2026-03-04 15:38:54] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-04 15:38:55] [SYSTEM] TTL UPDATE: UwU2.txt -> nuevo dueno 172.26.161.173
+[2026-03-04 15:38:55] [SYSTEM] TTL UPDATE: xd.txt -> nuevo dueno 172.26.161.173
+[2026-03-04 15:39:02] [74ff4969] REQ_INFO NON_AUTH: UwU2.txt dueno=172.26.161.173 -> 172.26.161.173
+[2026-03-04 15:39:08] [70244f7f] REQ_INFO NON_AUTH: xd.txt dueno=172.26.161.173 -> 172.26.161.173
+[2026-03-04 15:39:11] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-04 15:39:13] [b45c42dc] REQ_INFO NON_AUTH: UwU2.txt dueno=172.26.161.173 -> 172.26.166.207
+[2026-03-04 15:39:25] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-04 15:39:31] [SYSTEM] TTL EXPIRED: UwU2.txt eliminado (ningun servidor lo confirmo)
+[2026-03-04 15:41:27] [SYSTEM] Iniciando intercambio de claves con peers...
+[2026-03-04 15:41:27] [SYSTEM] Estado de cifrado: Fernet/AES activo
+[2026-03-04 15:41:27] [SYSTEM] Servidor activo en puerto 12000  IP=172.26.160.188  Cifrado=[Fernet/AES activo]
+[2026-03-04 15:41:27] [SYSTEM] Publicados 6 archivos (IP=172.26.160.188)
+[2026-03-04 15:41:32] [85c136ec] PUBLISH recibido: UwU2.txt (dueno=172.26.166.23)
+[2026-03-04 15:41:32] [68f6c6a9] PUBLISH recibido: xd.txt (dueno=172.26.166.23)
+[2026-03-04 15:41:33] [c7eda20f] PUBLISH recibido: dhcpd.conf-ejemplo.txt (dueno=172.26.161.173)
+[2026-03-04 15:41:33] [cc8c1624] PUBLISH recibido: crear-router-con-estilo.txt (dueno=172.26.161.173)
+[2026-03-04 15:41:33] [be0dba0d] PUBLISH recibido: IPTABLES.txt (dueno=172.26.161.173)
+[2026-03-04 15:41:33] [bee044b4] PUBLISH recibido: Modos-de-Bonding.txt (dueno=172.26.161.173)
+[2026-03-04 15:41:33] [66c29aee] PUBLISH recibido: introduccion.txt (dueno=172.26.161.173)
+[2026-03-04 15:41:33] [919b640d] PUBLISH recibido: sysrq.txt (dueno=172.26.161.173)
+[2026-03-04 15:41:46] [9693861c] PUBLISH recibido: valoran.txt (dueno=172.26.166.207)
+[2026-03-04 15:41:57] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-04 15:41:57] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-04 15:41:57] [SYSTEM] TTL UPDATE: valoran.txt -> nuevo dueno 172.26.161.173
+[2026-03-04 15:42:03] [5d8c4692] REQ_INFO NON_AUTH: valoran.txt dueno=172.26.161.173 -> 172.26.161.173
+[2026-03-04 15:42:27] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-04 15:42:27] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-04 15:42:34] [b16d7672] REQ_INFO NON_AUTH: valoran.txt dueno=172.26.161.173 -> 172.26.161.173
+[2026-03-04 15:42:57] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-04 15:42:57] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-04 15:43:02] [ac4ca3b8] PUBLISH recibido: valoran.txt (dueno=172.26.166.207)
+[2026-03-04 15:43:03] [9ac9af67] REQ_LIST -> 172.26.160.188 (15 archivos)
+[2026-03-04 15:43:04] [1170dd5c] REQ_INFO AUTH: valoran.txt -> 172.26.161.173
+[2026-03-04 15:43:05] [07aaae75] REQ_LIST -> 172.26.166.23 (15 archivos)
+[2026-03-04 15:43:20] [b047da29] REQ_LIST -> 172.26.161.173 (15 archivos)
+[2026-03-04 15:43:27] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-04 15:43:28] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-04 15:43:34] [4b651014] REQ_INFO AUTH: valoran.txt -> 172.26.166.23
+[2026-03-04 15:43:34] [92b3d9d6] REQ_INFO AUTH: valoran.txt -> 172.26.161.173
+[2026-03-04 15:43:57] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-04 15:43:58] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-04 15:46:20] [SYSTEM] Iniciando intercambio de claves con peers...
+[2026-03-04 15:46:20] [SYSTEM] Estado de cifrado: Fernet/AES activo
+[2026-03-04 15:46:20] [SYSTEM] Servidor activo en puerto 12000  IP=172.26.160.188  Cifrado=[Fernet/AES activo]
+[2026-03-04 15:46:20] [SYSTEM] Publicados 6 archivos (IP=172.26.160.188)
+[2026-03-04 15:46:25] [32f63373] PUBLISH recibido: crear-router-con-estilo.txt (dueno=172.26.161.173)
+[2026-03-04 15:46:25] [255d4224] PUBLISH recibido: dhcpd.conf-ejemplo.txt (dueno=172.26.161.173)
+[2026-03-04 15:46:25] [e1f9d779] PUBLISH recibido: introduccion.txt (dueno=172.26.161.173)
+[2026-03-04 15:46:25] [ecdbacf3] PUBLISH recibido: IPTABLES.txt (dueno=172.26.161.173)
+[2026-03-04 15:46:25] [da37278e] PUBLISH recibido: Modos-de-Bonding.txt (dueno=172.26.161.173)
+[2026-03-04 15:46:25] [4e00537c] PUBLISH recibido: sysrq.txt (dueno=172.26.161.173)
+[2026-03-04 15:46:32] [0acd527b] REQ_INFO NACK: UwU2.txt
+[2026-03-04 15:46:33] [a4145eab] REQ_INFO NACK: xd.txt
+[2026-03-04 15:46:34] [37c68a80] REQ_INFO AUTH: LinuxMAN-v1.1.txt -> 172.26.166.207
+[2026-03-04 15:46:34] [150487fe] REQ_INFO AUTH: llaneros.txt -> 172.26.166.207
+[2026-03-04 15:46:34] [913d0e53] REQ_INFO AUTH: Lorem Ipsum.txt -> 172.26.166.207
+[2026-03-04 15:46:34] [39fdd1cb] REQ_INFO AUTH: manual.txt -> 172.26.166.207
+[2026-03-04 15:46:35] [ae303143] REQ_INFO AUTH: Pando, Angelina del_Poesias.txt -> 172.26.166.207
+[2026-03-04 15:46:35] [62b46306] REQ_INFO AUTH: Trigo, Felipe_La campaña filipina.txt -> 172.26.166.207
+[2026-03-04 15:46:42] [2472416f] REQ_INFO AUTH: LinuxMAN-v1.1.txt -> 172.26.166.23
+[2026-03-04 15:46:42] [b68ed620] REQ_INFO AUTH: llaneros.txt -> 172.26.166.23
+[2026-03-04 15:46:43] [fc26a1fe] REQ_INFO AUTH: Lorem Ipsum.txt -> 172.26.166.23
+[2026-03-04 15:46:43] [7d835370] REQ_INFO AUTH: manual.txt -> 172.26.166.23
+[2026-03-04 15:46:44] [94c47573] REQ_INFO AUTH: Pando, Angelina del_Poesias.txt -> 172.26.166.23
+[2026-03-04 15:46:44] [689e37e3] REQ_INFO AUTH: Trigo, Felipe_La campaña filipina.txt -> 172.26.166.23
+[2026-03-04 15:46:47] [b300087c] REQ_LIST -> 172.26.160.188 (12 archivos)
+[2026-03-04 15:46:50] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-04 15:46:50] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-04 15:47:02] [b887eab4] REQ_LIST -> 172.26.161.173 (12 archivos)
+[2026-03-04 15:47:05] [421b44e7] REQ_INFO NACK: UwU2.txt
+[2026-03-04 15:47:09] [ed566bf1] REQ_INFO NACK: xd.txt
+[2026-03-04 15:47:09] [0bb2554a] REQ_INFO AUTH: LinuxMAN-v1.1.txt -> 172.26.166.207
+[2026-03-04 15:47:09] [00ad866e] REQ_INFO AUTH: llaneros.txt -> 172.26.166.207
+[2026-03-04 15:47:09] [91193606] REQ_INFO AUTH: Lorem Ipsum.txt -> 172.26.166.207
+[2026-03-04 15:47:09] [6c95da76] REQ_INFO AUTH: manual.txt -> 172.26.166.207
+[2026-03-04 15:47:09] [c6232660] REQ_INFO AUTH: Pando, Angelina del_Poesias.txt -> 172.26.166.207
+[2026-03-04 15:47:09] [ab6244bd] REQ_INFO AUTH: Trigo, Felipe_La campaña filipina.txt -> 172.26.166.207
+[2026-03-04 15:47:16] [fd7fa9c9] REQ_INFO AUTH: LinuxMAN-v1.1.txt -> 172.26.166.23
+[2026-03-04 15:47:17] [e87166c1] REQ_INFO AUTH: llaneros.txt -> 172.26.166.23
+[2026-03-04 15:47:17] [747c9461] REQ_INFO AUTH: Lorem Ipsum.txt -> 172.26.166.23
+[2026-03-04 15:47:18] [d96d2f3e] REQ_INFO AUTH: manual.txt -> 172.26.166.23
+[2026-03-04 15:47:18] [55d05fdd] REQ_INFO AUTH: Pando, Angelina del_Poesias.txt -> 172.26.166.23
+[2026-03-04 15:47:19] [622ca297] REQ_INFO AUTH: Trigo, Felipe_La campaña filipina.txt -> 172.26.166.23
+[2026-03-04 15:47:20] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-04 15:47:21] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-04 15:47:40] [e39444f9] REQ_INFO NACK: UwU2.txt
+[2026-03-04 15:47:40] [1d894b56] REQ_INFO NACK: xd.txt
+[2026-03-04 15:47:40] [58ab0dd4] REQ_INFO AUTH: LinuxMAN-v1.1.txt -> 172.26.166.207
+[2026-03-04 15:47:40] [caf9b951] REQ_INFO AUTH: llaneros.txt -> 172.26.166.207
+[2026-03-04 15:47:41] [d29d5546] REQ_INFO AUTH: Lorem Ipsum.txt -> 172.26.166.207
+[2026-03-04 15:47:41] [7996c618] REQ_INFO AUTH: manual.txt -> 172.26.166.207
+[2026-03-04 15:47:41] [cd8431c4] REQ_INFO AUTH: Pando, Angelina del_Poesias.txt -> 172.26.166.207
+[2026-03-04 15:47:41] [a7a69918] REQ_INFO AUTH: Trigo, Felipe_La campaña filipina.txt -> 172.26.166.207
+[2026-03-04 15:47:50] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-04 15:47:51] [f6b39231] REQ_INFO AUTH: LinuxMAN-v1.1.txt -> 172.26.166.23
+[2026-03-04 15:47:51] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-04 15:47:51] [149e1644] REQ_INFO AUTH: llaneros.txt -> 172.26.166.23
+[2026-03-04 15:47:51] [ac305662] REQ_INFO AUTH: Lorem Ipsum.txt -> 172.26.166.23
+[2026-03-04 15:47:52] [ce161bc3] REQ_INFO AUTH: manual.txt -> 172.26.166.23
+[2026-03-04 15:47:52] [f9c610ea] REQ_INFO AUTH: Pando, Angelina del_Poesias.txt -> 172.26.166.23
+[2026-03-04 15:47:53] [684fa053] REQ_INFO AUTH: Trigo, Felipe_La campaña filipina.txt -> 172.26.166.23
+[2026-03-04 15:48:12] [c2d28ebe] REQ_INFO NACK: UwU2.txt
+[2026-03-04 15:48:13] [f2c5fbc1] REQ_INFO NACK: xd.txt
+[2026-03-04 15:48:13] [4a93289b] REQ_INFO AUTH: LinuxMAN-v1.1.txt -> 172.26.166.207
+[2026-03-04 15:48:13] [7627676d] REQ_INFO AUTH: llaneros.txt -> 172.26.166.207
+[2026-03-04 15:48:13] [1891d2c3] REQ_INFO AUTH: Lorem Ipsum.txt -> 172.26.166.207
+[2026-03-04 15:48:14] [37377146] REQ_INFO AUTH: manual.txt -> 172.26.166.207
+[2026-03-04 15:48:14] [649a1e9d] REQ_INFO AUTH: Pando, Angelina del_Poesias.txt -> 172.26.166.207
+[2026-03-04 15:48:14] [44667012] REQ_INFO AUTH: Trigo, Felipe_La campaña filipina.txt -> 172.26.166.207
+[2026-03-04 15:48:20] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-04 15:48:21] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-04 15:48:26] [b1019e84] REQ_INFO AUTH: LinuxMAN-v1.1.txt -> 172.26.166.23
+[2026-03-04 15:48:27] [b4946fd9] REQ_INFO AUTH: llaneros.txt -> 172.26.166.23
+[2026-03-04 15:48:27] [5eedd380] REQ_INFO AUTH: Lorem Ipsum.txt -> 172.26.166.23
+[2026-03-04 15:48:28] [f36164f6] REQ_INFO AUTH: manual.txt -> 172.26.166.23
+[2026-03-04 15:48:28] [16ba24cb] REQ_INFO AUTH: Pando, Angelina del_Poesias.txt -> 172.26.166.23
+[2026-03-04 15:48:29] [f24f3efd] REQ_INFO AUTH: Trigo, Felipe_La campaña filipina.txt -> 172.26.166.23
+[2026-03-04 15:48:32] [f5263d44] REQ_INFO AUTH: crear-router-con-estilo.txt -> 172.26.166.23
+[2026-03-04 15:48:45] [1e2f53b6] REQ_INFO NACK: UwU2.txt
+[2026-03-04 15:48:45] [f0f16d0d] REQ_INFO NACK: xd.txt
+[2026-03-04 15:48:46] [fb385f1d] REQ_INFO AUTH: LinuxMAN-v1.1.txt -> 172.26.166.207
+[2026-03-04 15:48:46] [8475518b] REQ_INFO AUTH: llaneros.txt -> 172.26.166.207
+[2026-03-04 15:48:46] [e1d27723] REQ_INFO AUTH: Lorem Ipsum.txt -> 172.26.166.207
+[2026-03-04 15:48:46] [3369c6a8] REQ_INFO AUTH: manual.txt -> 172.26.166.207
+[2026-03-04 15:48:46] [41f2c8c6] REQ_INFO AUTH: Pando, Angelina del_Poesias.txt -> 172.26.166.207
+[2026-03-04 15:48:46] [c054811a] REQ_INFO AUTH: Trigo, Felipe_La campaña filipina.txt -> 172.26.166.207
+[2026-03-04 15:48:50] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-04 15:48:51] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-04 15:49:03] [e5953eb2] REQ_INFO AUTH: LinuxMAN-v1.1.txt -> 172.26.166.23
+[2026-03-04 15:49:04] [e231ed1a] REQ_INFO AUTH: llaneros.txt -> 172.26.166.23
+[2026-03-04 15:49:04] [798ff519] REQ_INFO AUTH: Lorem Ipsum.txt -> 172.26.166.23
+[2026-03-04 15:49:05] [661181e0] REQ_INFO AUTH: manual.txt -> 172.26.166.23
+[2026-03-04 15:49:05] [58ea4446] REQ_INFO AUTH: Pando, Angelina del_Poesias.txt -> 172.26.166.23
+[2026-03-04 15:49:05] [4f89f949] REQ_INFO AUTH: Trigo, Felipe_La campaña filipina.txt -> 172.26.166.23
+[2026-03-04 15:49:17] [e46ec44d] REQ_INFO NACK: UwU2.txt
+[2026-03-04 15:49:17] [336c6282] REQ_INFO NACK: xd.txt
+[2026-03-04 15:49:18] [dfea616e] REQ_INFO AUTH: LinuxMAN-v1.1.txt -> 172.26.166.207
+[2026-03-04 15:49:18] [d2a57985] REQ_INFO AUTH: llaneros.txt -> 172.26.166.207
+[2026-03-04 15:49:19] [1ba9c841] REQ_INFO AUTH: Lorem Ipsum.txt -> 172.26.166.207
+[2026-03-04 15:49:19] [ff0b644e] REQ_INFO AUTH: manual.txt -> 172.26.166.207
+[2026-03-04 15:49:20] [bec53680] REQ_INFO AUTH: Pando, Angelina del_Poesias.txt -> 172.26.166.207
+[2026-03-04 15:49:20] [5f5b6e56] REQ_INFO AUTH: Trigo, Felipe_La campaña filipina.txt -> 172.26.166.207
+[2026-03-04 15:49:20] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-04 15:49:21] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-04 15:49:24] [20a558ac] REQ_LIST -> 172.26.166.23 (12 archivos)
+[2026-03-04 15:49:25] [63d60687] PUBLISH recibido: crear-router-con-estilo.txt (dueno=172.26.161.173)
+[2026-03-04 15:49:35] [9dd1bb52] REQ_USE AUTH (dueno): manual.txt -> 172.26.166.23
+[2026-03-04 15:49:37] [4960e913] REQ_INFO AUTH: LinuxMAN-v1.1.txt -> 172.26.166.23
+[2026-03-04 15:49:37] [3f1e8dd9] REQ_INFO AUTH: llaneros.txt -> 172.26.166.23
+[2026-03-04 15:49:38] [8b9cabfd] REQ_INFO AUTH: Lorem Ipsum.txt -> 172.26.166.23
+[2026-03-04 15:49:39] [9359622e] REQ_INFO AUTH: manual.txt -> 172.26.166.23
+[2026-03-04 15:49:39] [7bbf49fd] REQ_INFO AUTH: Pando, Angelina del_Poesias.txt -> 172.26.166.23
+[2026-03-04 15:49:42] [a27baf14] REQ_INFO AUTH: Trigo, Felipe_La campaña filipina.txt -> 172.26.166.23
+[2026-03-04 15:49:50] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-04 15:49:50] [5ea29cf1] REQ_INFO NACK: UwU2.txt
+[2026-03-04 15:49:51] [e1785988] REQ_INFO NACK: xd.txt
+[2026-03-04 15:49:51] [0d848a80] REQ_INFO AUTH: LinuxMAN-v1.1.txt -> 172.26.166.207
+[2026-03-04 15:49:52] [eb3eeb6d] REQ_INFO AUTH: llaneros.txt -> 172.26.166.207
+[2026-03-04 15:49:52] [90823f80] REQ_USE AUTH (dueno): manual.txt -> 172.26.160.188
+[2026-03-04 15:49:52] [8465c679] REQ_INFO AUTH: Lorem Ipsum.txt -> 172.26.166.207
+[2026-03-04 15:49:52] [557447d9] REQ_INFO AUTH: manual.txt -> 172.26.166.207
+[2026-03-04 15:49:52] [06001b0b] REQ_INFO AUTH: Pando, Angelina del_Poesias.txt -> 172.26.166.207
+[2026-03-04 15:49:52] [74aa68af] REQ_INFO AUTH: Trigo, Felipe_La campaña filipina.txt -> 172.26.166.207
+[2026-03-04 15:49:52] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-04 15:50:15] [cd94bced] REQ_INFO AUTH: LinuxMAN-v1.1.txt -> 172.26.166.23
+[2026-03-04 15:50:16] [06062d4e] REQ_INFO AUTH: llaneros.txt -> 172.26.166.23
+[2026-03-04 15:50:17] [7574036d] REQ_INFO AUTH: Lorem Ipsum.txt -> 172.26.166.23
+[2026-03-04 15:50:17] [f3d5c964] REQ_INFO AUTH: manual.txt -> 172.26.166.23
+[2026-03-04 15:50:19] [6b0b795a] REQ_INFO AUTH: Pando, Angelina del_Poesias.txt -> 172.26.166.23
+[2026-03-04 15:50:20] [d641fcee] REQ_INFO AUTH: Trigo, Felipe_La campaña filipina.txt -> 172.26.166.23
+[2026-03-04 15:50:20] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-04 15:50:22] [4ffa26c2] REQ_INFO NACK: UwU2.txt
+[2026-03-04 15:50:22] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-04 15:50:23] [23a7279f] REQ_INFO NACK: xd.txt
+[2026-03-04 15:50:23] [f28e02c4] REQ_INFO AUTH: LinuxMAN-v1.1.txt -> 172.26.166.207
+[2026-03-04 15:50:23] [058a5a6c] REQ_INFO AUTH: llaneros.txt -> 172.26.166.207
+[2026-03-04 15:50:23] [a2d83eb2] REQ_INFO AUTH: Lorem Ipsum.txt -> 172.26.166.207
+[2026-03-04 15:50:23] [e8461493] REQ_INFO AUTH: manual.txt -> 172.26.166.207
+[2026-03-04 15:50:24] [7dca8b44] REQ_INFO AUTH: Pando, Angelina del_Poesias.txt -> 172.26.166.207
+[2026-03-04 15:50:24] [83fec83c] REQ_INFO AUTH: Trigo, Felipe_La campaña filipina.txt -> 172.26.166.207
+[2026-03-04 15:50:27] [23af1181] REQ_LIST -> 172.26.160.188 (12 archivos)
+[2026-03-04 15:50:41] [e19847c8] REQ_LIST -> 172.26.161.173 (12 archivos)
+[2026-03-04 15:50:41] [3007ce89] REQ_DELETE BLOQUEADO: manual.txt en uso por ['172.26.160.188']
+[2026-03-04 15:50:50] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-04 15:50:51] [7651ac5b] REQ_INFO AUTH: LinuxMAN-v1.1.txt -> 172.26.166.23
+[2026-03-04 15:50:51] [1e662ac8] REQ_INFO AUTH: llaneros.txt -> 172.26.166.23
+[2026-03-04 15:50:51] [2f7c1b4d] REQ_USE AUTH (dueno): manual.txt -> 172.26.160.188
+[2026-03-04 15:50:52] [932005bd] FILE_UNLOCK: manual.txt desbloqueado por 172.26.166.23
+[2026-03-04 15:50:52] [932005bd] SYNC OK: manual.txt actualizado (timestamp remoto gana)
+[2026-03-04 15:50:52] [29a55fb4] REQ_INFO AUTH: Lorem Ipsum.txt -> 172.26.166.23
+[2026-03-04 15:50:52] [f35312d0] REQ_INFO AUTH: manual.txt -> 172.26.166.23
+[2026-03-04 15:50:53] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-04 15:50:53] [31844fd0] REQ_INFO AUTH: Pando, Angelina del_Poesias.txt -> 172.26.166.23
+[2026-03-04 15:50:53] [6b37a106] REQ_INFO AUTH: Trigo, Felipe_La campaña filipina.txt -> 172.26.166.23
+[2026-03-04 15:50:56] [95040daa] REQ_INFO NACK: UwU2.txt
+[2026-03-04 15:50:56] [35590d41] REQ_INFO NACK: xd.txt
+[2026-03-04 15:50:56] [b8a1844e] REQ_INFO AUTH: LinuxMAN-v1.1.txt -> 172.26.166.207
+[2026-03-04 15:50:56] [5db31694] REQ_INFO AUTH: llaneros.txt -> 172.26.166.207
+[2026-03-04 15:50:57] [ed64bbdd] REQ_INFO AUTH: Lorem Ipsum.txt -> 172.26.166.207
+[2026-03-04 15:50:57] [d29a9168] REQ_INFO AUTH: manual.txt -> 172.26.166.207
+[2026-03-04 15:50:57] [11633ba5] REQ_INFO AUTH: Pando, Angelina del_Poesias.txt -> 172.26.166.207
+[2026-03-04 15:50:57] [90d1804d] REQ_INFO AUTH: Trigo, Felipe_La campaña filipina.txt -> 172.26.166.207
+[2026-03-04 15:51:20] [SYSTEM] === Verificacion TTL iniciada === 1 archivo(s) cambiado(s), publicando...
+[2026-03-04 15:51:20] [SYSTEM] PUBLISH enviado por cambio: manual.txt (mtime actualizado)
+[2026-03-04 15:51:23] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-04 15:51:25] [a212a648] REQ_INFO AUTH: LinuxMAN-v1.1.txt -> 172.26.166.23
+[2026-03-04 15:51:25] [d53eebac] REQ_INFO AUTH: manual.txt -> 172.26.161.173
+[2026-03-04 15:51:26] [a81b317f] REQ_INFO AUTH: llaneros.txt -> 172.26.166.23
+[2026-03-04 15:51:26] [c48e792a] REQ_INFO AUTH: Lorem Ipsum.txt -> 172.26.166.23
+[2026-03-04 15:51:27] [b8010723] REQ_INFO AUTH: Pando, Angelina del_Poesias.txt -> 172.26.166.23
+[2026-03-04 15:51:27] [0b5891cd] REQ_INFO AUTH: Trigo, Felipe_La campaña filipina.txt -> 172.26.166.23
+[2026-03-04 15:51:27] [b1388b67] REQ_INFO NACK: UwU2.txt
+[2026-03-04 15:51:28] [b9a29ff4] REQ_INFO NACK: xd.txt
+[2026-03-04 15:51:28] [5faab7f4] REQ_USE AUTH (dueno): manual.txt -> 172.26.161.173
+[2026-03-04 15:51:28] [5faab7f4] FILE_LOCK: manual.txt bloqueado por 172.26.161.173
+[2026-03-04 15:51:28] [e27e1f90] REQ_INFO AUTH: LinuxMAN-v1.1.txt -> 172.26.166.207
+[2026-03-04 15:51:28] [061fc655] REQ_INFO AUTH: llaneros.txt -> 172.26.166.207
+[2026-03-04 15:51:28] [79d50f52] REQ_INFO AUTH: Lorem Ipsum.txt -> 172.26.166.207
+[2026-03-04 15:51:29] [f690478c] REQ_INFO AUTH: Pando, Angelina del_Poesias.txt -> 172.26.166.207
+[2026-03-04 15:51:29] [ded40fca] REQ_INFO AUTH: Trigo, Felipe_La campaña filipina.txt -> 172.26.166.207
+[2026-03-04 15:51:34] [2baa1498] FILE_UNLOCK: manual.txt desbloqueado por 172.26.166.23
+[2026-03-04 15:51:34] [2baa1498] SYNC OK: manual.txt actualizado (timestamp remoto gana)
+[2026-03-04 15:51:38] [f6c9d83a] REQ_LIST -> 172.26.160.188 (12 archivos)
+[2026-03-04 15:51:48] [e6bc2659] REQ_USE AUTH (dueno): manual.txt -> 172.26.161.173
+[2026-03-04 15:51:48] [e6bc2659] FILE_LOCK: manual.txt bloqueado por 172.26.161.173
+[2026-03-04 15:51:50] [SYSTEM] === Verificacion TTL iniciada === 1 archivo(s) cambiado(s), publicando...
+[2026-03-04 15:51:50] [SYSTEM] PUBLISH enviado por cambio: manual.txt (mtime actualizado)
+[2026-03-04 15:51:53] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-04 15:51:55] [60799f2b] REQ_INFO AUTH: manual.txt -> 172.26.161.173
+[2026-03-04 15:51:58] [926e531c] REQ_INFO AUTH: LinuxMAN-v1.1.txt -> 172.26.166.23
+[2026-03-04 15:51:58] [daaeb1fb] REQ_INFO AUTH: llaneros.txt -> 172.26.166.23
+[2026-03-04 15:51:59] [9179c677] REQ_INFO AUTH: Lorem Ipsum.txt -> 172.26.166.23
+[2026-03-04 15:51:59] [421d11bf] REQ_INFO NACK: UwU2.txt
+[2026-03-04 15:52:00] [3b3fcdeb] REQ_INFO AUTH: Pando, Angelina del_Poesias.txt -> 172.26.166.23
+[2026-03-04 15:52:00] [41b76759] REQ_INFO NACK: xd.txt
+[2026-03-04 15:52:00] [49598a1e] REQ_INFO AUTH: LinuxMAN-v1.1.txt -> 172.26.166.207
+[2026-03-04 15:52:00] [39579d16] REQ_INFO AUTH: llaneros.txt -> 172.26.166.207
+[2026-03-04 15:52:00] [9140d077] REQ_INFO AUTH: Trigo, Felipe_La campaña filipina.txt -> 172.26.166.23
+[2026-03-04 15:52:00] [f79086bc] REQ_INFO AUTH: Lorem Ipsum.txt -> 172.26.166.207
+[2026-03-04 15:52:00] [cfc6dfe1] REQ_INFO AUTH: Pando, Angelina del_Poesias.txt -> 172.26.166.207
+[2026-03-04 15:52:00] [483b9057] REQ_INFO AUTH: Trigo, Felipe_La campaña filipina.txt -> 172.26.166.207
+[2026-03-04 15:52:20] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-04 15:52:23] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-04 15:52:26] [f6ee21a4] REQ_INFO AUTH: manual.txt -> 172.26.161.173
+[2026-03-04 15:52:31] [f48b44e1] REQ_INFO NACK: UwU2.txt
+[2026-03-04 15:52:31] [c6cb94e5] REQ_INFO NACK: xd.txt
+[2026-03-04 15:52:31] [68bb37e1] REQ_INFO AUTH: LinuxMAN-v1.1.txt -> 172.26.166.207
+[2026-03-04 15:52:31] [a92f9e32] REQ_INFO AUTH: llaneros.txt -> 172.26.166.207
+[2026-03-04 15:52:32] [97650876] REQ_INFO AUTH: LinuxMAN-v1.1.txt -> 172.26.166.23
+[2026-03-04 15:52:32] [dc42e627] REQ_INFO AUTH: Lorem Ipsum.txt -> 172.26.166.207
+[2026-03-04 15:52:32] [478dab45] REQ_INFO AUTH: llaneros.txt -> 172.26.166.23
+[2026-03-04 15:52:32] [4a82c859] REQ_INFO AUTH: Pando, Angelina del_Poesias.txt -> 172.26.166.207
+[2026-03-04 15:52:32] [cd067cba] REQ_INFO AUTH: Trigo, Felipe_La campaña filipina.txt -> 172.26.166.207
+[2026-03-04 15:52:32] [7fa68c9f] REQ_INFO AUTH: Lorem Ipsum.txt -> 172.26.166.23
+[2026-03-04 15:52:32] [d5b93005] REQ_INFO AUTH: Pando, Angelina del_Poesias.txt -> 172.26.166.23
+[2026-03-04 15:52:33] [4747f1f4] REQ_INFO AUTH: Trigo, Felipe_La campaña filipina.txt -> 172.26.166.23
+[2026-03-04 15:52:50] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-04 15:52:53] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-04 15:52:56] [bce5b6a2] REQ_INFO AUTH: manual.txt -> 172.26.161.173
+[2026-03-04 15:53:02] [87854120] REQ_INFO NACK: UwU2.txt
+[2026-03-04 15:53:03] [811d0aac] REQ_INFO NACK: xd.txt
+[2026-03-04 15:53:03] [9e107ec6] REQ_INFO AUTH: LinuxMAN-v1.1.txt -> 172.26.166.207
+[2026-03-04 15:53:03] [7c4ecb0f] REQ_INFO AUTH: llaneros.txt -> 172.26.166.207
+[2026-03-04 15:53:03] [7c74a97d] REQ_INFO AUTH: Lorem Ipsum.txt -> 172.26.166.207
+[2026-03-04 15:53:04] [8c889c76] REQ_INFO AUTH: Pando, Angelina del_Poesias.txt -> 172.26.166.207
+[2026-03-04 15:53:04] [3c0fd990] REQ_INFO AUTH: Trigo, Felipe_La campaña filipina.txt -> 172.26.166.207
+[2026-03-04 15:53:04] [53e3c8d7] REQ_INFO AUTH: LinuxMAN-v1.1.txt -> 172.26.166.23
+[2026-03-04 15:53:05] [d9b8b579] REQ_INFO AUTH: llaneros.txt -> 172.26.166.23
+[2026-03-04 15:53:05] [8ed09f4c] REQ_INFO AUTH: Lorem Ipsum.txt -> 172.26.166.23
+[2026-03-04 15:53:06] [1e268736] REQ_INFO AUTH: Pando, Angelina del_Poesias.txt -> 172.26.166.23
+[2026-03-04 15:53:06] [4df574b1] REQ_INFO AUTH: Trigo, Felipe_La campaña filipina.txt -> 172.26.166.23
+[2026-03-04 15:53:20] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-04 15:53:26] [e8515d4d] REQ_INFO AUTH: manual.txt -> 172.26.161.173
+[2026-03-04 15:53:27] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-04 15:53:35] [3956ca3a] REQ_INFO NACK: UwU2.txt
+[2026-03-04 15:53:35] [0fafeef8] REQ_INFO NACK: xd.txt
+[2026-03-04 15:53:36] [04081a14] REQ_INFO AUTH: LinuxMAN-v1.1.txt -> 172.26.166.207
+[2026-03-04 15:53:36] [0301ae5b] REQ_INFO AUTH: llaneros.txt -> 172.26.166.207
+[2026-03-04 15:53:36] [a05e5587] REQ_INFO AUTH: Lorem Ipsum.txt -> 172.26.166.207
+[2026-03-04 15:53:36] [3455c89c] REQ_INFO AUTH: Pando, Angelina del_Poesias.txt -> 172.26.166.207
+[2026-03-04 15:53:37] [df0a28bd] REQ_INFO AUTH: Trigo, Felipe_La campaña filipina.txt -> 172.26.166.207
+[2026-03-04 15:53:38] [16138ab1] REQ_INFO AUTH: LinuxMAN-v1.1.txt -> 172.26.166.23
+[2026-03-04 15:53:39] [a77f82c9] REQ_INFO AUTH: llaneros.txt -> 172.26.166.23
+[2026-03-04 15:53:39] [9dc3e69d] REQ_INFO AUTH: Lorem Ipsum.txt -> 172.26.166.23
+[2026-03-04 15:53:40] [b43ef27d] REQ_INFO AUTH: Pando, Angelina del_Poesias.txt -> 172.26.166.23
+[2026-03-04 15:53:40] [d70dd11b] REQ_INFO AUTH: Trigo, Felipe_La campaña filipina.txt -> 172.26.166.23
+[2026-03-04 15:53:50] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-04 15:53:56] [ff0b360d] REQ_INFO AUTH: manual.txt -> 172.26.161.173
+[2026-03-04 15:53:57] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-04 15:54:07] [7d1a86b0] REQ_INFO NACK: UwU2.txt
+[2026-03-04 15:54:08] [d4e154be] REQ_INFO NACK: xd.txt
+[2026-03-04 15:54:08] [af31f428] REQ_INFO AUTH: LinuxMAN-v1.1.txt -> 172.26.166.207
+[2026-03-04 15:54:08] [56ca1866] REQ_INFO AUTH: llaneros.txt -> 172.26.166.207
+[2026-03-04 15:54:09] [de76de60] REQ_INFO AUTH: Lorem Ipsum.txt -> 172.26.166.207
+[2026-03-04 15:54:09] [33dbfc6a] REQ_INFO AUTH: Pando, Angelina del_Poesias.txt -> 172.26.166.207
+[2026-03-04 15:54:09] [4caaf80e] REQ_INFO AUTH: Trigo, Felipe_La campaña filipina.txt -> 172.26.166.207
+[2026-03-04 15:54:12] [46ecf482] REQ_INFO AUTH: LinuxMAN-v1.1.txt -> 172.26.166.23
+[2026-03-04 15:54:12] [c09b1121] REQ_INFO AUTH: llaneros.txt -> 172.26.166.23
+[2026-03-04 15:54:13] [b9348bb2] REQ_INFO AUTH: Lorem Ipsum.txt -> 172.26.166.23
+[2026-03-04 15:54:13] [b9ac8ce3] REQ_INFO AUTH: Pando, Angelina del_Poesias.txt -> 172.26.166.23
+[2026-03-04 15:54:14] [445dac35] REQ_INFO AUTH: Trigo, Felipe_La campaña filipina.txt -> 172.26.166.23
+[2026-03-04 15:54:18] [7d45969e] REQ_INFO AUTH: IPTABLES.txt -> 172.26.166.23
+[2026-03-04 15:54:20] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-04 15:54:26] [2b0dc010] REQ_INFO AUTH: manual.txt -> 172.26.161.173
+[2026-03-04 15:54:28] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-04 15:54:39] [57a00be1] REQ_INFO NACK: UwU2.txt
+[2026-03-04 15:54:40] [feabf828] REQ_INFO NACK: xd.txt
+[2026-03-04 15:54:41] [4837758d] REQ_INFO AUTH: LinuxMAN-v1.1.txt -> 172.26.166.207
+[2026-03-04 15:54:41] [720de159] REQ_INFO AUTH: llaneros.txt -> 172.26.166.207
+[2026-03-04 15:54:41] [f911784f] REQ_INFO AUTH: Lorem Ipsum.txt -> 172.26.166.207
+[2026-03-04 15:54:41] [3eda5a80] REQ_INFO AUTH: Pando, Angelina del_Poesias.txt -> 172.26.166.207
+[2026-03-04 15:54:41] [9da380dc] REQ_INFO AUTH: Trigo, Felipe_La campaña filipina.txt -> 172.26.166.207
+[2026-03-04 15:54:49] [67bf5bc7] REQ_INFO AUTH: LinuxMAN-v1.1.txt -> 172.26.166.23
+[2026-03-04 15:54:49] [34580451] REQ_INFO AUTH: llaneros.txt -> 172.26.166.23
+[2026-03-04 15:54:50] [24d83a35] REQ_INFO AUTH: Lorem Ipsum.txt -> 172.26.166.23
+[2026-03-04 15:54:50] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-04 15:54:51] [f8acdc6a] REQ_INFO AUTH: Pando, Angelina del_Poesias.txt -> 172.26.166.23
+[2026-03-04 15:54:51] [3828ef5a] REQ_INFO AUTH: Trigo, Felipe_La campaña filipina.txt -> 172.26.166.23
+[2026-03-04 15:54:56] [358badaf] REQ_INFO AUTH: manual.txt -> 172.26.161.173
+[2026-03-04 15:54:58] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-04 15:55:12] [ce90ec4e] REQ_INFO NACK: UwU2.txt
+[2026-03-04 15:55:13] [904aede8] REQ_INFO NACK: xd.txt
+[2026-03-04 15:55:13] [35b9e14e] REQ_INFO AUTH: LinuxMAN-v1.1.txt -> 172.26.166.207
+[2026-03-04 15:55:14] [f710e2fd] REQ_INFO AUTH: llaneros.txt -> 172.26.166.207
+[2026-03-04 15:55:14] [3e52561f] REQ_INFO AUTH: Lorem Ipsum.txt -> 172.26.166.207
+[2026-03-04 15:55:14] [8536bb28] REQ_INFO AUTH: Pando, Angelina del_Poesias.txt -> 172.26.166.207
+[2026-03-04 15:55:15] [7f52cc9f] REQ_INFO AUTH: Trigo, Felipe_La campaña filipina.txt -> 172.26.166.207
+[2026-03-04 15:55:20] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-04 15:55:23] [c760127e] REQ_INFO AUTH: LinuxMAN-v1.1.txt -> 172.26.166.23
+[2026-03-04 15:55:24] [80155e11] REQ_INFO AUTH: llaneros.txt -> 172.26.166.23
+[2026-03-04 15:55:24] [79691fa8] REQ_INFO AUTH: Lorem Ipsum.txt -> 172.26.166.23
+[2026-03-04 15:55:24] [79553528] REQ_INFO AUTH: Pando, Angelina del_Poesias.txt -> 172.26.166.23
+[2026-03-04 15:55:25] [f034e46c] REQ_INFO AUTH: Trigo, Felipe_La campaña filipina.txt -> 172.26.166.23
+[2026-03-04 15:55:27] [32550189] REQ_INFO AUTH: manual.txt -> 172.26.161.173
+[2026-03-04 15:55:29] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-04 15:55:45] [c77aed61] REQ_INFO NACK: UwU2.txt
+[2026-03-04 15:55:46] [aafb026f] REQ_INFO NACK: xd.txt
+[2026-03-04 15:55:46] [00f39cbb] REQ_INFO AUTH: LinuxMAN-v1.1.txt -> 172.26.166.207
+[2026-03-04 15:55:46] [1ad60d08] REQ_INFO AUTH: llaneros.txt -> 172.26.166.207
+[2026-03-04 15:55:47] [14d0e0b4] REQ_INFO AUTH: Lorem Ipsum.txt -> 172.26.166.207
+[2026-03-04 15:55:47] [faaeffd6] REQ_INFO AUTH: Pando, Angelina del_Poesias.txt -> 172.26.166.207
+[2026-03-04 15:55:47] [0108537d] REQ_INFO AUTH: Trigo, Felipe_La campaña filipina.txt -> 172.26.166.207
+[2026-03-04 15:55:50] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-04 15:55:57] [7b81148d] REQ_INFO AUTH: manual.txt -> 172.26.161.173
+[2026-03-04 15:55:57] [0e9bfff1] REQ_INFO AUTH: LinuxMAN-v1.1.txt -> 172.26.166.23
+[2026-03-04 15:55:57] [2c66087c] REQ_INFO AUTH: llaneros.txt -> 172.26.166.23
+[2026-03-04 15:55:58] [844c51c6] REQ_INFO AUTH: Lorem Ipsum.txt -> 172.26.166.23
+[2026-03-04 15:55:59] [662e2689] REQ_INFO AUTH: Pando, Angelina del_Poesias.txt -> 172.26.166.23
+[2026-03-04 15:55:59] [2c586e37] REQ_INFO AUTH: Trigo, Felipe_La campaña filipina.txt -> 172.26.166.23
+[2026-03-04 15:55:59] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-04 15:56:17] [12e23d73] REQ_INFO NACK: UwU2.txt
+[2026-03-04 15:56:18] [05236111] REQ_INFO NACK: xd.txt
+[2026-03-04 15:56:20] [f5946a2b] REQ_INFO AUTH: LinuxMAN-v1.1.txt -> 172.26.166.207
+[2026-03-04 15:56:20] [ea315785] REQ_INFO AUTH: llaneros.txt -> 172.26.166.207
+[2026-03-04 15:56:20] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-04 15:56:21] [fdc7fec2] REQ_INFO AUTH: Lorem Ipsum.txt -> 172.26.166.207
+[2026-03-04 15:56:22] [8a3678f6] REQ_INFO AUTH: Pando, Angelina del_Poesias.txt -> 172.26.166.207
+[2026-03-04 15:56:23] [37bec464] REQ_INFO AUTH: Trigo, Felipe_La campaña filipina.txt -> 172.26.166.207
+[2026-03-04 15:56:27] [15ee1854] REQ_INFO AUTH: manual.txt -> 172.26.161.173
+[2026-03-04 15:56:30] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-04 15:56:31] [56ffcf09] REQ_INFO AUTH: LinuxMAN-v1.1.txt -> 172.26.166.23
+[2026-03-04 15:56:32] [d40fa9b2] REQ_INFO AUTH: llaneros.txt -> 172.26.166.23
+[2026-03-04 15:56:33] [787919d3] REQ_INFO AUTH: Lorem Ipsum.txt -> 172.26.166.23
+[2026-03-04 15:56:34] [9c8b8133] REQ_INFO AUTH: Pando, Angelina del_Poesias.txt -> 172.26.166.23
+[2026-03-04 15:56:34] [7de544dc] REQ_INFO AUTH: Trigo, Felipe_La campaña filipina.txt -> 172.26.166.23
+[2026-03-04 15:56:50] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-04 15:56:54] [70552466] REQ_INFO NACK: UwU2.txt
+[2026-03-04 15:56:55] [4c45c9a1] REQ_INFO NACK: xd.txt
+[2026-03-04 15:56:56] [1c94f802] REQ_INFO AUTH: LinuxMAN-v1.1.txt -> 172.26.166.207
+[2026-03-04 15:56:56] [5e99b7e7] REQ_INFO AUTH: llaneros.txt -> 172.26.166.207
+[2026-03-04 15:56:56] [c7601951] REQ_INFO AUTH: Lorem Ipsum.txt -> 172.26.166.207
+[2026-03-04 15:56:57] [3579de86] REQ_INFO AUTH: Pando, Angelina del_Poesias.txt -> 172.26.166.207
+[2026-03-04 15:56:57] [9f836026] REQ_INFO AUTH: Trigo, Felipe_La campaña filipina.txt -> 172.26.166.207
+[2026-03-04 15:56:57] [3ef4500e] REQ_INFO AUTH: manual.txt -> 172.26.161.173
+[2026-03-04 15:57:00] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-04 15:57:08] [0d8303a9] REQ_INFO AUTH: LinuxMAN-v1.1.txt -> 172.26.166.23
+[2026-03-04 15:57:08] [88b6296e] REQ_INFO AUTH: llaneros.txt -> 172.26.166.23
+[2026-03-04 15:57:10] [9c92f6ef] REQ_INFO AUTH: Lorem Ipsum.txt -> 172.26.166.23
+[2026-03-04 15:57:11] [c3297db3] REQ_INFO AUTH: Pando, Angelina del_Poesias.txt -> 172.26.166.23
+[2026-03-04 15:57:11] [14ca8875] REQ_INFO AUTH: Trigo, Felipe_La campaña filipina.txt -> 172.26.166.23
+[2026-03-04 15:57:20] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-04 15:57:25] [CLEANUP] FILE_UNLOCK: manual.txt desbloqueado por 172.26.160.188
+[2026-03-04 15:57:28] [38e8a13d] REQ_INFO AUTH: manual.txt -> 172.26.161.173
+[2026-03-04 15:57:29] [b90342a4] REQ_INFO NACK: UwU2.txt
+[2026-03-04 15:57:29] [4c5754ed] REQ_INFO NACK: xd.txt
+[2026-03-04 15:57:30] [c1d42604] REQ_INFO AUTH: LinuxMAN-v1.1.txt -> 172.26.166.207
+[2026-03-04 15:57:31] [b14d51f0] REQ_INFO AUTH: llaneros.txt -> 172.26.166.207
+[2026-03-04 15:57:31] [da0d554c] REQ_INFO AUTH: Lorem Ipsum.txt -> 172.26.166.207
+[2026-03-04 15:57:31] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-04 15:57:32] [9b56e307] REQ_INFO AUTH: Pando, Angelina del_Poesias.txt -> 172.26.166.207
+[2026-03-04 15:57:32] [ccd31a48] REQ_INFO AUTH: Trigo, Felipe_La campaña filipina.txt -> 172.26.166.207
+[2026-03-04 15:57:43] [186c98bf] REQ_INFO AUTH: LinuxMAN-v1.1.txt -> 172.26.166.23
+[2026-03-04 15:57:44] [18e0c848] REQ_INFO AUTH: llaneros.txt -> 172.26.166.23
+[2026-03-04 15:57:45] [9576d640] REQ_INFO AUTH: Lorem Ipsum.txt -> 172.26.166.23
+[2026-03-04 15:57:46] [51188ab4] REQ_INFO AUTH: Pando, Angelina del_Poesias.txt -> 172.26.166.23
+[2026-03-04 15:57:46] [d3aa474f] REQ_INFO AUTH: Trigo, Felipe_La campaña filipina.txt -> 172.26.166.23
+[2026-03-04 15:57:50] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-04 15:57:58] [7fcdfc34] REQ_INFO AUTH: manual.txt -> 172.26.161.173
+[2026-03-04 15:58:02] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-04 15:58:05] [bfbf5b93] REQ_INFO NACK: UwU2.txt
+[2026-03-04 15:58:05] [ed462038] REQ_INFO NACK: xd.txt
+[2026-03-04 15:58:06] [bf6cee1b] REQ_INFO AUTH: LinuxMAN-v1.1.txt -> 172.26.166.207
+[2026-03-04 15:58:06] [43dad91f] REQ_INFO AUTH: llaneros.txt -> 172.26.166.207
+[2026-03-04 15:58:07] [f0c09998] REQ_INFO AUTH: Lorem Ipsum.txt -> 172.26.166.207
+[2026-03-04 15:58:07] [3dd17d12] REQ_INFO AUTH: Pando, Angelina del_Poesias.txt -> 172.26.166.207
+[2026-03-04 15:58:07] [75eadddd] REQ_INFO AUTH: Trigo, Felipe_La campaña filipina.txt -> 172.26.166.207
+[2026-03-04 15:58:18] [1d4a5c3a] REQ_INFO AUTH: LinuxMAN-v1.1.txt -> 172.26.166.23
+[2026-03-04 15:58:19] [f4cd2297] REQ_INFO AUTH: llaneros.txt -> 172.26.166.23
+[2026-03-04 15:58:19] [3cbdefa9] REQ_INFO AUTH: Lorem Ipsum.txt -> 172.26.166.23
+[2026-03-04 15:58:20] [99111560] REQ_INFO AUTH: Pando, Angelina del_Poesias.txt -> 172.26.166.23
+[2026-03-04 15:58:20] [295af29b] REQ_INFO AUTH: Trigo, Felipe_La campaña filipina.txt -> 172.26.166.23
+[2026-03-04 15:58:20] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-04 15:58:28] [39182793] REQ_INFO AUTH: manual.txt -> 172.26.161.173
+[2026-03-04 15:58:34] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-04 15:58:39] [67558d72] REQ_INFO NACK: UwU2.txt
+[2026-03-04 15:58:39] [8165e0d5] REQ_INFO NACK: xd.txt
+[2026-03-04 15:58:39] [25d4339d] REQ_INFO AUTH: LinuxMAN-v1.1.txt -> 172.26.166.207
+[2026-03-04 15:58:39] [3939185f] REQ_INFO AUTH: llaneros.txt -> 172.26.166.207
+[2026-03-04 15:58:39] [dc727624] REQ_INFO AUTH: Lorem Ipsum.txt -> 172.26.166.207
+[2026-03-04 15:58:41] [ef38819c] REQ_INFO AUTH: Pando, Angelina del_Poesias.txt -> 172.26.166.207
+[2026-03-04 15:58:41] [df97c334] REQ_INFO AUTH: Trigo, Felipe_La campaña filipina.txt -> 172.26.166.207
+[2026-03-04 15:58:50] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-04 15:58:52] [f56b8c42] REQ_INFO AUTH: LinuxMAN-v1.1.txt -> 172.26.166.23
+[2026-03-04 15:58:53] [9ab554e9] REQ_INFO AUTH: llaneros.txt -> 172.26.166.23
+[2026-03-04 15:58:53] [d35b954a] REQ_INFO AUTH: Lorem Ipsum.txt -> 172.26.166.23
+[2026-03-04 15:58:57] [b0e1bf02] REQ_INFO AUTH: Pando, Angelina del_Poesias.txt -> 172.26.166.23
+[2026-03-04 15:58:57] [3cf2c1cd] REQ_INFO AUTH: Trigo, Felipe_La campaña filipina.txt -> 172.26.166.23
+[2026-03-04 15:58:58] [c4eb2fb7] REQ_INFO AUTH: manual.txt -> 172.26.161.173
+[2026-03-04 15:59:04] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-04 15:59:12] [5ad40097] REQ_INFO NACK: UwU2.txt
+[2026-03-04 15:59:13] [1ab6f73c] REQ_INFO NACK: xd.txt
+[2026-03-04 15:59:13] [1fdeb269] REQ_INFO AUTH: LinuxMAN-v1.1.txt -> 172.26.166.207
+[2026-03-04 15:59:14] [7c5cead1] REQ_INFO AUTH: llaneros.txt -> 172.26.166.207
+[2026-03-04 15:59:14] [8a198269] REQ_INFO AUTH: Lorem Ipsum.txt -> 172.26.166.207
+[2026-03-04 15:59:14] [56536110] REQ_INFO AUTH: Pando, Angelina del_Poesias.txt -> 172.26.166.207
+[2026-03-04 15:59:14] [77315357] REQ_INFO AUTH: Trigo, Felipe_La campaña filipina.txt -> 172.26.166.207
+[2026-03-04 15:59:20] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-04 15:59:28] [a4e54ca0] REQ_INFO AUTH: manual.txt -> 172.26.161.173
+[2026-03-04 15:59:29] [15cb6ef3] REQ_INFO AUTH: LinuxMAN-v1.1.txt -> 172.26.166.23
+[2026-03-04 15:59:29] [ce393fee] REQ_INFO AUTH: llaneros.txt -> 172.26.166.23
+[2026-03-04 15:59:30] [4f38af4c] REQ_INFO AUTH: Lorem Ipsum.txt -> 172.26.166.23
+[2026-03-04 15:59:30] [55a4eae4] REQ_INFO AUTH: Pando, Angelina del_Poesias.txt -> 172.26.166.23
+[2026-03-04 15:59:31] [dcda51f0] REQ_INFO AUTH: Trigo, Felipe_La campaña filipina.txt -> 172.26.166.23
+[2026-03-04 15:59:34] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-04 15:59:45] [d9658b1b] REQ_INFO NACK: UwU2.txt
+[2026-03-04 15:59:46] [270e1284] REQ_INFO NACK: xd.txt
+[2026-03-04 15:59:47] [5cd4cca7] REQ_INFO AUTH: LinuxMAN-v1.1.txt -> 172.26.166.207
+[2026-03-04 15:59:47] [c289d33f] REQ_INFO AUTH: llaneros.txt -> 172.26.166.207
+[2026-03-04 15:59:47] [3da6983f] REQ_INFO AUTH: Lorem Ipsum.txt -> 172.26.166.207
+[2026-03-04 15:59:48] [c3102e7c] REQ_INFO AUTH: Pando, Angelina del_Poesias.txt -> 172.26.166.207
+[2026-03-04 15:59:48] [a854aefb] REQ_INFO AUTH: Trigo, Felipe_La campaña filipina.txt -> 172.26.166.207
+[2026-03-04 15:59:50] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-04 16:05:04] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 12:44:04] [SYSTEM] Iniciando intercambio de claves con peers...
+[2026-03-16 12:44:04] [SYSTEM] Estado de cifrado: Fernet/AES activo
+[2026-03-16 12:44:04] [SYSTEM] Servidor activo en puerto 12000  IP=192.168.1.72  Cifrado=[Fernet/AES activo]
+[2026-03-16 12:44:04] [SYSTEM] Publicados 6 archivos (IP=192.168.1.72)
+[2026-03-16 12:44:34] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 12:44:34] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 12:45:04] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 12:45:04] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 12:45:34] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 12:45:34] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 12:46:04] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 12:46:04] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 12:46:34] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 12:46:34] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 12:47:04] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 12:47:04] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 12:47:34] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 12:47:34] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 12:48:04] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 12:48:04] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 12:48:34] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 12:48:34] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 12:49:04] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 12:49:04] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 12:49:34] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 12:49:34] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 12:50:04] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 12:50:04] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 12:50:34] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 12:50:34] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 12:51:04] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 12:51:04] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 12:51:34] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 12:51:34] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 12:52:04] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 12:52:04] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 12:52:34] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 12:52:34] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 12:53:04] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 12:53:04] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 12:53:34] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 12:53:34] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 12:54:04] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 12:54:04] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 12:54:34] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 12:54:34] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 13:57:56] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 13:57:58] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 18:24:00] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 18:24:02] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 20:41:38] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 20:41:39] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 20:42:08] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 20:42:09] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 20:42:38] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 20:42:39] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 20:43:08] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 20:43:09] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 20:43:38] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 20:43:39] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 20:44:08] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 20:44:09] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 20:44:38] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 20:44:39] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 20:45:08] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 20:45:09] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 20:45:38] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 20:45:39] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 20:46:08] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 20:46:09] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 20:46:38] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 20:46:39] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 20:47:08] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 20:47:09] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 20:47:38] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 20:47:39] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 20:48:08] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 20:48:09] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 20:48:38] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 20:48:39] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 20:49:08] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 20:49:09] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 20:49:38] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 20:49:39] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 20:50:08] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 20:50:09] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 20:50:38] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 20:50:39] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 20:51:08] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 20:51:09] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 20:51:38] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 20:51:39] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 20:52:08] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 20:52:09] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 20:52:38] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 20:52:39] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 20:53:08] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 20:53:09] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 20:53:38] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 20:53:39] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 20:54:08] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 20:54:09] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 20:54:38] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 20:54:39] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 20:55:08] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 20:55:09] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 20:55:38] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 20:55:39] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 20:56:08] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 20:56:09] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 20:56:38] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 20:56:39] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 20:57:08] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 20:57:09] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 20:57:38] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 20:57:39] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 20:58:08] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 20:58:09] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 20:58:38] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 20:58:39] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 20:59:08] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 20:59:09] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 20:59:38] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 20:59:39] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 21:00:08] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 21:00:09] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 21:00:38] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 21:00:39] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 21:01:08] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 21:01:09] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 21:01:38] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 21:01:39] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 21:02:08] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 21:02:09] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 21:02:38] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 21:02:39] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 21:03:08] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 21:03:09] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 21:03:38] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 21:03:39] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 21:04:08] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 21:04:09] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 21:04:38] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 21:04:39] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 21:05:08] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 21:05:09] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 21:05:38] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 21:05:39] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 21:06:08] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 21:06:09] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 21:06:38] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 21:06:39] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 21:07:08] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 21:07:09] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 21:07:38] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 21:07:39] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 21:08:08] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 21:08:09] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 21:08:38] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 21:08:39] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 21:09:08] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 21:09:09] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 21:09:38] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 21:09:39] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 21:10:08] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 21:10:09] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 21:10:38] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 21:10:39] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 21:11:08] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 21:11:09] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 21:11:38] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 21:11:39] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 21:12:08] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 21:12:09] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 21:12:38] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 21:12:39] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 21:13:08] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 21:13:09] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 21:13:38] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 21:13:39] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 21:14:08] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 21:14:09] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 21:14:38] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 21:14:39] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 21:15:08] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 21:15:09] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 21:15:38] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 21:15:39] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 21:16:08] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 21:16:09] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 21:16:38] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 21:16:39] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 21:17:08] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 21:17:09] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 21:17:38] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 21:17:39] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 21:18:08] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 21:18:09] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 21:18:38] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 21:18:39] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 21:19:08] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 21:19:09] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 21:19:38] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 21:19:39] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 21:20:08] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 21:20:09] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 21:20:38] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 21:20:39] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 21:21:08] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 21:21:09] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 21:21:38] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 21:21:40] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 21:22:08] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 21:22:10] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 21:22:38] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 21:22:40] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 21:23:08] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 21:23:10] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 21:23:38] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 21:23:40] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 21:24:08] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 21:24:10] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 21:24:38] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 21:24:40] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 21:25:08] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 21:25:10] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 21:25:38] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 21:25:40] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 21:26:08] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 21:26:10] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 21:26:38] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 21:26:40] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 21:27:08] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 21:27:10] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 21:27:38] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 21:27:40] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 21:28:08] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 21:28:10] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 21:28:38] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 21:28:40] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 21:29:08] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 21:29:10] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 21:29:38] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 21:29:40] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 21:30:08] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 21:30:10] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 21:30:38] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 21:30:40] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 21:31:08] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 21:31:10] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 21:31:38] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 21:31:40] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 21:32:08] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 21:32:10] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 21:32:38] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 21:32:40] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 21:33:08] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 21:33:10] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 21:33:38] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 21:33:40] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 21:34:08] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 21:34:10] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 21:34:38] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 21:34:40] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 21:35:08] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 21:35:10] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 21:35:38] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 21:35:40] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 21:36:08] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 21:36:10] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 21:36:38] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 21:36:40] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 21:37:08] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 21:37:10] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 21:37:38] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 21:37:40] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 21:38:08] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 21:38:10] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 21:38:38] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 21:38:40] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 21:39:08] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 21:39:10] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 21:39:38] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 21:39:40] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 21:40:08] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 21:40:10] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 21:40:38] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 21:40:40] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 21:41:09] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 21:41:10] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 21:41:39] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 21:41:40] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 21:42:09] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 21:42:10] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 21:42:39] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 21:42:40] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 21:43:09] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 21:43:10] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 21:43:39] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 21:43:40] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 21:44:09] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 21:44:10] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 21:44:39] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 21:44:40] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 21:45:09] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 21:45:10] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 21:45:39] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 21:45:40] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 21:46:09] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 21:46:10] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 21:46:39] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 21:46:40] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 21:47:09] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 21:47:10] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 21:47:39] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 21:47:40] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 21:48:09] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 21:48:10] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 21:48:39] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 21:48:40] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 21:49:09] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 21:49:10] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 21:49:39] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 21:49:40] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 21:50:09] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 21:50:10] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 21:50:39] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 21:50:40] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 21:51:09] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 21:51:10] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 21:51:39] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 21:51:40] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 21:52:09] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 21:52:10] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 21:52:39] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 21:52:40] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 21:53:09] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 21:53:10] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 21:53:39] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 21:53:40] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 21:54:09] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 21:54:10] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 21:54:39] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 21:54:40] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 21:55:09] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 21:55:10] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 21:55:39] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 21:55:40] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 21:56:09] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 21:56:10] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 21:56:39] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 21:56:40] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 21:57:09] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 21:57:10] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 21:57:39] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 21:57:40] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 21:58:09] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 21:58:10] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 21:58:39] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 21:58:40] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 21:59:09] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 21:59:10] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 21:59:39] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 21:59:40] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 22:00:09] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 22:00:10] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 22:00:39] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 22:00:40] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 22:01:09] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 22:01:10] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 22:01:39] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 22:01:40] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 22:02:09] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 22:02:10] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 22:02:39] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 22:02:40] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 22:03:09] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 22:03:10] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 22:03:39] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 22:03:40] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 22:04:09] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 22:04:10] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 22:04:39] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 22:04:40] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 22:05:09] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 22:05:10] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 22:05:39] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 22:05:40] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 22:06:09] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 22:06:10] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 22:06:39] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 22:06:40] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 22:07:09] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 22:07:10] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 22:07:39] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 22:07:40] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 22:08:09] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 22:08:10] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 22:08:39] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 22:08:40] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 22:09:09] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 22:09:10] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 22:09:39] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 22:09:40] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 22:10:09] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 22:10:10] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 22:10:39] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 22:10:40] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 22:11:09] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 22:11:10] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 22:11:39] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 22:11:40] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 22:12:09] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 22:12:10] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 22:12:39] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 22:12:40] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 22:13:09] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 22:13:10] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 22:13:39] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 22:13:40] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 22:14:09] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 22:14:10] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 22:14:39] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 22:14:40] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 22:15:09] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 22:15:10] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 22:15:39] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 22:15:40] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 22:16:09] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 22:16:10] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 22:16:39] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 22:16:40] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 22:17:09] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 22:17:10] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 22:17:39] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 22:17:40] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 22:18:09] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 22:18:10] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 22:18:39] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 22:18:40] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 22:19:09] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 22:19:10] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 22:19:39] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 22:19:40] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 22:20:09] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 22:20:10] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 22:20:39] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 22:20:40] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 22:21:09] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 22:21:10] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 22:21:39] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 22:21:40] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 22:22:09] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 22:22:10] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 22:22:39] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 22:22:40] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 22:23:09] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 22:23:10] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 22:23:39] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 22:23:40] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 22:24:09] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 22:24:10] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 22:24:39] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 22:24:40] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 22:25:09] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 22:25:10] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 22:25:39] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 22:25:40] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 22:26:09] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 22:26:10] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 22:26:39] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 22:26:40] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 22:27:09] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 22:27:10] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 22:27:39] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 22:27:40] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 22:28:09] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 22:28:10] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 22:28:39] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 22:28:40] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 22:29:09] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 22:29:10] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 22:29:39] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 22:29:40] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 22:30:09] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 22:30:10] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 22:30:39] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 22:30:40] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 22:31:09] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 22:31:10] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 22:31:39] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 22:31:40] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 22:32:09] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 22:32:10] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 22:32:39] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 22:32:40] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 22:33:09] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 22:33:10] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 22:33:39] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 22:33:40] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 22:34:09] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 22:34:10] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 22:34:39] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 22:34:40] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 22:35:09] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 22:35:10] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 22:35:39] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 22:35:40] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 22:36:09] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 22:36:10] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 22:36:39] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 22:36:40] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 22:37:09] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 22:37:10] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 22:37:39] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 22:37:40] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 22:38:09] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 22:38:10] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 22:38:39] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 22:38:40] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 22:39:09] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 22:39:10] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 22:39:39] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 22:39:40] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 22:40:09] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 22:40:10] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 22:40:39] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 22:40:40] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 22:41:09] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 22:41:10] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 22:41:39] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 22:41:40] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 22:42:09] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 22:42:10] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 22:42:39] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 22:42:40] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 22:43:09] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 22:43:10] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 22:43:39] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 22:43:40] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 22:44:09] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 22:44:10] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 22:44:39] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 22:44:40] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 22:45:09] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 22:45:10] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 22:45:39] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 22:45:40] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 22:46:09] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 22:46:10] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 22:46:39] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 22:46:40] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 22:47:09] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 22:47:10] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 22:47:39] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 22:47:40] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 22:48:09] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 22:48:10] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 22:48:39] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 22:48:40] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 22:49:09] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 22:49:10] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 22:49:39] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 22:49:40] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 22:50:09] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 22:50:11] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 22:50:39] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 22:50:41] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 22:51:09] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 22:51:11] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 22:51:39] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 22:51:41] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 22:52:09] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 22:52:11] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 22:52:39] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 22:52:41] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 22:53:09] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 22:53:11] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 22:53:39] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 22:53:41] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 22:54:09] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 22:54:11] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 22:54:39] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 22:54:41] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 22:55:09] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 22:55:11] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 22:55:39] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 22:55:41] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 22:56:09] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 22:56:11] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 22:56:39] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 22:56:41] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 22:57:09] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 22:57:11] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 22:57:39] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 22:57:41] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 22:58:09] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 22:58:11] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 22:58:39] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 22:58:41] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 22:59:09] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 22:59:11] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 22:59:39] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 22:59:41] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 23:00:09] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 23:00:11] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 23:00:39] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 23:00:41] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 23:01:09] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 23:01:11] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 23:01:39] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 23:01:41] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 23:02:09] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 23:02:11] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 23:02:39] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 23:02:41] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 23:03:09] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 23:03:11] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 23:03:39] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 23:03:41] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 23:04:09] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 23:04:11] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 23:04:39] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 23:04:41] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 23:05:09] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 23:05:11] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 23:05:39] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 23:05:41] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 23:06:09] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 23:06:11] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 23:06:39] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 23:06:41] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 23:07:09] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 23:07:11] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 23:07:39] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 23:07:41] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 23:08:09] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 23:08:11] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 23:08:39] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 23:08:41] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 23:09:09] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 23:09:11] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 23:09:39] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 23:09:41] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 23:10:09] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 23:10:11] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 23:10:39] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 23:10:41] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 23:11:09] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 23:11:11] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 23:11:39] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 23:11:41] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 23:12:09] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 23:12:11] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 23:12:39] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 23:12:41] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 23:13:09] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 23:13:11] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 23:13:39] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 23:13:41] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 23:14:09] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 23:14:11] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 23:14:39] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 23:14:41] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 23:15:09] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 23:15:11] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 23:15:39] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 23:15:41] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 23:16:09] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 23:16:11] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 23:16:39] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 23:16:41] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica
+[2026-03-16 23:17:09] [SYSTEM] === Verificacion TTL iniciada ===
+[2026-03-16 23:17:11] [SYSTEM] === Verificacion TTL iniciada === Sin cambios detectados, no se re-publica

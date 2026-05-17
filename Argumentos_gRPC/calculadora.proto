@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+/*
+Servicio gRPC que permite evaluar expresiones matemáticas
+estructuradas mediante num1, nums y operaciones.
+*/
+service CalculadoraService {
+  rpc EvaluarExpresion (ExpresionRequest) returns (ExpresionResponse);
+}
+
+message ExpresionRequest {
+  double num1 = 1;              // Primer número
+  repeated double nums = 2;     // Lista de números adicionales
+  repeated string operaciones = 3; // Lista de operadores
+}
+
+message ExpresionResponse {
+  double resultado = 1;
+  string error = 2;
+}
