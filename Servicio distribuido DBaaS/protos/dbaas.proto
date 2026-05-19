@@ -1,0 +1,238 @@
+syntax = "proto3";
+
+package dbaas;
+
+// ─────────────────────────────────────────────
+//  MENSAJES COMUNES
+// ─────────────────────────────────────────────
+
+// Respuesta genérica para operaciones que solo confirman éxito/error
+message StatusResponse {
+  bool   success = 1;
+  string message = 2;
+}
+
+// Representación Interna (IR) que produce el Translation Broker.
+// Todos los servicios core la reciben en este formato,
+// sin importar si el origen fue SQL o NoSQL.
+message IROperation {
+  string operation = 1;  // "insert" | "find" | "update" | "delete"
+                         // "create_db" | "drop_db" | "list_dbs"
+                         // "create_table" | "drop_table" | "list_tables"
+                         // "count" | "sum" | "avg" | "distinct" | "join"
+  string database  = 2;  // nombre de la base de datos destino
+  string table     = 3;  // nombre de la tabla o colección destino
+  string fields    = 4;  // JSON string: ["campo1","campo2"] o "*"
+  string filter    = 5;  // JSON string: {"edad":{"$gt":18}}
+  string data      = 6;  // JSON string: documento a insertar o actualizar
+  string options   = 7;  // JSON string: parámetros extra (limit, join_table, on…)
+  string role      = 8;  // rol del usuario, re-enviado para validación en cada MS
+  string user_id   = 9;  // id del usuario que originó la operación
+}
+
+
+// ─────────────────────────────────────────────
+//  MS3 — AUTH SERVICE
+// ─────────────────────────────────────────────
+
+service AuthService {
+  rpc Register      (RegisterRequest) returns (AuthResponse);
+  rpc Login         (LoginRequest)    returns (AuthResponse);
+  rpc ValidateToken (TokenRequest)    returns (TokenPayload);
+}
+
+message RegisterRequest {
+  string username = 1;
+  string password = 2;
+  string role     = 3;  // "admin" | "write" | "read"
+}
+
+message LoginRequest {
+  string username = 1;
+  string password = 2;
+}
+
+message AuthResponse {
+  bool   success = 1;
+  string token   = 2;  // JWT firmado, vacío si falló
+  string message = 3;
+}
+
+message TokenRequest {
+  string token = 1;
+}
+
+message TokenPayload {
+  bool   valid    = 1;
+  string user_id  = 2;
+  string username = 3;
+  string role     = 4;  // "admin" | "write" | "read"
+  string message  = 5;  // razón del fallo si valid=false
+}
+
+
+// ─────────────────────────────────────────────
+//  MS4 — ADMIN SERVICE
+// ─────────────────────────────────────────────
+
+service AdminService {
+  rpc CreateDatabase (DatabaseRequest)    returns (StatusResponse);
+  rpc DropDatabase   (DatabaseRequest)    returns (StatusResponse);
+  rpc ListDatabases  (ListDbRequest)      returns (ListDbResponse);
+  rpc CreateTable    (CreateTableRequest) returns (StatusResponse);
+  rpc DropTable      (TableRequest)       returns (StatusResponse);
+  rpc ListTables     (TableRequest)       returns (ListTablesResponse);
+}
+
+message DatabaseRequest {
+  string database = 1;
+  string role     = 2;
+  string user_id  = 3;
+}
+
+message ListDbRequest {
+  string role    = 1;
+  string user_id = 2;
+}
+
+message ListDbResponse {
+  bool            success   = 1;
+  repeated string databases = 2;
+}
+
+message CreateTableRequest {
+  string database = 1;
+  string table    = 2;
+  string mode     = 3;  // "table" | "collection"
+  string schema   = 4;  // JSON string con columnas y tipos, vacío si es colección
+  string role     = 5;
+  string user_id  = 6;
+}
+
+message TableRequest {
+  string database = 1;
+  string table    = 2;
+  string role     = 3;
+  string user_id  = 4;
+}
+
+message ListTablesResponse {
+  bool            success = 1;
+  repeated string tables  = 2;
+}
+
+
+// ─────────────────────────────────────────────
+//  MS5 — CRUD SERVICE
+// ─────────────────────────────────────────────
+
+service CrudService {
+  rpc Insert (IROperation) returns (CrudResponse);
+  rpc Find   (IROperation) returns (FindResponse);
+  rpc Update (IROperation) returns (CrudResponse);
+  rpc Delete (IROperation) returns (CrudResponse);
+}
+
+message CrudResponse {
+  bool   success       = 1;
+  string message       = 2;
+  int32  affected_rows = 3;
+}
+
+message FindResponse {
+  bool            success   = 1;
+  string          message   = 2;
+  repeated string documents = 3;  // cada string es un JSON del registro encontrado
+}
+
+
+// ─────────────────────────────────────────────
+//  MS6 — QUERY / AGGREGATION SERVICE
+// ─────────────────────────────────────────────
+
+service QueryService {
+  rpc Count    (IROperation) returns (ScalarResponse);
+  rpc Sum      (IROperation) returns (ScalarResponse);
+  rpc Avg      (IROperation) returns (ScalarResponse);
+  rpc Distinct (IROperation) returns (DistinctResponse);
+  rpc Join     (IROperation) returns (JoinResponse);
+}
+
+// COUNT, SUM, AVG devuelven un solo valor numérico
+message ScalarResponse {
+  bool   success = 1;
+  string message = 2;
+  double value   = 3;
+}
+
+// DISTINCT devuelve lista de valores únicos de un campo
+message DistinctResponse {
+  bool            success = 1;
+  string          message = 2;
+  repeated string values  = 3;
+}
+
+// INNER JOIN entre dos tablas
+// El campo options de IROperation lleva:
+// { "join_table": "tabla_b", "on": "tabla_a.id = tabla_b.user_id" }
+message JoinResponse {
+  bool            success   = 1;
+  string          message   = 2;
+  repeated string documents = 3;
+}
+
+
+// ─────────────────────────────────────────────
+//  MS2 — TRANSLATION BROKER
+//  El Gateway llama aquí. El broker parsea y enruta internamente.
+// ─────────────────────────────────────────────
+
+service BrokerService {
+  rpc Process (BrokerRequest) returns (BrokerResponse);
+}
+
+message BrokerRequest {
+  string interface = 1;  // "sql" | "nosql"
+  string payload   = 2;  // query SQL como string, o JSON serializado
+  string role      = 3;  // rol validado por el Gateway
+  string user_id   = 4;
+}
+
+message BrokerResponse {
+  bool   success = 1;
+  string message = 2;
+  string data    = 3;  // JSON string con el resultado completo
+}
+
+
+// ─────────────────────────────────────────────
+//  MS1 — API GATEWAY
+//  El cliente habla únicamente con este servicio.
+// ─────────────────────────────────────────────
+
+service GatewayService {
+  rpc Login    (LoginRequest)    returns (GatewayAuthResponse);
+  rpc Register (RegisterRequest) returns (GatewayAuthResponse);
+  rpc Execute  (ExecuteRequest)  returns (ExecuteResponse);
+}
+
+// El Gateway extiende AuthResponse añadiendo el rol decodificado del JWT
+message GatewayAuthResponse {
+  bool   success = 1;
+  string token   = 2;
+  string role    = 3;
+  string message = 4;
+}
+
+message ExecuteRequest {
+  string interface  = 1;  // "sql" | "nosql"
+  string payload    = 2;  // query SQL o JSON serializado
+  string active_db  = 3;  // base de datos activa, para inyectarla si falta en la query
+  string token      = 4;  // JWT del cliente
+}
+
+message ExecuteResponse {
+  bool   success = 1;
+  string message = 2;
+  string data    = 3;  // JSON string con el resultado completo
+}

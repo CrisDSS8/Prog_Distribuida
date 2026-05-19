@@ -1,0 +1,44 @@
+version: "3.9"
+
+services:
+
+  # ── MySQL ────────────────────────────────────────────────────────────────────
+  mysql:
+    image: mysql:8.0
+    container_name: dbaas-mysql
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:-dbaas1234}
+      MYSQL_DATABASE:      dbaas_auth          # solo crea esta DB inicial
+    ports:
+      - "3306:3306"                             # accesible desde los microservicios en localhost
+    volumes:
+      - mysql_data:/var/lib/mysql              # los datos persisten entre reinicios
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-uroot", "-p${MYSQL_ROOT_PASSWORD:-dbaas1234}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # ── RabbitMQ ─────────────────────────────────────────────────────────────────
+  rabbitmq:
+    image: rabbitmq:3.13-management          # incluye panel web en puerto 15672
+    container_name: dbaas-rabbitmq
+    restart: unless-stopped
+    environment:
+      RABBITMQ_DEFAULT_USER: ${RABBITMQ_USER:-admin}
+      RABBITMQ_DEFAULT_PASS: ${RABBITMQ_PASS:-admin1234}
+    ports:
+      - "5672:5672"                           # puerto AMQP para los microservicios
+      - "15672:15672"                         # panel web: http://localhost:15672
+    volumes:
+      - rabbitmq_data:/var/lib/rabbitmq
+    healthcheck:
+      test: ["CMD", "rabbitmq-diagnostics", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  mysql_data:
+  rabbitmq_data:
