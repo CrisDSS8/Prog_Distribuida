@@ -35,6 +35,12 @@ class BrokerService(dbaas_pb2_grpc.BrokerServiceServicer):
     def Process(self, request, context):
         try:
             ir = _parse(request.interface, request.payload)
+
+            # si el cliente tiene base de datos activa y la IR no tiene una,
+            # se la inyectamos aquí como campo separado, sin tocar el payload
+            if request.active_db and not ir.get("database"):
+                ir["database"] = request.active_db
+
             result = route(ir, request.role, request.user_id)
             return dbaas_pb2.BrokerResponse(
                 success=result.get("success", False),
