@@ -146,12 +146,10 @@ class GatewayServicer(dbaas_pb2_grpc.GatewayServiceServicer):
 
         # ── 4. Reenviar al broker ─────────────────────────────────────────────
         try:
-            # inyectar la base de datos activa en el payload SQL si falta
-            payload_final = _inject_db(request.interface, request.payload, request.active_db)
-
             r = self._broker_stub.Process(dbaas_pb2.BrokerRequest(
                 interface=request.interface,
-                payload=payload_final,
+                payload=request.payload,
+                active_db=request.active_db,   # viaja como campo separado
                 role=role,
                 user_id=user_id,
             ))
@@ -221,22 +219,6 @@ def _detect_drop(sql: str) -> str:
         return "drop_db"
     return "drop_table"
 
-
-def _inject_db(interface: str, payload: str, active_db: str) -> str:
-    """
-    Si el cliente tiene una base de datos activa (USE mi_db en SQL),
-    la inyecta en el payload para que el broker la tenga disponible.
-    Solo aplica a SQL, en NoSQL el campo 'db' ya viene en el mensaje.
-    """
-    if interface != "sql" or not active_db:
-        return payload
-
-    # Se agrega como prefijo especial que el broker inyecta en la IR
-    # Formato: "USE active_db;\n<query original>"
-    if not payload.strip().upper().startswith("USE "):
-        return f"USE {active_db};\n{payload}"
-
-    return payload
 
 
 def _publish_event(event: dict):
