@@ -196,6 +196,7 @@ message BrokerRequest {
   string payload   = 2;  // query SQL como string, o JSON serializado
   string role      = 3;  // rol validado por el Gateway
   string user_id   = 4;
+  string active_db  = 5;
 }
 
 message BrokerResponse {
