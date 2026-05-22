@@ -1,43 +1,179 @@
-version: "3.9"
+#version: "3.9"
+
+# -- Variables compartidas por todos los microservicios
+x-common-env: &common-env
+  DB_HOST: mysql
+  DB_PORT: 3306
+  DB_USER: root
+  DB_PASSWORD: ${MYSQL_ROOT_PASSWORD:-dbaas1234}
+  DB_NAME: dbaas_auth
+  RABBITMQ_HOST: rabbitmq
+  RABBITMQ_PORT: 5672
+  RABBITMQ_USER: ${RABBITMQ_USER:-admin}
+  RABBITMQ_PASS: ${RABBITMQ_PASS:-admin1234}
+  JWT_SECRET: ${JWT_SECRET:-5d5530b54849d40461d646ef0e56e4a68fa9d756fd960ffc6feff494b626f6e3}
+  JWT_EXP_HOURS: 24
+  AUTH_ADDR: ms-auth:50056
+  ADMIN_ADDR: ms-admin:50053
+  CRUD_ADDR: ms-crud:50054
+  QUERY_ADDR: ms-query:50055
+  BROKER_ADDR: ms-broker:50052
+
+x-build-common: &build-common
+  context: .
+  dockerfile: Dockerfile
 
 services:
 
-  # ── MySQL ────────────────────────────────────────────────────────────────────
+  # -- Infraestructura
+
   mysql:
     image: mysql:8.0
     container_name: dbaas-mysql
     restart: unless-stopped
     environment:
       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:-dbaas1234}
-      MYSQL_DATABASE:      dbaas_auth          # solo crea esta DB inicial
+      MYSQL_DATABASE: dbaas_auth
     ports:
-      - "3306:3306"                             # accesible desde los microservicios en localhost
+      - "3306:3306"
     volumes:
-      - mysql_data:/var/lib/mysql              # los datos persisten entre reinicios
+      - mysql_data:/var/lib/mysql
     healthcheck:
       test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-uroot", "-p${MYSQL_ROOT_PASSWORD:-dbaas1234}"]
       interval: 10s
       timeout: 5s
-      retries: 5
+      retries: 10
 
-  # ── RabbitMQ ─────────────────────────────────────────────────────────────────
   rabbitmq:
-    image: rabbitmq:3.13-management          # incluye panel web en puerto 15672
+    image: rabbitmq:3.13-management
     container_name: dbaas-rabbitmq
     restart: unless-stopped
     environment:
       RABBITMQ_DEFAULT_USER: ${RABBITMQ_USER:-admin}
       RABBITMQ_DEFAULT_PASS: ${RABBITMQ_PASS:-admin1234}
     ports:
-      - "5672:5672"                           # puerto AMQP para los microservicios
-      - "15672:15672"                         # panel web: http://localhost:15672
+      - "5673:5672"
+      - "15673:15672"
     volumes:
       - rabbitmq_data:/var/lib/rabbitmq
     healthcheck:
       test: ["CMD", "rabbitmq-diagnostics", "ping"]
       interval: 10s
       timeout: 5s
-      retries: 5
+      retries: 10
+      start_period: 30s
+
+  # -- Microservicios 
+  ms-auth:
+    build:
+      <<: *build-common
+      args:
+        SERVICE: ms-auth
+    container_name: dbaas-auth
+    restart: unless-stopped
+    command: python ms-auth/auth_server.py
+    environment:
+      <<: *common-env
+      AUTH_PORT: 50056
+    depends_on:
+      mysql:
+        condition: service_healthy
+
+  ms-admin:
+    build:
+      <<: *build-common
+      args:
+        SERVICE: ms-admin
+    container_name: dbaas-admin
+    restart: unless-stopped
+    command: python ms-admin/admin_server.py
+    environment:
+      <<: *common-env
+      ADMIN_PORT: 50053
+    depends_on:
+      mysql:
+        condition: service_healthy
+
+  ms-crud:
+    build:
+      <<: *build-common
+      args:
+        SERVICE: ms-crud
+    container_name: dbaas-crud
+    restart: unless-stopped
+    command: python ms-crud/crud_server.py
+    environment:
+      <<: *common-env
+      CRUD_PORT: 50054
+    depends_on:
+      mysql:
+        condition: service_healthy
+
+  ms-query:
+    build:
+      <<: *build-common
+      args:
+        SERVICE: ms-query
+    container_name: dbaas-query
+    restart: unless-stopped
+    command: python ms-query/query_server.py
+    environment:
+      <<: *common-env
+      QUERY_PORT: 50055
+      MPI_WORKERS: 4
+    depends_on:
+      mysql:
+        condition: service_healthy
+
+  ms-broker:
+    build:
+      <<: *build-common
+      args:
+        SERVICE: ms-broker
+    container_name: dbaas-broker
+    restart: unless-stopped
+    command: python ms-broker/broker_server.py
+    environment:
+      <<: *common-env
+      BROKER_PORT: 50052
+    depends_on:
+      - ms-auth
+      - ms-admin
+      - ms-crud
+      - ms-query
+
+  ms-gateway:
+    build:
+      <<: *build-common
+      args:
+        SERVICE: ms-gateway
+    container_name: dbaas-gateway
+    restart: unless-stopped
+    command: python ms-gateway/gateway_server.py
+    environment:
+      <<: *common-env
+      GATEWAY_PORT: 50051
+    ports:
+      - "50051:50051"        # único puerto expuesto al exterior
+    depends_on:
+      - ms-broker
+      - ms-auth
+
+  ms-audit:
+    build:
+      <<: *build-common
+      args:
+        SERVICE: ms-audit
+    container_name: dbaas-audit
+    restart: unless-stopped
+    command: python ms-audit/audit_consumer.py
+    environment:
+      <<: *common-env
+    depends_on:
+      rabbitmq:
+        condition: service_healthy
+      mysql:
+        condition: service_healthy
 
 volumes:
   mysql_data:
