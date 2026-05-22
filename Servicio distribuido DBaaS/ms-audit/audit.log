@@ -1,169 +1,148 @@
-2026-05-19 17:09:06,029 [audit] no se pudo crear audit_log: 1045 (28000): Access denied for user 'root'@'172.21.0.1' (using password: NO)
-2026-05-19 17:13:36,134 [audit] tabla audit_log lista
-2026-05-19 17:13:36,155 [audit] Pika version 1.4.0 connecting to ('::1', 5672, 0, 0)
-2026-05-19 17:13:36,158 [audit] Socket connected: <socket.socket fd=864, family=23, type=1, proto=6, laddr=('::1', 54592, 0, 0), raddr=('::1', 5672, 0, 0)>
-2026-05-19 17:13:36,160 [audit] Streaming transport linked up: (<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x0000013A1901E510>, _StreamingProtocolShim: <SelectConnection PROTOCOL transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x0000013A1901E510> params=<ConnectionParameters host=localhost port=5672 virtual_host=/ ssl=False>>).
-2026-05-19 17:13:36,375 [audit] AMQPConnector - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x0000013A1901E510> params=<ConnectionParameters host=localhost port=5672 virtual_host=/ ssl=False>>
-2026-05-19 17:13:36,376 [audit] AMQPConnectionWorkflow - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x0000013A1901E510> params=<ConnectionParameters host=localhost port=5672 virtual_host=/ ssl=False>>
-2026-05-19 17:13:36,376 [audit] Connection workflow succeeded: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x0000013A1901E510> params=<ConnectionParameters host=localhost port=5672 virtual_host=/ ssl=False>>
-2026-05-19 17:13:36,376 [audit] conectado a RabbitMQ en localhost:5672
-2026-05-19 17:13:36,377 [audit] Created channel=1
-2026-05-19 17:13:36,777 [audit] escuchando cola 'dbaas.audit' — esperando eventos...
-2026-05-19 17:19:53,075 [audit] op=list_dbs | user=94c8b18c-719e-45c9-a3ae-149a35fcd88d | role=admin | interface=nosql | success=False
-2026-05-19 17:20:45,622 [audit] op=list_dbs | user=94c8b18c-719e-45c9-a3ae-149a35fcd88d | role=admin | interface=nosql | success=False
-2026-05-19 17:21:02,812 [audit] op=drop_db | user=94c8b18c-719e-45c9-a3ae-149a35fcd88d | role=admin | interface=nosql | success=False
-2026-05-19 17:25:58,385 [audit] op=create_db | user=94c8b18c-719e-45c9-a3ae-149a35fcd88d | role=admin | interface=nosql | success=False
-2026-05-19 17:29:46,615 [audit] consumidor detenido
-2026-05-19 17:29:46,693 [audit] Closing connection (200): Normal shutdown
-2026-05-19 17:29:46,697 [audit] Closing channel (200): 'Normal shutdown' on <Channel number=1 OPEN conn=<SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x0000013A1901E510> params=<ConnectionParameters host=localhost port=5672 virtual_host=/ ssl=False>>>
-2026-05-19 17:29:46,708 [audit] Received <Channel.CloseOk> on <Channel number=1 CLOSING conn=<SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x0000013A1901E510> params=<ConnectionParameters host=localhost port=5672 virtual_host=/ ssl=False>>>
-2026-05-19 17:29:46,711 [audit] Closing connection (200): 'Normal shutdown'
-2026-05-19 17:29:46,717 [audit] Aborting transport connection: state=1; <socket.socket fd=864, family=23, type=1, proto=6, laddr=('::1', 54592, 0, 0), raddr=('::1', 5672, 0, 0)>
-2026-05-19 17:29:46,725 [audit] _AsyncTransportBase._initate_abort(): Initiating abrupt asynchronous transport shutdown: state=1; error=None; <socket.socket fd=864, family=23, type=1, proto=6, laddr=('::1', 54592, 0, 0), raddr=('::1', 5672, 0, 0)>
-2026-05-19 17:29:46,727 [audit] Deactivating transport: state=1; <socket.socket fd=864, family=23, type=1, proto=6, laddr=('::1', 54592, 0, 0), raddr=('::1', 5672, 0, 0)>
-2026-05-19 17:29:46,732 [audit] AMQP stack terminated, failed to connect, or aborted: opened=True, error-arg=None; pending-error=ConnectionClosedByClient: (200) 'Normal shutdown'
-2026-05-19 17:29:46,733 [audit] Stack terminated due to ConnectionClosedByClient: (200) 'Normal shutdown'
-2026-05-19 17:29:46,743 [audit] Closing transport socket and unlinking: state=3; <socket.socket fd=864, family=23, type=1, proto=6, laddr=('::1', 54592, 0, 0), raddr=('::1', 5672, 0, 0)>
-2026-05-19 17:29:46,744 [audit] User-initiated close: result=BlockingConnection__OnClosedArgs(connection=<SelectConnection CLOSED transport=None params=<ConnectionParameters host=localhost port=5672 virtual_host=/ ssl=False>>, error=ConnectionClosedByClient: (200) 'Normal shutdown')
-2026-05-19 17:33:43,557 [audit] tabla audit_log lista
-2026-05-19 17:33:43,569 [audit] Pika version 1.4.0 connecting to ('::1', 5672, 0, 0)
-2026-05-19 17:33:43,572 [audit] Socket connected: <socket.socket fd=312, family=23, type=1, proto=6, laddr=('::1', 61962, 0, 0), raddr=('::1', 5672, 0, 0)>
-2026-05-19 17:33:43,575 [audit] Streaming transport linked up: (<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x000001F0AFF7E510>, _StreamingProtocolShim: <SelectConnection PROTOCOL transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x000001F0AFF7E510> params=<ConnectionParameters host=localhost port=5672 virtual_host=/ ssl=False>>).
-2026-05-19 17:33:43,749 [audit] AMQPConnector - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x000001F0AFF7E510> params=<ConnectionParameters host=localhost port=5672 virtual_host=/ ssl=False>>
-2026-05-19 17:33:43,750 [audit] AMQPConnectionWorkflow - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x000001F0AFF7E510> params=<ConnectionParameters host=localhost port=5672 virtual_host=/ ssl=False>>
-2026-05-19 17:33:43,750 [audit] Connection workflow succeeded: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x000001F0AFF7E510> params=<ConnectionParameters host=localhost port=5672 virtual_host=/ ssl=False>>
-2026-05-19 17:33:43,751 [audit] conectado a RabbitMQ en localhost:5672
-2026-05-19 17:33:43,751 [audit] Created channel=1
-2026-05-19 17:33:43,798 [audit] escuchando cola 'dbaas.audit' — esperando eventos...
-2026-05-19 17:33:48,813 [audit] consumidor detenido
-2026-05-19 17:33:48,822 [audit] Closing connection (200): Normal shutdown
-2026-05-19 17:33:48,823 [audit] Closing channel (200): 'Normal shutdown' on <Channel number=1 OPEN conn=<SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x000001F0AFF7E510> params=<ConnectionParameters host=localhost port=5672 virtual_host=/ ssl=False>>>
-2026-05-19 17:33:48,827 [audit] Received <Channel.CloseOk> on <Channel number=1 CLOSING conn=<SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x000001F0AFF7E510> params=<ConnectionParameters host=localhost port=5672 virtual_host=/ ssl=False>>>
-2026-05-19 17:33:48,829 [audit] Closing connection (200): 'Normal shutdown'
-2026-05-19 17:33:48,832 [audit] Aborting transport connection: state=1; <socket.socket fd=312, family=23, type=1, proto=6, laddr=('::1', 61962, 0, 0), raddr=('::1', 5672, 0, 0)>
-2026-05-19 17:33:48,833 [audit] _AsyncTransportBase._initate_abort(): Initiating abrupt asynchronous transport shutdown: state=1; error=None; <socket.socket fd=312, family=23, type=1, proto=6, laddr=('::1', 61962, 0, 0), raddr=('::1', 5672, 0, 0)>
-2026-05-19 17:33:48,833 [audit] Deactivating transport: state=1; <socket.socket fd=312, family=23, type=1, proto=6, laddr=('::1', 61962, 0, 0), raddr=('::1', 5672, 0, 0)>
-2026-05-19 17:33:48,834 [audit] AMQP stack terminated, failed to connect, or aborted: opened=True, error-arg=None; pending-error=ConnectionClosedByClient: (200) 'Normal shutdown'
-2026-05-19 17:33:48,834 [audit] Stack terminated due to ConnectionClosedByClient: (200) 'Normal shutdown'
-2026-05-19 17:33:48,835 [audit] Closing transport socket and unlinking: state=3; <socket.socket fd=312, family=23, type=1, proto=6, laddr=('::1', 61962, 0, 0), raddr=('::1', 5672, 0, 0)>
-2026-05-19 17:33:48,836 [audit] User-initiated close: result=BlockingConnection__OnClosedArgs(connection=<SelectConnection CLOSED transport=None params=<ConnectionParameters host=localhost port=5672 virtual_host=/ ssl=False>>, error=ConnectionClosedByClient: (200) 'Normal shutdown')
-2026-05-19 17:35:06,765 [audit] tabla audit_log lista
-2026-05-19 17:35:06,792 [audit] Pika version 1.4.0 connecting to ('::1', 5672, 0, 0)
-2026-05-19 17:35:06,801 [audit] Socket connected: <socket.socket fd=968, family=23, type=1, proto=6, laddr=('::1', 63329, 0, 0), raddr=('::1', 5672, 0, 0)>
-2026-05-19 17:35:06,807 [audit] Streaming transport linked up: (<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x000001701EB2E510>, _StreamingProtocolShim: <SelectConnection PROTOCOL transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x000001701EB2E510> params=<ConnectionParameters host=localhost port=5672 virtual_host=/ ssl=False>>).
-2026-05-19 17:35:06,939 [audit] AMQPConnector - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x000001701EB2E510> params=<ConnectionParameters host=localhost port=5672 virtual_host=/ ssl=False>>
-2026-05-19 17:35:06,941 [audit] AMQPConnectionWorkflow - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x000001701EB2E510> params=<ConnectionParameters host=localhost port=5672 virtual_host=/ ssl=False>>
-2026-05-19 17:35:06,943 [audit] Connection workflow succeeded: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x000001701EB2E510> params=<ConnectionParameters host=localhost port=5672 virtual_host=/ ssl=False>>
-2026-05-19 17:35:06,944 [audit] conectado a RabbitMQ en localhost:5672
-2026-05-19 17:35:06,948 [audit] Created channel=1
-2026-05-19 17:35:07,002 [audit] escuchando cola 'dbaas.audit' — esperando eventos...
-2026-05-19 17:37:15,651 [audit] op=list_dbs | user=94c8b18c-719e-45c9-a3ae-149a35fcd88d | role=admin | interface=nosql | success=True
-2026-05-19 17:37:42,932 [audit] op=drop_db | user=94c8b18c-719e-45c9-a3ae-149a35fcd88d | role=admin | interface=nosql | success=True
-2026-05-19 17:38:12,613 [audit] op=create_db | user=94c8b18c-719e-45c9-a3ae-149a35fcd88d | role=admin | interface=nosql | success=True
-2026-05-19 17:38:19,622 [audit] op=list_dbs | user=94c8b18c-719e-45c9-a3ae-149a35fcd88d | role=admin | interface=nosql | success=True
-2026-05-19 17:39:00,820 [audit] op=drop_db | user=94c8b18c-719e-45c9-a3ae-149a35fcd88d | role=admin | interface=nosql | success=True
-2026-05-19 17:39:04,462 [audit] op=list_dbs | user=94c8b18c-719e-45c9-a3ae-149a35fcd88d | role=admin | interface=nosql | success=True
-2026-05-19 17:39:20,416 [audit] op=create_db | user=94c8b18c-719e-45c9-a3ae-149a35fcd88d | role=admin | interface=nosql | success=True
-2026-05-19 17:39:22,293 [audit] op=list_dbs | user=94c8b18c-719e-45c9-a3ae-149a35fcd88d | role=admin | interface=nosql | success=True
-2026-05-19 17:39:51,923 [audit] op=list_tables | user=94c8b18c-719e-45c9-a3ae-149a35fcd88d | role=admin | interface=nosql | success=True
-2026-05-19 17:40:07,809 [audit] op=drop_table | user=94c8b18c-719e-45c9-a3ae-149a35fcd88d | role=admin | interface=nosql | success=True
-2026-05-19 17:40:30,347 [audit] op=create_table | user=94c8b18c-719e-45c9-a3ae-149a35fcd88d | role=admin | interface=nosql | success=True
-2026-05-19 17:42:33,390 [audit] op=list_tables | user=94c8b18c-719e-45c9-a3ae-149a35fcd88d | role=admin | interface=nosql | success=True
-2026-05-19 17:42:48,066 [audit] op=drop_table | user=94c8b18c-719e-45c9-a3ae-149a35fcd88d | role=admin | interface=nosql | success=True
-2026-05-19 17:42:51,854 [audit] op=list_tables | user=94c8b18c-719e-45c9-a3ae-149a35fcd88d | role=admin | interface=nosql | success=True
-2026-05-19 17:43:03,705 [audit] op=create_table | user=94c8b18c-719e-45c9-a3ae-149a35fcd88d | role=admin | interface=nosql | success=True
-2026-05-19 17:43:06,173 [audit] op=list_tables | user=94c8b18c-719e-45c9-a3ae-149a35fcd88d | role=admin | interface=nosql | success=True
-2026-05-19 17:44:20,507 [audit] op=find | user=94c8b18c-719e-45c9-a3ae-149a35fcd88d | role=admin | interface=nosql | success=False
-2026-05-19 17:54:32,637 [audit] op=create_table | user=94c8b18c-719e-45c9-a3ae-149a35fcd88d | role=admin | interface=nosql | success=True
-2026-05-19 18:01:42,895 [audit] op=insert | user=94c8b18c-719e-45c9-a3ae-149a35fcd88d | role=admin | interface=nosql | success=False
-2026-05-19 18:03:57,473 [audit] consumidor detenido
-2026-05-19 18:03:57,571 [audit] Closing connection (200): Normal shutdown
-2026-05-19 18:03:57,581 [audit] Closing channel (200): 'Normal shutdown' on <Channel number=1 OPEN conn=<SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x000001701EB2E510> params=<ConnectionParameters host=localhost port=5672 virtual_host=/ ssl=False>>>
-2026-05-19 18:03:57,624 [audit] Received <Channel.CloseOk> on <Channel number=1 CLOSING conn=<SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x000001701EB2E510> params=<ConnectionParameters host=localhost port=5672 virtual_host=/ ssl=False>>>
-2026-05-19 18:03:57,637 [audit] Closing connection (200): 'Normal shutdown'
-2026-05-19 18:03:57,683 [audit] Aborting transport connection: state=1; <socket.socket fd=968, family=23, type=1, proto=6, laddr=('::1', 63329, 0, 0), raddr=('::1', 5672, 0, 0)>
-2026-05-19 18:03:57,703 [audit] _AsyncTransportBase._initate_abort(): Initiating abrupt asynchronous transport shutdown: state=1; error=None; <socket.socket fd=968, family=23, type=1, proto=6, laddr=('::1', 63329, 0, 0), raddr=('::1', 5672, 0, 0)>
-2026-05-19 18:03:57,707 [audit] Deactivating transport: state=1; <socket.socket fd=968, family=23, type=1, proto=6, laddr=('::1', 63329, 0, 0), raddr=('::1', 5672, 0, 0)>
-2026-05-19 18:03:57,726 [audit] AMQP stack terminated, failed to connect, or aborted: opened=True, error-arg=None; pending-error=ConnectionClosedByClient: (200) 'Normal shutdown'
-2026-05-19 18:03:57,729 [audit] Stack terminated due to ConnectionClosedByClient: (200) 'Normal shutdown'
-2026-05-19 18:03:57,748 [audit] Closing transport socket and unlinking: state=3; <socket.socket fd=968, family=23, type=1, proto=6, laddr=('::1', 63329, 0, 0), raddr=('::1', 5672, 0, 0)>
-2026-05-19 18:03:57,769 [audit] User-initiated close: result=BlockingConnection__OnClosedArgs(connection=<SelectConnection CLOSED transport=None params=<ConnectionParameters host=localhost port=5672 virtual_host=/ ssl=False>>, error=ConnectionClosedByClient: (200) 'Normal shutdown')
-2026-05-19 18:07:13,687 [audit] tabla audit_log lista
-2026-05-19 18:07:13,694 [audit] Pika version 1.4.0 connecting to ('::1', 5672, 0, 0)
-2026-05-19 18:07:13,697 [audit] Socket connected: <socket.socket fd=852, family=23, type=1, proto=6, laddr=('::1', 64257, 0, 0), raddr=('::1', 5672, 0, 0)>
-2026-05-19 18:07:13,699 [audit] Streaming transport linked up: (<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x0000022EC5DDE510>, _StreamingProtocolShim: <SelectConnection PROTOCOL transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x0000022EC5DDE510> params=<ConnectionParameters host=localhost port=5672 virtual_host=/ ssl=False>>).
-2026-05-19 18:07:13,818 [audit] AMQPConnector - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x0000022EC5DDE510> params=<ConnectionParameters host=localhost port=5672 virtual_host=/ ssl=False>>
-2026-05-19 18:07:13,819 [audit] AMQPConnectionWorkflow - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x0000022EC5DDE510> params=<ConnectionParameters host=localhost port=5672 virtual_host=/ ssl=False>>
-2026-05-19 18:07:13,821 [audit] Connection workflow succeeded: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x0000022EC5DDE510> params=<ConnectionParameters host=localhost port=5672 virtual_host=/ ssl=False>>
-2026-05-19 18:07:13,823 [audit] conectado a RabbitMQ en localhost:5672
-2026-05-19 18:07:13,823 [audit] Created channel=1
-2026-05-19 18:07:13,871 [audit] escuchando cola 'dbaas.audit' — esperando eventos...
-2026-05-19 18:07:33,528 [audit] op=list_dbs | user=94c8b18c-719e-45c9-a3ae-149a35fcd88d | role=admin | interface=nosql | success=True
-2026-05-19 18:09:04,578 [audit] op=list_tables | user=94c8b18c-719e-45c9-a3ae-149a35fcd88d | role=admin | interface=nosql | success=True
-2026-05-19 18:10:30,256 [audit] op=insert | user=94c8b18c-719e-45c9-a3ae-149a35fcd88d | role=admin | interface=nosql | success=True
-2026-05-19 18:13:08,844 [audit] op=find | user=94c8b18c-719e-45c9-a3ae-149a35fcd88d | role=admin | interface=nosql | success=True
-2026-05-19 18:14:28,845 [audit] op=find | user=94c8b18c-719e-45c9-a3ae-149a35fcd88d | role=admin | interface=nosql | success=False
-2026-05-19 18:15:37,189 [audit] op=find | user=94c8b18c-719e-45c9-a3ae-149a35fcd88d | role=admin | interface=nosql | success=True
-2026-05-19 18:16:18,579 [audit] op=find | user=94c8b18c-719e-45c9-a3ae-149a35fcd88d | role=admin | interface=nosql | success=True
-2026-05-19 18:16:44,100 [audit] op=find | user=94c8b18c-719e-45c9-a3ae-149a35fcd88d | role=admin | interface=nosql | success=True
-2026-05-19 18:17:18,567 [audit] op=find | user=94c8b18c-719e-45c9-a3ae-149a35fcd88d | role=admin | interface=nosql | success=True
-2026-05-19 18:17:35,388 [audit] op=find | user=94c8b18c-719e-45c9-a3ae-149a35fcd88d | role=admin | interface=nosql | success=True
-2026-05-19 18:23:15,711 [audit] op=update | user=94c8b18c-719e-45c9-a3ae-149a35fcd88d | role=admin | interface=nosql | success=True
-2026-05-19 18:23:28,556 [audit] op=find | user=94c8b18c-719e-45c9-a3ae-149a35fcd88d | role=admin | interface=nosql | success=True
-2026-05-19 18:23:37,082 [audit] op=find | user=94c8b18c-719e-45c9-a3ae-149a35fcd88d | role=admin | interface=nosql | success=True
-2026-05-19 18:29:34,920 [audit] op=avg | user=94c8b18c-719e-45c9-a3ae-149a35fcd88d | role=admin | interface=nosql | success=False
-2026-05-19 18:34:43,601 [audit] consumidor detenido
-2026-05-19 18:34:43,644 [audit] Closing connection (200): Normal shutdown
-2026-05-19 18:34:43,646 [audit] Closing channel (200): 'Normal shutdown' on <Channel number=1 OPEN conn=<SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x0000022EC5DDE510> params=<ConnectionParameters host=localhost port=5672 virtual_host=/ ssl=False>>>
-2026-05-19 18:34:43,654 [audit] Received <Channel.CloseOk> on <Channel number=1 CLOSING conn=<SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x0000022EC5DDE510> params=<ConnectionParameters host=localhost port=5672 virtual_host=/ ssl=False>>>
-2026-05-19 18:34:43,658 [audit] Closing connection (200): 'Normal shutdown'
-2026-05-19 18:34:43,662 [audit] Aborting transport connection: state=1; <socket.socket fd=852, family=23, type=1, proto=6, laddr=('::1', 64257, 0, 0), raddr=('::1', 5672, 0, 0)>
-2026-05-19 18:34:43,666 [audit] _AsyncTransportBase._initate_abort(): Initiating abrupt asynchronous transport shutdown: state=1; error=None; <socket.socket fd=852, family=23, type=1, proto=6, laddr=('::1', 64257, 0, 0), raddr=('::1', 5672, 0, 0)>
-2026-05-19 18:34:43,667 [audit] Deactivating transport: state=1; <socket.socket fd=852, family=23, type=1, proto=6, laddr=('::1', 64257, 0, 0), raddr=('::1', 5672, 0, 0)>
-2026-05-19 18:34:43,671 [audit] AMQP stack terminated, failed to connect, or aborted: opened=True, error-arg=None; pending-error=ConnectionClosedByClient: (200) 'Normal shutdown'
-2026-05-19 18:34:43,671 [audit] Stack terminated due to ConnectionClosedByClient: (200) 'Normal shutdown'
-2026-05-19 18:34:43,676 [audit] Closing transport socket and unlinking: state=3; <socket.socket fd=852, family=23, type=1, proto=6, laddr=('::1', 64257, 0, 0), raddr=('::1', 5672, 0, 0)>
-2026-05-19 18:34:43,676 [audit] User-initiated close: result=BlockingConnection__OnClosedArgs(connection=<SelectConnection CLOSED transport=None params=<ConnectionParameters host=localhost port=5672 virtual_host=/ ssl=False>>, error=ConnectionClosedByClient: (200) 'Normal shutdown')
-2026-05-19 18:35:19,956 [audit] tabla audit_log lista
-2026-05-19 18:35:19,961 [audit] Pika version 1.4.0 connecting to ('::1', 5672, 0, 0)
-2026-05-19 18:35:19,964 [audit] Socket connected: <socket.socket fd=884, family=23, type=1, proto=6, laddr=('::1', 55941, 0, 0), raddr=('::1', 5672, 0, 0)>
-2026-05-19 18:35:19,969 [audit] Streaming transport linked up: (<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x000002040ADBE510>, _StreamingProtocolShim: <SelectConnection PROTOCOL transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x000002040ADBE510> params=<ConnectionParameters host=localhost port=5672 virtual_host=/ ssl=False>>).
-2026-05-19 18:35:20,054 [audit] AMQPConnector - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x000002040ADBE510> params=<ConnectionParameters host=localhost port=5672 virtual_host=/ ssl=False>>
-2026-05-19 18:35:20,054 [audit] AMQPConnectionWorkflow - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x000002040ADBE510> params=<ConnectionParameters host=localhost port=5672 virtual_host=/ ssl=False>>
-2026-05-19 18:35:20,055 [audit] Connection workflow succeeded: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x000002040ADBE510> params=<ConnectionParameters host=localhost port=5672 virtual_host=/ ssl=False>>
-2026-05-19 18:35:20,055 [audit] conectado a RabbitMQ en localhost:5672
-2026-05-19 18:35:20,055 [audit] Created channel=1
-2026-05-19 18:35:20,067 [audit] escuchando cola 'dbaas.audit' — esperando eventos...
-2026-05-19 18:35:38,945 [audit] op=list_dbs | user=94c8b18c-719e-45c9-a3ae-149a35fcd88d | role=admin | interface=nosql | success=True
-2026-05-19 18:36:11,920 [audit] op=list_tables | user=94c8b18c-719e-45c9-a3ae-149a35fcd88d | role=admin | interface=nosql | success=True
-2026-05-19 18:36:31,693 [audit] op=avg | user=94c8b18c-719e-45c9-a3ae-149a35fcd88d | role=admin | interface=nosql | success=True
-2026-05-19 18:57:52,791 [audit] op=list_dbs | user=94c8b18c-719e-45c9-a3ae-149a35fcd88d | role=admin | interface=sql | success=True
-2026-05-19 18:58:21,144 [audit] op=find | user=94c8b18c-719e-45c9-a3ae-149a35fcd88d | role=admin | interface=sql | success=False
-2026-05-19 18:58:51,613 [audit] op=find | user=94c8b18c-719e-45c9-a3ae-149a35fcd88d | role=admin | interface=sql | success=False
-2026-05-19 18:59:33,296 [audit] op=find | user=94c8b18c-719e-45c9-a3ae-149a35fcd88d | role=admin | interface=sql | success=False
-2026-05-19 18:59:57,225 [audit] op=find | user=94c8b18c-719e-45c9-a3ae-149a35fcd88d | role=admin | interface=sql | success=False
-2026-05-19 19:00:03,140 [audit] op=list_dbs | user=94c8b18c-719e-45c9-a3ae-149a35fcd88d | role=admin | interface=sql | success=False
-2026-05-19 19:01:38,781 [audit] op=list_dbs | user=94c8b18c-719e-45c9-a3ae-149a35fcd88d | role=admin | interface=sql | success=True
-2026-05-19 19:01:50,447 [audit] op=list_dbs | user=94c8b18c-719e-45c9-a3ae-149a35fcd88d | role=admin | interface=sql | success=False
-2026-05-19 19:03:05,443 [audit] consumidor detenido
-2026-05-19 19:03:05,485 [audit] Closing connection (200): Normal shutdown
-2026-05-19 19:03:05,494 [audit] Closing channel (200): 'Normal shutdown' on <Channel number=1 OPEN conn=<SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x000002040ADBE510> params=<ConnectionParameters host=localhost port=5672 virtual_host=/ ssl=False>>>
-2026-05-19 19:03:05,503 [audit] Received <Channel.CloseOk> on <Channel number=1 CLOSING conn=<SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x000002040ADBE510> params=<ConnectionParameters host=localhost port=5672 virtual_host=/ ssl=False>>>
-2026-05-19 19:03:05,508 [audit] Closing connection (200): 'Normal shutdown'
-2026-05-19 19:03:05,512 [audit] Aborting transport connection: state=1; <socket.socket fd=884, family=23, type=1, proto=6, laddr=('::1', 55941, 0, 0), raddr=('::1', 5672, 0, 0)>
-2026-05-19 19:03:05,521 [audit] _AsyncTransportBase._initate_abort(): Initiating abrupt asynchronous transport shutdown: state=1; error=None; <socket.socket fd=884, family=23, type=1, proto=6, laddr=('::1', 55941, 0, 0), raddr=('::1', 5672, 0, 0)>
-2026-05-19 19:03:05,523 [audit] Deactivating transport: state=1; <socket.socket fd=884, family=23, type=1, proto=6, laddr=('::1', 55941, 0, 0), raddr=('::1', 5672, 0, 0)>
-2026-05-19 19:03:05,527 [audit] AMQP stack terminated, failed to connect, or aborted: opened=True, error-arg=None; pending-error=ConnectionClosedByClient: (200) 'Normal shutdown'
-2026-05-19 19:03:05,528 [audit] Stack terminated due to ConnectionClosedByClient: (200) 'Normal shutdown'
-2026-05-19 19:03:05,539 [audit] Closing transport socket and unlinking: state=3; <socket.socket fd=884, family=23, type=1, proto=6, laddr=('::1', 55941, 0, 0), raddr=('::1', 5672, 0, 0)>
-2026-05-19 19:03:05,541 [audit] User-initiated close: result=BlockingConnection__OnClosedArgs(connection=<SelectConnection CLOSED transport=None params=<ConnectionParameters host=localhost port=5672 virtual_host=/ ssl=False>>, error=ConnectionClosedByClient: (200) 'Normal shutdown')
-2026-05-19 19:39:20,478 [audit] tabla audit_log lista
-2026-05-19 19:39:20,490 [audit] Pika version 1.4.0 connecting to ('::1', 5672, 0, 0)
-2026-05-19 19:39:20,493 [audit] Socket connected: <socket.socket fd=968, family=23, type=1, proto=6, laddr=('::1', 54870, 0, 0), raddr=('::1', 5672, 0, 0)>
-2026-05-19 19:39:20,494 [audit] Streaming transport linked up: (<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x000002A083DFE510>, _StreamingProtocolShim: <SelectConnection PROTOCOL transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x000002A083DFE510> params=<ConnectionParameters host=localhost port=5672 virtual_host=/ ssl=False>>).
-2026-05-19 19:39:20,880 [audit] AMQPConnector - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x000002A083DFE510> params=<ConnectionParameters host=localhost port=5672 virtual_host=/ ssl=False>>
-2026-05-19 19:39:20,882 [audit] AMQPConnectionWorkflow - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x000002A083DFE510> params=<ConnectionParameters host=localhost port=5672 virtual_host=/ ssl=False>>
-2026-05-19 19:39:20,883 [audit] Connection workflow succeeded: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x000002A083DFE510> params=<ConnectionParameters host=localhost port=5672 virtual_host=/ ssl=False>>
-2026-05-19 19:39:20,884 [audit] conectado a RabbitMQ en localhost:5672
-2026-05-19 19:39:20,885 [audit] Created channel=1
-2026-05-19 19:39:20,946 [audit] escuchando cola 'dbaas.audit' — esperando eventos...
+2026-05-20 03:34:17,421 [audit] package: mysql.connector.plugins
+2026-05-20 03:34:17,439 [audit] plugin_name: caching_sha2_password
+2026-05-20 03:34:17,440 [audit] AUTHENTICATION_PLUGIN_CLASS: MySQLCachingSHA2PasswordAuthPlugin
+2026-05-20 03:34:17,533 [audit] no se pudo crear audit_log: 1045 (28000): Access denied for user 'root'@'172.19.0.1' (using password: NO)
+2026-05-20 03:35:45,838 [audit] package: mysql.connector.plugins
+2026-05-20 03:35:45,846 [audit] plugin_name: caching_sha2_password
+2026-05-20 03:35:45,849 [audit] AUTHENTICATION_PLUGIN_CLASS: MySQLCachingSHA2PasswordAuthPlugin
+2026-05-20 03:35:46,138 [audit] tabla audit_log lista
+2026-05-20 03:35:46,146 [audit] Pika version 1.3.2 connecting to ('::1', 5672, 0, 0)
+2026-05-20 03:35:48,171 [audit] Socket failed to connect: <socket.socket fd=812, family=23, type=1, proto=6, laddr=('::', 63415, 0, 0)>; error=10061 (Unknown error)
+2026-05-20 03:35:48,175 [audit] TCP Connection attempt failed: ConnectionRefusedError(10061, 'Unknown error'); dest=(<AddressFamily.AF_INET6: 23>, <SocketKind.SOCK_STREAM: 1>, 6, '', ('::1', 5672, 0, 0))
+2026-05-20 03:35:48,176 [audit] AMQPConnector - reporting failure: AMQPConnectorSocketConnectError: ConnectionRefusedError(10061, 'Unknown error')
+2026-05-20 03:35:48,177 [audit] Pika version 1.3.2 connecting to ('127.0.0.1', 5672)
+2026-05-20 03:35:50,223 [audit] Socket failed to connect: <socket.socket fd=812, family=2, type=1, proto=6, laddr=('0.0.0.0', 63416)>; error=10061 (Unknown error)
+2026-05-20 03:35:50,266 [audit] TCP Connection attempt failed: ConnectionRefusedError(10061, 'Unknown error'); dest=(<AddressFamily.AF_INET: 2>, <SocketKind.SOCK_STREAM: 1>, 6, '', ('127.0.0.1', 5672))
+2026-05-20 03:35:50,267 [audit] AMQPConnector - reporting failure: AMQPConnectorSocketConnectError: ConnectionRefusedError(10061, 'Unknown error')
+2026-05-20 03:35:50,433 [audit] AMQP connection workflow failed: AMQPConnectionWorkflowFailed: 2 exceptions in all; last exception - AMQPConnectorSocketConnectError: ConnectionRefusedError(10061, 'Unknown error'); first exception - AMQPConnectorSocketConnectError: ConnectionRefusedError(10061, 'Unknown error').
+2026-05-20 03:35:50,615 [audit] AMQPConnectionWorkflow - reporting failure: AMQPConnectionWorkflowFailed: 2 exceptions in all; last exception - AMQPConnectorSocketConnectError: ConnectionRefusedError(10061, 'Unknown error'); first exception - AMQPConnectorSocketConnectError: ConnectionRefusedError(10061, 'Unknown error')
+2026-05-20 03:35:50,767 [audit] Connection workflow failed: AMQPConnectionWorkflowFailed: 2 exceptions in all; last exception - AMQPConnectorSocketConnectError: ConnectionRefusedError(10061, 'Unknown error'); first exception - AMQPConnectorSocketConnectError: ConnectionRefusedError(10061, 'Unknown error')
+2026-05-20 03:35:50,797 [audit] Error in _create_connection().
+Traceback (most recent call last):
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\pika\adapters\blocking_connection.py", line 451, in _create_connection
+    raise self._reap_last_connection_workflow_error(error)
+pika.exceptions.AMQPConnectionError
+2026-05-20 03:35:50,858 [audit] RabbitMQ no disponible, reintentando en 5s: 
+2026-05-20 03:35:55,865 [audit] Pika version 1.3.2 connecting to ('::1', 5672, 0, 0)
+2026-05-20 03:35:57,911 [audit] Socket failed to connect: <socket.socket fd=780, family=23, type=1, proto=6, laddr=('::', 63423, 0, 0)>; error=10061 (Unknown error)
+2026-05-20 03:35:57,926 [audit] TCP Connection attempt failed: ConnectionRefusedError(10061, 'Unknown error'); dest=(<AddressFamily.AF_INET6: 23>, <SocketKind.SOCK_STREAM: 1>, 6, '', ('::1', 5672, 0, 0))
+2026-05-20 03:35:57,927 [audit] AMQPConnector - reporting failure: AMQPConnectorSocketConnectError: ConnectionRefusedError(10061, 'Unknown error')
+2026-05-20 03:35:57,928 [audit] Pika version 1.3.2 connecting to ('127.0.0.1', 5672)
+2026-05-20 03:35:59,986 [audit] Socket failed to connect: <socket.socket fd=780, family=2, type=1, proto=6, laddr=('0.0.0.0', 63424)>; error=10061 (Unknown error)
+2026-05-20 03:35:59,991 [audit] TCP Connection attempt failed: ConnectionRefusedError(10061, 'Unknown error'); dest=(<AddressFamily.AF_INET: 2>, <SocketKind.SOCK_STREAM: 1>, 6, '', ('127.0.0.1', 5672))
+2026-05-20 03:35:59,992 [audit] AMQPConnector - reporting failure: AMQPConnectorSocketConnectError: ConnectionRefusedError(10061, 'Unknown error')
+2026-05-20 03:35:59,993 [audit] AMQP connection workflow failed: AMQPConnectionWorkflowFailed: 2 exceptions in all; last exception - AMQPConnectorSocketConnectError: ConnectionRefusedError(10061, 'Unknown error'); first exception - AMQPConnectorSocketConnectError: ConnectionRefusedError(10061, 'Unknown error').
+2026-05-20 03:35:59,993 [audit] AMQPConnectionWorkflow - reporting failure: AMQPConnectionWorkflowFailed: 2 exceptions in all; last exception - AMQPConnectorSocketConnectError: ConnectionRefusedError(10061, 'Unknown error'); first exception - AMQPConnectorSocketConnectError: ConnectionRefusedError(10061, 'Unknown error')
+2026-05-20 03:35:59,994 [audit] Connection workflow failed: AMQPConnectionWorkflowFailed: 2 exceptions in all; last exception - AMQPConnectorSocketConnectError: ConnectionRefusedError(10061, 'Unknown error'); first exception - AMQPConnectorSocketConnectError: ConnectionRefusedError(10061, 'Unknown error')
+2026-05-20 03:35:59,994 [audit] Error in _create_connection().
+Traceback (most recent call last):
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\pika\adapters\blocking_connection.py", line 451, in _create_connection
+    raise self._reap_last_connection_workflow_error(error)
+pika.exceptions.AMQPConnectionError
+2026-05-20 03:35:59,996 [audit] RabbitMQ no disponible, reintentando en 5s: 
+2026-05-20 03:36:05,009 [audit] Pika version 1.3.2 connecting to ('::1', 5672, 0, 0)
+2026-05-20 03:36:07,066 [audit] Socket failed to connect: <socket.socket fd=728, family=23, type=1, proto=6, laddr=('::', 63431, 0, 0)>; error=10061 (Unknown error)
+2026-05-20 03:36:07,068 [audit] TCP Connection attempt failed: ConnectionRefusedError(10061, 'Unknown error'); dest=(<AddressFamily.AF_INET6: 23>, <SocketKind.SOCK_STREAM: 1>, 6, '', ('::1', 5672, 0, 0))
+2026-05-20 03:36:07,069 [audit] AMQPConnector - reporting failure: AMQPConnectorSocketConnectError: ConnectionRefusedError(10061, 'Unknown error')
+2026-05-20 03:36:07,070 [audit] Pika version 1.3.2 connecting to ('127.0.0.1', 5672)
+2026-05-20 03:36:09,096 [audit] Socket failed to connect: <socket.socket fd=728, family=2, type=1, proto=6, laddr=('0.0.0.0', 63432)>; error=10061 (Unknown error)
+2026-05-20 03:36:09,096 [audit] TCP Connection attempt failed: ConnectionRefusedError(10061, 'Unknown error'); dest=(<AddressFamily.AF_INET: 2>, <SocketKind.SOCK_STREAM: 1>, 6, '', ('127.0.0.1', 5672))
+2026-05-20 03:36:09,097 [audit] AMQPConnector - reporting failure: AMQPConnectorSocketConnectError: ConnectionRefusedError(10061, 'Unknown error')
+2026-05-20 03:36:09,097 [audit] AMQP connection workflow failed: AMQPConnectionWorkflowFailed: 2 exceptions in all; last exception - AMQPConnectorSocketConnectError: ConnectionRefusedError(10061, 'Unknown error'); first exception - AMQPConnectorSocketConnectError: ConnectionRefusedError(10061, 'Unknown error').
+2026-05-20 03:36:09,098 [audit] AMQPConnectionWorkflow - reporting failure: AMQPConnectionWorkflowFailed: 2 exceptions in all; last exception - AMQPConnectorSocketConnectError: ConnectionRefusedError(10061, 'Unknown error'); first exception - AMQPConnectorSocketConnectError: ConnectionRefusedError(10061, 'Unknown error')
+2026-05-20 03:36:09,099 [audit] Connection workflow failed: AMQPConnectionWorkflowFailed: 2 exceptions in all; last exception - AMQPConnectorSocketConnectError: ConnectionRefusedError(10061, 'Unknown error'); first exception - AMQPConnectorSocketConnectError: ConnectionRefusedError(10061, 'Unknown error')
+2026-05-20 03:36:09,100 [audit] Error in _create_connection().
+Traceback (most recent call last):
+  File "C:\Users\pc\AppData\Roaming\Python\Python314\site-packages\pika\adapters\blocking_connection.py", line 451, in _create_connection
+    raise self._reap_last_connection_workflow_error(error)
+pika.exceptions.AMQPConnectionError
+2026-05-20 03:36:09,102 [audit] RabbitMQ no disponible, reintentando en 5s: 
+2026-05-20 03:36:14,717 [audit] Pika version 1.3.2 connecting to ('::1', 5672, 0, 0)
+2026-05-20 03:36:56,929 [audit] package: mysql.connector.plugins
+2026-05-20 03:36:56,931 [audit] plugin_name: caching_sha2_password
+2026-05-20 03:36:56,931 [audit] AUTHENTICATION_PLUGIN_CLASS: MySQLCachingSHA2PasswordAuthPlugin
+2026-05-20 03:36:57,153 [audit] tabla audit_log lista
+2026-05-20 03:36:57,163 [audit] Pika version 1.3.2 connecting to ('::1', 5673, 0, 0)
+2026-05-20 03:36:57,165 [audit] Socket connected: <socket.socket fd=524, family=23, type=1, proto=6, laddr=('::1', 63451, 0, 0), raddr=('::1', 5673, 0, 0)>
+2026-05-20 03:36:57,185 [audit] Streaming transport linked up: (<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x000002C0BF8A0D70>, _StreamingProtocolShim: <SelectConnection PROTOCOL transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x000002C0BF8A0D70> params=<ConnectionParameters host=localhost port=5673 virtual_host=/ ssl=False>>).
+2026-05-20 03:36:57,397 [audit] AMQPConnector - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x000002C0BF8A0D70> params=<ConnectionParameters host=localhost port=5673 virtual_host=/ ssl=False>>
+2026-05-20 03:36:57,402 [audit] AMQPConnectionWorkflow - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x000002C0BF8A0D70> params=<ConnectionParameters host=localhost port=5673 virtual_host=/ ssl=False>>
+2026-05-20 03:36:57,403 [audit] Connection workflow succeeded: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x000002C0BF8A0D70> params=<ConnectionParameters host=localhost port=5673 virtual_host=/ ssl=False>>
+2026-05-20 03:36:57,404 [audit] conectado a RabbitMQ en localhost:5673
+2026-05-20 03:36:57,404 [audit] Created channel=1
+2026-05-20 03:36:57,515 [audit] escuchando cola 'dbaas.audit' — esperando eventos...
+2026-05-20 09:34:34,795 [audit] consumidor detenido
+2026-05-20 09:34:34,832 [audit] Closing connection (200): Normal shutdown
+2026-05-20 09:34:34,835 [audit] Closing channel (200): 'Normal shutdown' on <Channel number=1 OPEN conn=<SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x000002C0BF8A0D70> params=<ConnectionParameters host=localhost port=5673 virtual_host=/ ssl=False>>>
+2026-05-20 09:34:34,843 [audit] Received <Channel.CloseOk> on <Channel number=1 CLOSING conn=<SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x000002C0BF8A0D70> params=<ConnectionParameters host=localhost port=5673 virtual_host=/ ssl=False>>>
+2026-05-20 09:34:34,856 [audit] Closing connection (200): 'Normal shutdown'
+2026-05-20 09:34:34,893 [audit] Aborting transport connection: state=1; <socket.socket fd=524, family=23, type=1, proto=6, laddr=('::1', 63451, 0, 0), raddr=('::1', 5673, 0, 0)>
+2026-05-20 09:34:34,897 [audit] _AsyncTransportBase._initate_abort(): Initiating abrupt asynchronous transport shutdown: state=1; error=None; <socket.socket fd=524, family=23, type=1, proto=6, laddr=('::1', 63451, 0, 0), raddr=('::1', 5673, 0, 0)>
+2026-05-20 09:34:34,899 [audit] Deactivating transport: state=1; <socket.socket fd=524, family=23, type=1, proto=6, laddr=('::1', 63451, 0, 0), raddr=('::1', 5673, 0, 0)>
+2026-05-20 09:34:34,911 [audit] AMQP stack terminated, failed to connect, or aborted: opened=True, error-arg=None; pending-error=ConnectionClosedByClient: (200) 'Normal shutdown'
+2026-05-20 09:34:34,912 [audit] Stack terminated due to ConnectionClosedByClient: (200) 'Normal shutdown'
+2026-05-20 09:34:34,916 [audit] Closing transport socket and unlinking: state=3; <socket.socket fd=524, family=23, type=1, proto=6, laddr=('::1', 63451, 0, 0), raddr=('::1', 5673, 0, 0)>
+2026-05-20 09:34:34,917 [audit] User-initiated close: result=BlockingConnection__OnClosedArgs(connection=<SelectConnection CLOSED transport=None params=<ConnectionParameters host=localhost port=5673 virtual_host=/ ssl=False>>, error=ConnectionClosedByClient: (200) 'Normal shutdown')
+2026-05-20 15:38:03,897 [audit] package: mysql.connector.plugins
+2026-05-20 15:38:03,900 [audit] plugin_name: caching_sha2_password
+2026-05-20 15:38:03,901 [audit] AUTHENTICATION_PLUGIN_CLASS: MySQLCachingSHA2PasswordAuthPlugin
+2026-05-20 15:38:03,949 [audit] tabla audit_log lista
+2026-05-20 15:38:03,958 [audit] Pika version 1.3.2 connecting to ('::1', 5673, 0, 0)
+2026-05-20 15:38:03,960 [audit] Socket connected: <socket.socket fd=784, family=23, type=1, proto=6, laddr=('::1', 55198, 0, 0), raddr=('::1', 5673, 0, 0)>
+2026-05-20 15:38:03,965 [audit] Streaming transport linked up: (<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x0000023FE0C80D70>, _StreamingProtocolShim: <SelectConnection PROTOCOL transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x0000023FE0C80D70> params=<ConnectionParameters host=localhost port=5673 virtual_host=/ ssl=False>>).
+2026-05-20 15:38:04,108 [audit] AMQPConnector - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x0000023FE0C80D70> params=<ConnectionParameters host=localhost port=5673 virtual_host=/ ssl=False>>
+2026-05-20 15:38:04,109 [audit] AMQPConnectionWorkflow - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x0000023FE0C80D70> params=<ConnectionParameters host=localhost port=5673 virtual_host=/ ssl=False>>
+2026-05-20 15:38:04,111 [audit] Connection workflow succeeded: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x0000023FE0C80D70> params=<ConnectionParameters host=localhost port=5673 virtual_host=/ ssl=False>>
+2026-05-20 15:38:04,113 [audit] conectado a RabbitMQ en localhost:5673
+2026-05-20 15:38:04,114 [audit] Created channel=1
+2026-05-20 15:38:04,154 [audit] escuchando cola 'dbaas.audit' — esperando eventos...
+2026-05-21 10:27:14,438 [audit] package: mysql.connector.plugins
+2026-05-21 10:27:14,441 [audit] plugin_name: caching_sha2_password
+2026-05-21 10:27:14,441 [audit] AUTHENTICATION_PLUGIN_CLASS: MySQLCachingSHA2PasswordAuthPlugin
+2026-05-21 10:27:14,560 [audit] tabla audit_log lista
+2026-05-21 10:27:14,574 [audit] Pika version 1.3.2 connecting to ('::1', 5673, 0, 0)
+2026-05-21 10:27:14,576 [audit] Socket connected: <socket.socket fd=776, family=23, type=1, proto=6, laddr=('::1', 53584, 0, 0), raddr=('::1', 5673, 0, 0)>
+2026-05-21 10:27:14,581 [audit] Streaming transport linked up: (<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x000002825C500D70>, _StreamingProtocolShim: <SelectConnection PROTOCOL transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x000002825C500D70> params=<ConnectionParameters host=localhost port=5673 virtual_host=/ ssl=False>>).
+2026-05-21 10:27:14,960 [audit] AMQPConnector - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x000002825C500D70> params=<ConnectionParameters host=localhost port=5673 virtual_host=/ ssl=False>>
+2026-05-21 10:27:14,961 [audit] AMQPConnectionWorkflow - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x000002825C500D70> params=<ConnectionParameters host=localhost port=5673 virtual_host=/ ssl=False>>
+2026-05-21 10:27:14,962 [audit] Connection workflow succeeded: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x000002825C500D70> params=<ConnectionParameters host=localhost port=5673 virtual_host=/ ssl=False>>
+2026-05-21 10:27:14,962 [audit] conectado a RabbitMQ en localhost:5673
+2026-05-21 10:27:14,963 [audit] Created channel=1
+2026-05-21 10:27:15,109 [audit] escuchando cola 'dbaas.audit' — esperando eventos...
+2026-05-21 13:37:06,332 [audit] consumidor detenido
+2026-05-21 13:37:06,413 [audit] Closing connection (200): Normal shutdown
+2026-05-21 13:37:06,415 [audit] Closing channel (200): 'Normal shutdown' on <Channel number=1 OPEN conn=<SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x000002825C500D70> params=<ConnectionParameters host=localhost port=5673 virtual_host=/ ssl=False>>>
+2026-05-21 13:37:06,422 [audit] Received <Channel.CloseOk> on <Channel number=1 CLOSING conn=<SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x000002825C500D70> params=<ConnectionParameters host=localhost port=5673 virtual_host=/ ssl=False>>>
+2026-05-21 13:37:06,426 [audit] Closing connection (200): 'Normal shutdown'
+2026-05-21 13:37:06,435 [audit] Aborting transport connection: state=1; <socket.socket fd=776, family=23, type=1, proto=6, laddr=('::1', 53584, 0, 0), raddr=('::1', 5673, 0, 0)>
+2026-05-21 13:37:06,437 [audit] _AsyncTransportBase._initate_abort(): Initiating abrupt asynchronous transport shutdown: state=1; error=None; <socket.socket fd=776, family=23, type=1, proto=6, laddr=('::1', 53584, 0, 0), raddr=('::1', 5673, 0, 0)>
+2026-05-21 13:37:06,438 [audit] Deactivating transport: state=1; <socket.socket fd=776, family=23, type=1, proto=6, laddr=('::1', 53584, 0, 0), raddr=('::1', 5673, 0, 0)>
+2026-05-21 13:37:06,442 [audit] AMQP stack terminated, failed to connect, or aborted: opened=True, error-arg=None; pending-error=ConnectionClosedByClient: (200) 'Normal shutdown'
+2026-05-21 13:37:06,448 [audit] Stack terminated due to ConnectionClosedByClient: (200) 'Normal shutdown'
+2026-05-21 13:37:06,458 [audit] Closing transport socket and unlinking: state=3; <socket.socket fd=776, family=23, type=1, proto=6, laddr=('::1', 53584, 0, 0), raddr=('::1', 5673, 0, 0)>
+2026-05-21 13:37:06,459 [audit] User-initiated close: result=BlockingConnection__OnClosedArgs(connection=<SelectConnection CLOSED transport=None params=<ConnectionParameters host=localhost port=5673 virtual_host=/ ssl=False>>, error=ConnectionClosedByClient: (200) 'Normal shutdown')
+2026-05-21 13:42:56,801 [audit] package: mysql.connector.plugins
+2026-05-21 13:42:56,804 [audit] plugin_name: caching_sha2_password
+2026-05-21 13:42:56,806 [audit] AUTHENTICATION_PLUGIN_CLASS: MySQLCachingSHA2PasswordAuthPlugin
+2026-05-21 13:42:56,890 [audit] tabla audit_log lista
+2026-05-21 13:42:56,898 [audit] Pika version 1.3.2 connecting to ('::1', 5673, 0, 0)
+2026-05-21 13:42:56,900 [audit] Socket connected: <socket.socket fd=772, family=23, type=1, proto=6, laddr=('::1', 54642, 0, 0), raddr=('::1', 5673, 0, 0)>
+2026-05-21 13:42:56,906 [audit] Streaming transport linked up: (<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x000001FE7CCC0D70>, _StreamingProtocolShim: <SelectConnection PROTOCOL transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x000001FE7CCC0D70> params=<ConnectionParameters host=localhost port=5673 virtual_host=/ ssl=False>>).
+2026-05-21 13:42:57,037 [audit] AMQPConnector - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x000001FE7CCC0D70> params=<ConnectionParameters host=localhost port=5673 virtual_host=/ ssl=False>>
+2026-05-21 13:42:57,038 [audit] AMQPConnectionWorkflow - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x000001FE7CCC0D70> params=<ConnectionParameters host=localhost port=5673 virtual_host=/ ssl=False>>
+2026-05-21 13:42:57,038 [audit] Connection workflow succeeded: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x000001FE7CCC0D70> params=<ConnectionParameters host=localhost port=5673 virtual_host=/ ssl=False>>
+2026-05-21 13:42:57,039 [audit] conectado a RabbitMQ en localhost:5673
+2026-05-21 13:42:57,040 [audit] Created channel=1
+2026-05-21 13:42:57,065 [audit] escuchando cola 'dbaas.audit' — esperando eventos...
+2026-05-21 19:39:48,899 [audit] consumidor detenido
+2026-05-21 19:39:49,049 [audit] Closing connection (200): Normal shutdown
+2026-05-21 19:39:49,052 [audit] Closing channel (200): 'Normal shutdown' on <Channel number=1 OPEN conn=<SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x000001FE7CCC0D70> params=<ConnectionParameters host=localhost port=5673 virtual_host=/ ssl=False>>>
+2026-05-21 19:39:49,119 [audit] Received <Channel.CloseOk> on <Channel number=1 CLOSING conn=<SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x000001FE7CCC0D70> params=<ConnectionParameters host=localhost port=5673 virtual_host=/ ssl=False>>>
+2026-05-21 19:39:49,126 [audit] Closing connection (200): 'Normal shutdown'
+2026-05-21 19:39:49,164 [audit] Aborting transport connection: state=1; <socket.socket fd=772, family=23, type=1, proto=6, laddr=('::1', 54642, 0, 0), raddr=('::1', 5673, 0, 0)>
+2026-05-21 19:39:49,169 [audit] _AsyncTransportBase._initate_abort(): Initiating abrupt asynchronous transport shutdown: state=1; error=None; <socket.socket fd=772, family=23, type=1, proto=6, laddr=('::1', 54642, 0, 0), raddr=('::1', 5673, 0, 0)>
+2026-05-21 19:39:49,173 [audit] Deactivating transport: state=1; <socket.socket fd=772, family=23, type=1, proto=6, laddr=('::1', 54642, 0, 0), raddr=('::1', 5673, 0, 0)>
+2026-05-21 19:39:49,180 [audit] AMQP stack terminated, failed to connect, or aborted: opened=True, error-arg=None; pending-error=ConnectionClosedByClient: (200) 'Normal shutdown'
+2026-05-21 19:39:49,203 [audit] Stack terminated due to ConnectionClosedByClient: (200) 'Normal shutdown'
+2026-05-21 19:39:49,225 [audit] Closing transport socket and unlinking: state=3; <socket.socket fd=772, family=23, type=1, proto=6, laddr=('::1', 54642, 0, 0), raddr=('::1', 5673, 0, 0)>
+2026-05-21 19:39:49,228 [audit] User-initiated close: result=BlockingConnection__OnClosedArgs(connection=<SelectConnection CLOSED transport=None params=<ConnectionParameters host=localhost port=5673 virtual_host=/ ssl=False>>, error=ConnectionClosedByClient: (200) 'Normal shutdown')

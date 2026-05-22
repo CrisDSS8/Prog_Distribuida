@@ -125,9 +125,11 @@ def _parse_select(sql: str) -> dict:
 def _parse_insert(sql: str) -> dict:
     """
     INSERT INTO tabla (col1, col2) VALUES (val1, val2)
+    Usa csv.reader para respetar comas dentro de strings: 'Lopez, Ana'
     """
+    import csv
     m = re.match(
-        r"INSERT\s+INTO\s+(\w+)\s*\(([^)]+)\)\s+VALUES\s*\(([^)]+)\)",
+        r"INSERT\s+INTO\s+(\w+)\s*\(([^)]+)\)\s+VALUES\s*\((.+)\)\s*$",
         sql, re.IGNORECASE
     )
     if not m:
@@ -135,8 +137,10 @@ def _parse_insert(sql: str) -> dict:
 
     table      = m.group(1)
     columns    = [c.strip() for c in m.group(2).split(",")]
-    raw_values = [v.strip().strip("'\"") for v in m.group(3).split(",")]
-    data       = dict(zip(columns, raw_values))
+    # csv.reader respeta comas dentro de comillas
+    values_raw = next(csv.reader([m.group(3)], skipinitialspace=True))
+    values     = [v.strip().strip("'\"") for v in values_raw]
+    data       = dict(zip(columns, values))
 
     return {
         "operation": "insert",

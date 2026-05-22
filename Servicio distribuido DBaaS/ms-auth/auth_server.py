@@ -9,18 +9,7 @@ import os
 import sys
 from concurrent import futures
 
-CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))
-PROTOS_DIR = os.path.abspath(os.path.join(CURRENT_DIR, "..", "protos"))
-
-sys.path.insert(0, PROTOS_DIR)
-sys.path.insert(0, CURRENT_DIR)
-
-import types
-protos_module = types.ModuleType("protos")
-protos_module.__path__ = [PROTOS_DIR]
-sys.modules["protos"] = protos_module
-sys.modules["protos.dbaas_pb2"] = dbaas_pb2 = __import__("dbaas_pb2")
-
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), "../protos"))
 import dbaas_pb2
 import dbaas_pb2_grpc
 

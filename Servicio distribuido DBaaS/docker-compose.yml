@@ -1,6 +1,6 @@
 #version: "3.9"
 
-# -- Variables compartidas por todos los microservicios
+# ── Variables compartidas por todos los microservicios ────────────────────────
 x-common-env: &common-env
   DB_HOST: mysql
   DB_PORT: 3306
@@ -25,7 +25,7 @@ x-build-common: &build-common
 
 services:
 
-  # -- Infraestructura
+  # ── Infraestructura ──────────────────────────────────────────────────────────
 
   mysql:
     image: mysql:8.0
@@ -59,11 +59,12 @@ services:
     healthcheck:
       test: ["CMD", "rabbitmq-diagnostics", "ping"]
       interval: 10s
-      timeout: 5s
+      timeout: 10s
       retries: 10
       start_period: 30s
 
-  # -- Microservicios 
+  # ── Microservicios ───────────────────────────────────────────────────────────
+
   ms-auth:
     build:
       <<: *build-common

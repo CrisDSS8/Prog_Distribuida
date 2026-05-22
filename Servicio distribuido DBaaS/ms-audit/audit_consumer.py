@@ -31,7 +31,7 @@ log = logging.getLogger("audit")
 
 # ── Config ────────────────────────────────────────────────────────────────────
 RABBIT_HOST  = os.getenv("RABBITMQ_HOST", "localhost")
-RABBIT_PORT  = int(os.getenv("RABBITMQ_PORT", "5672"))
+RABBIT_PORT  = int(os.getenv("RABBITMQ_PORT", "5673"))
 RABBIT_USER  = os.getenv("RABBITMQ_USER", "admin")
 RABBIT_PASS  = os.getenv("RABBITMQ_PASS", "admin1234")
 QUEUE_NAME   = "dbaas.audit"

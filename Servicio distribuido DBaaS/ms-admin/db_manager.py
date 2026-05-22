@@ -15,7 +15,7 @@ def _conn(database: str = None):
         host     = os.getenv("DB_HOST",     "localhost"),
         port     = int(os.getenv("DB_PORT", "3306")),
         user     = os.getenv("DB_USER",     "root"),
-        password = os.getenv("DB_PASSWORD", "dbaas1234"),
+        password = os.getenv("DB_PASSWORD", ""),
     )
     if database:
         params["database"] = database
@@ -25,6 +25,7 @@ def _conn(database: str = None):
 # ── Bases de datos ────────────────────────────────────────────────────────────
 
 def create_database(name: str) -> dict:
+    con, cur = None, None
     try:
         con = _conn()
         cur = con.cursor()
@@ -34,13 +35,15 @@ def create_database(name: str) -> dict:
     except Exception as e:
         return {"success": False, "message": str(e)}
     finally:
-        cur.close(); con.close()
+        if cur: cur.close()
+        if con: con.close()
 
 
 def drop_database(name: str) -> dict:
     # proteger la base de datos interna del sistema
     if name in ("dbaas_auth", "information_schema", "mysql", "performance_schema"):
         return {"success": False, "message": f"No se puede eliminar '{name}'"}
+    con, cur = None, None
     try:
         con = _conn()
         cur = con.cursor()
@@ -50,10 +53,12 @@ def drop_database(name: str) -> dict:
     except Exception as e:
         return {"success": False, "message": str(e)}
     finally:
-        cur.close(); con.close()
+        if cur: cur.close()
+        if con: con.close()
 
 
 def list_databases() -> dict:
+    con, cur = None, None
     try:
         con = _conn()
         cur = con.cursor()
@@ -65,7 +70,8 @@ def list_databases() -> dict:
     except Exception as e:
         return {"success": False, "databases": [], "message": str(e)}
     finally:
-        cur.close(); con.close()
+        if cur: cur.close()
+        if con: con.close()
 
 
 # ── Tablas y colecciones ──────────────────────────────────────────────────────

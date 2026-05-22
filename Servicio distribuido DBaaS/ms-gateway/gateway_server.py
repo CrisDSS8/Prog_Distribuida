@@ -221,35 +221,57 @@ def _detect_drop(sql: str) -> str:
 
 
 
-def _publish_event(event: dict):
-    """
-    Publica un evento de auditoría en RabbitMQ de forma no bloqueante.
-    Si RabbitMQ no está disponible, solo loguea y continúa.
-    """
-    if not RABBITMQ_AVAILABLE:
-        return
+# ── Conexión RabbitMQ persistente (se crea una sola vez al arrancar) ──────────
+_rabbit_channel = None
 
+def _get_rabbit_channel():
+    """
+    Retorna el canal RabbitMQ reutilizable.
+    Lo crea si no existe o si la conexión se cayó.
+    """
+    global _rabbit_channel
+    if not RABBITMQ_AVAILABLE:
+        return None
     try:
+        if _rabbit_channel and _rabbit_channel.is_open:
+            return _rabbit_channel
         credentials = pika.PlainCredentials(RABBIT_USER, RABBIT_PASS)
         params      = pika.ConnectionParameters(
             host=RABBIT_HOST, port=RABBIT_PORT,
             credentials=credentials,
             connection_attempts=1,
-            socket_timeout=2,           # timeout corto para no bloquear
+            socket_timeout=2,
         )
-        connection = pika.BlockingConnection(params)
-        channel    = connection.channel()
-        channel.queue_declare(queue="dbaas.audit", durable=True)
+        connection      = pika.BlockingConnection(params)
+        _rabbit_channel = connection.channel()
+        _rabbit_channel.queue_declare(queue="dbaas.audit", durable=True)
+        return _rabbit_channel
+    except Exception as e:
+        print(f"[gateway] warning: no se pudo conectar a RabbitMQ: {e}")
+        _rabbit_channel = None
+        return None
+
+
+def _publish_event(event: dict):
+    """
+    Publica un evento de auditoría reutilizando la conexión persistente.
+    Si RabbitMQ no está disponible, solo loguea y continúa.
+    """
+    channel = _get_rabbit_channel()
+    if not channel:
+        return
+    try:
         channel.basic_publish(
             exchange="",
             routing_key="dbaas.audit",
             body=json.dumps(event),
-            properties=pika.BasicProperties(delivery_mode=2),  # mensaje persistente
+            properties=pika.BasicProperties(delivery_mode=2),
         )
-        connection.close()
     except Exception as e:
-        # el evento perdido no debe detener la respuesta al cliente
-        print(f"[gateway] warning: no se pudo publicar evento en RabbitMQ: {e}")
+        print(f"[gateway] warning: no se pudo publicar evento: {e}")
+        # forzar reconexión en el próximo intento
+        global _rabbit_channel
+        _rabbit_channel = None
 
 
 # ── Servidor ──────────────────────────────────────────────────────────────────

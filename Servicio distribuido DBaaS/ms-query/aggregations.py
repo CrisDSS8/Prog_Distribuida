@@ -21,7 +21,7 @@ def _conn(database: str):
         host     = os.getenv("DB_HOST",     "localhost"),
         port     = int(os.getenv("DB_PORT", "3306")),
         user     = os.getenv("DB_USER",     "root"),
-        password = os.getenv("DB_PASSWORD", "dbaas1234"),
+        password = os.getenv("DB_PASSWORD", ""),
         database = database,
     )
 
@@ -142,15 +142,12 @@ def count(ir: dict) -> dict:
         con = _conn(database)
         cur = con.cursor()
         cur.execute(query, params)
-        total = cur.fetchone()[0]
+        total = float(cur.fetchone()[0])
         cur.close(); con.close()
 
-        # lanzar MPI igual para mantener consistencia con el requisito,
-        # aunque COUNT sea trivial: distribuimos la lista de 1s y sumamos
-        values = [1.0] * int(total)
-        value  = _run_mpi("count", values)
-
-        return {"success": True, "value": value}
+        # COUNT es trivialmente paralelizable pero no escala bien con listas en memoria.
+        # MySQL ya lo hace eficientemente; MPI se reserva para SUM y AVG sobre valores.
+        return {"success": True, "value": total}
     except Exception as e:
         return {"success": False, "value": 0.0, "message": str(e)}
 
