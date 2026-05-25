@@ -13,7 +13,7 @@ sys.path.insert(0, os.path.join(os.path.dirname(__file__), "../protos"))
 import dbaas_pb2
 import dbaas_pb2_grpc
 
-GATEWAY_ADDR = os.getenv("GATEWAY_ADDR", "localhost:50051")
+GATEWAY_ADDR = os.getenv("GATEWAY_ADDR", "172.31.1.173:50051")
 
 
 class GatewayClient:
