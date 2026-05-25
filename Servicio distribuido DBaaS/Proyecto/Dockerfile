@@ -11,6 +11,9 @@ ENV SERVICE=${SERVICE}
 
 WORKDIR /app
 
+# ── usuario no-root (requerido por MPI) ───────────────────────────────────────
+RUN useradd -m -u 1000 dbaas
+
 # ── dependencias del sistema para mpi4py (solo ms-query lo necesita) ──────────
 RUN apt-get update && apt-get install -y --no-install-recommends \
     libopenmpi-dev \
@@ -37,6 +40,10 @@ RUN python -m grpc_tools.protoc \
 
 # ── copiar código del servicio ────────────────────────────────────────────────
 COPY ${SERVICE}/ ./${SERVICE}/
+
+# dar permisos al usuario no-root y cambiar a él
+RUN chown -R dbaas:dbaas /app
+USER dbaas
 
 # el CMD lo sobreescribe docker-compose por servicio
 CMD ["python", "-m", "ms-auth.auth_server"]

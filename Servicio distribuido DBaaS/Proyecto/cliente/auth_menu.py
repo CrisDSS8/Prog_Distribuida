@@ -18,11 +18,11 @@ def auth_flow() -> dict | None:
     """
     while True:
         print("""
-  ── Autenticación ──────────────────────
+  -- Autenticación ----------------------
     1. Iniciar sesión
     2. Registrarse
     0. Salir
-  ───────────────────────────────────────""")
+  ---------------------------------------""")
 
         opt = input("  Opción: ").strip()
 
@@ -42,7 +42,7 @@ def auth_flow() -> dict | None:
 
 
 def _login() -> dict | None:
-    print("\n  ── Login ──")
+    print("\n  -- Login --")
     username = input("  Usuario: ").strip()
     password = getpass.getpass("  Contraseña: ")
 
@@ -60,7 +60,7 @@ def _login() -> dict | None:
 
 
 def _register():
-    print("\n  ── Registro ──")
+    print("\n  -- Registro --")
     username = input("  Nuevo usuario: ").strip()
     password = getpass.getpass("  Contraseña: ")
     confirm  = getpass.getpass("  Confirmar contraseña: ")

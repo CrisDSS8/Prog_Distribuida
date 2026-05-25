@@ -12,7 +12,7 @@ import subprocess
 import mysql.connector
 
 
-MPI_WORKERS  = int(os.getenv("MPI_WORKERS", "4"))   # número de procesos MPI
+MPI_WORKERS  = int(os.getenv("MPI_WORKERS", "2"))   # número de procesos MPI
 WORKER_PATH  = os.path.join(os.path.dirname(__file__), "mpi_worker.py")
 
 
@@ -106,7 +106,13 @@ def _run_mpi(op: str, values: list) -> float:
     payload = json.dumps({"op": op, "data": values})
 
     result = subprocess.run(
-        ["mpiexec", "-n", str(MPI_WORKERS), "python", WORKER_PATH],
+        [
+            "mpiexec",
+            "--allow-run-as-root",
+            "--oversubscribe",
+            "-n", str(MPI_WORKERS),
+            "python", WORKER_PATH
+        ],
         input=payload,
         capture_output=True,
         text=True,
@@ -135,7 +141,6 @@ def count(ir: dict) -> dict:
         filt     = json.loads(ir.get("filter", "{}"))
         col_mode = _is_collection(database, table)
 
-        # COUNT no necesita un campo numérico específico, cuenta filas
         where, params = _build_where(filt, col_mode)
         query = f"SELECT COUNT(*) FROM `{table}`{where}"
 

@@ -5,16 +5,16 @@ El Gateway consulta esto antes de reenviar cualquier petición al broker.
 """
 
 # Operaciones agrupadas por categoría
-ADMIN_OPS  = {"create_db", "drop_db", "list_dbs",
-              "create_table", "drop_table", "list_tables"}
+ADMIN_OPS  = {"create_db", "drop_db", "create_table", "drop_table"}
+LIST_OPS   = {"list_dbs", "list_tables"}           # cualquier rol puede listar
 WRITE_OPS  = {"insert", "update", "delete"}
 READ_OPS   = {"find", "count", "sum", "avg", "distinct", "join"}
 
-# Permisos acumulativos: admin puede todo, write puede write+read, read solo read
+# Permisos acumulativos
 PERMISSIONS = {
-    "admin": ADMIN_OPS | WRITE_OPS | READ_OPS,
-    "write": WRITE_OPS | READ_OPS,
-    "read":  READ_OPS,
+    "admin": ADMIN_OPS | LIST_OPS | WRITE_OPS | READ_OPS,
+    "write": LIST_OPS | WRITE_OPS | READ_OPS,
+    "read":  LIST_OPS | READ_OPS,
 }
 
 

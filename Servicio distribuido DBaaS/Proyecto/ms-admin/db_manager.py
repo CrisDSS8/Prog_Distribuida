@@ -22,7 +22,7 @@ def _conn(database: str = None):
     return mysql.connector.connect(**params)
 
 
-# ── Bases de datos ────────────────────────────────────────────────────────────
+# -- Bases de datos
 
 def create_database(name: str) -> dict:
     con, cur = None, None
@@ -74,7 +74,7 @@ def list_databases() -> dict:
         if con: con.close()
 
 
-# ── Tablas y colecciones ──────────────────────────────────────────────────────
+# -- Tablas y colecciones
 
 def create_table(database: str, table: str, mode: str, schema: list) -> dict:
     """
@@ -135,7 +135,7 @@ def list_tables(database: str) -> dict:
         cur.close(); con.close()
 
 
-# ── Helper ────────────────────────────────────────────────────────────────────
+# -- Helper
 
 # Tipos SQL que el sistema acepta desde el cliente
 TYPE_MAP = {

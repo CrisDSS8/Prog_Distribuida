@@ -13,7 +13,7 @@ sys.path.insert(0, os.path.join(os.path.dirname(__file__), "../protos"))
 import dbaas_pb2
 import dbaas_pb2_grpc
 
-GATEWAY_ADDR = os.getenv("GATEWAY_ADDR", "172.31.1.173:50051")
+GATEWAY_ADDR = os.getenv("GATEWAY_ADDR", "localhost:50051")
 
 
 class GatewayClient:
@@ -22,7 +22,7 @@ class GatewayClient:
         self.channel = grpc.insecure_channel(GATEWAY_ADDR)
         self.stub    = dbaas_pb2_grpc.GatewayServiceStub(self.channel)
 
-    # ── Auth ──────────────────────────────────────────────────────────────────
+    # -- Auth
 
     def login(self, username: str, password: str) -> dict:
         try:
@@ -47,7 +47,7 @@ class GatewayClient:
         except grpc.RpcError as e:
             return {"success": False, "message": f"Error de conexión: {e.details()}"}
 
-    # ── SQL ───────────────────────────────────────────────────────────────────
+    # -- SQL
 
     def send_sql(self, query: str, active_db: str, session: dict) -> dict:
         """
@@ -65,7 +65,7 @@ class GatewayClient:
         except grpc.RpcError as e:
             return {"success": False, "message": f"Error de conexión: {e.details()}"}
 
-    # ── NoSQL ─────────────────────────────────────────────────────────────────
+    # -- NoSQL
 
     def send_nosql(self, msg: dict, session: dict) -> dict:
         """
